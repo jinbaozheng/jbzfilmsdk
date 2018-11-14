@@ -1,0 +1,26 @@
+{
+  "name": "jbzfilmsdk",
+  "version": "1.0.0",
+  "description": "jinbaozheng film sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jinbaozheng/jbzfilmsdk.git"
+  },
+  "keywords": [
+    "jbzfilm",
+    "jinbaozheng",
+    "jbzfilmsdk",
+    "jbzsdk"
+  ],
+  "author": "cuppi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinbaozheng/jbzfilmsdk/issues"
+  },
+  "homepage": "https://github.com/jinbaozheng/jbzfilmsdk#readme",
+  "types": "types/index.d.ts"
+}
