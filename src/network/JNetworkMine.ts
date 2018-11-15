@@ -4,7 +4,7 @@
 'use strict';
 import _ from '../unify/JDataUnify';
 import {mineUrl} from '../unify/JUrlList';
-import JNetworkRoot from './JNetworkRoot';
+import {JNetworkRoot} from 'jbzwebsdk';
 
 /**
  * 个人中心接口

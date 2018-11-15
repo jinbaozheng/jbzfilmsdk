@@ -2,8 +2,7 @@
  * Created by cuppi on 2016/12/5.
  */
 
-import NetworkCinemaManager from '../network/JNetworkCinema';
-import StringTool from '../tool/JToolString';
+import {JToolString} from 'jbzwebsdk';
 import AutoSeatPicking from '../arithmetic/AutoSeatPicking';
 import SmartSeatModel from "../model/SmartSeatModel";
 
@@ -364,10 +363,10 @@ class SeatManager {
     return seatList.map((seatModel) => {
       let row = Number.parseInt(seatModel.key.split(':').shift());
       let col = Number.parseInt(seatModel.key.split(':').pop());
-      let rowOriNumber = StringTool.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber = StringTool.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = StringTool.numberFromString(seatModel.Name.split(':').shift(), true, 1);
-      let colNumber = StringTool.numberFromString(seatModel.Name.split(':').pop(), true, 1);
+      let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
+      let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let rowNumber = JToolString.numberFromString(seatModel.Name.split(':').shift(), true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.Name.split(':').pop(), true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -400,10 +399,10 @@ class SeatManager {
     return seatList.map((seatModel) => {
       let row = Number.parseInt(seatModel.rowNum);
       let col = Number.parseInt(seatModel.columnNum);
-      let rowOriNumber = StringTool.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber = StringTool.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = StringTool.numberFromString(seatModel.rowId, true, 1);
-      let colNumber = StringTool.numberFromString(seatModel.columnId, true, 1);
+      let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
+      let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let rowNumber = JToolString.numberFromString(seatModel.rowId, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnId, true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -437,10 +436,10 @@ class SeatManager {
     return seatList.map((seatModel) => {
       let row = Number.parseInt(seatModel.rowNum);
       let col = Number.parseInt(seatModel.columnNum);
-      let rowOriNumber = StringTool.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber = StringTool.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = StringTool.numberFromString(seatModel.rowId, true, 1);
-      let colNumber = StringTool.numberFromString(seatModel.columnId, true, 1);
+      let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
+      let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let rowNumber = JToolString.numberFromString(seatModel.rowId, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnId, true, 1);
       // 上海百美汇影城
       return {
         rowOriNumber,
@@ -475,10 +474,10 @@ class SeatManager {
     return seatList.map((seatModel) => {
       let row = Number.parseInt(seatModel.rowNum);
       let col = Number.parseInt(seatModel.columnNum);
-      let rowOriNumber = StringTool.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber = StringTool.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = StringTool.numberFromString(seatModel.rowId, true, 1);
-      let colNumber = StringTool.numberFromString(seatModel.columnId, true, 1);
+      let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
+      let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let rowNumber = JToolString.numberFromString(seatModel.rowId, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnId, true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -513,10 +512,10 @@ class SeatManager {
     return seatList.map((seatModel) => {
       let row = Number.parseInt(seatModel.rowNo);
       let col = Number.parseInt(seatModel.columnNo);
-      let rowOriNumber = StringTool.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber = StringTool.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = StringTool.numberFromString(seatModel.rowId, true, 1);
-      let colNumber = StringTool.numberFromString(seatModel.columnId, true, 1);
+      let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
+      let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let rowNumber = JToolString.numberFromString(seatModel.rowId, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnId, true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -556,10 +555,10 @@ class SeatManager {
     return seatList.map((seatModel) => {
       let row = Number.parseInt(seatModel.rowId);
       let col = Number.parseInt(seatModel.columnId);
-      let rowOriNumber = StringTool.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber = StringTool.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = StringTool.numberFromString(seatModel.rowNo, true, 1);
-      let colNumber = StringTool.numberFromString(seatModel.columnNo, true, 1);
+      let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
+      let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let rowNumber = JToolString.numberFromString(seatModel.rowNo, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnNo, true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -593,10 +592,10 @@ class SeatManager {
     return seatList.map((seatModel) => {
       let row = Number.parseInt(seatModel.rowId);
       let col = Number.parseInt(seatModel.columnId);
-      let rowOriNumber: string = StringTool.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber: string = StringTool.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = StringTool.numberFromString(rowOriNumber, true, 1);
-      let colNumber = StringTool.numberFromString(colOriNumber, true, 1);
+      let rowOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.rowName);
+      let colOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let rowNumber = JToolString.numberFromString(rowOriNumber, true, 1);
+      let colNumber = JToolString.numberFromString(colOriNumber, true, 1);
       return {
         rowOriNumber,
         colOriNumber,

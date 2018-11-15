@@ -2,10 +2,9 @@
  * Created by cuppi on 2016/12/1.
  */
 'use strict';
-import JNetwork from './JNetwork';
 import {otherUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
-import JNetworkRoot from './JNetworkRoot'
+import {JNetworkRoot} from 'jbzwebsdk'
 
 /**
  * 其他接口

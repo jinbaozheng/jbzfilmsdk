@@ -5,7 +5,7 @@
 import {filmUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
 import PageModel from "../model/PageModel";
-import JNetworkRoot from '';
+import {JNetworkRoot} from 'jbzwebsdk';
 
 /**
  * 影片接口
