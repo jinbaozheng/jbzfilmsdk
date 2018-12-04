@@ -2,7 +2,7 @@
  * Created by cuppi on 2016/12/5.
  */
 
-import {JToolString} from 'jbzwebsdk';
+import {JToolString} from 'icemilk';
 import AutoSeatPicking from '../arithmetic/AutoSeatPicking';
 import SmartSeatModel from "../model/SmartSeatModel";
 

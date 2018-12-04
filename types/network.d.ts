@@ -1,5 +1,6 @@
 import {PageModel} from "./model"
-import {JNetworkRoot} from 'jbzwebsdk';
+import {CinemaFilterParas} from "./paras"
+import {JNetworkRoot} from 'icemilk';
 
 export declare class JNetworkAccount extends JNetworkRoot{
   accountLogin(mobile, password): Promise<any>
