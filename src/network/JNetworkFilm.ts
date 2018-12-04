@@ -5,7 +5,7 @@
 import {filmUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
 import PageModel from "../model/PageModel";
-import {JNetworkRoot} from 'jbzwebsdk';
+import {JNetworkRoot} from 'icemilk';
 
 /**
  * 影片接口

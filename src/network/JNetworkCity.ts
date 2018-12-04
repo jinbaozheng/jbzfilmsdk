@@ -4,7 +4,7 @@
 'use strict';
 import {cityUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
-import {JNetworkRoot} from "jbzwebsdk";
+import {JNetworkRoot} from "icemilk";
 
 /**
  * 城市及定位接口

@@ -4,7 +4,7 @@
 'use strict';
 import {otherUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
-import {JNetworkRoot} from 'jbzwebsdk'
+import {JNetworkRoot} from 'icemilk'
 
 /**
  * 其他接口

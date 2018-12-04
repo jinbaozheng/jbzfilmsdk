@@ -2,7 +2,7 @@
  * Created by cuppi on 2017/3/6.
  */
 'use strict';
-import {JNetworkRoot} from 'jbzwebsdk';
+import {JNetworkRoot} from 'icemilk';
 import {accountUrl} from '../unify/JUrlList';
 
 

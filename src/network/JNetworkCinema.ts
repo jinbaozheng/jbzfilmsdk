@@ -3,7 +3,7 @@
  */
 'use strict';
 import {cinemaUrl} from '../unify/JUrlList';
-import {JToolDate, JNetworkRoot} from 'jbzwebsdk';
+import {JToolDate, JNetworkRoot} from 'icemilk';
 import _ from '../unify/JDataUnify';
 import SeatManager from '../util/JManagerSeat';
 import CinemaFilterParas from "../paras/CinemaFilterParas";
