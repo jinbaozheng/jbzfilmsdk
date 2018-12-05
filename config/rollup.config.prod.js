@@ -13,7 +13,6 @@ module.exports = () => {
                 axios: 'axios'
             },
             file: './dist/index.min.js',
-            // dir: './dist',
             format: 'umd'
         },
         plugins: [
