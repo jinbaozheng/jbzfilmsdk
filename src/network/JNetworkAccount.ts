@@ -4,8 +4,6 @@
 'use strict';
 import {JNetworkRoot} from 'icemilk';
 import {accountUrl} from '../unify/JUrlList';
-
-
 /**
  * 账户接口
  * @memberOf module:network

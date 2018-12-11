@@ -9,23 +9,25 @@ import NetworkFilm from './network/JNetworkFilm';
 import NetworkMine from './network/JNetworkMine';
 import NetworkOther from './network/JNetworkOther';
 import NetworkTrade from './network/JNetworkTrade';
+import NetworkConfig from './network/JNetworkConfig';
 export {
-  NetworkAccount as JNetworkAccount,
-  NetworkCinema as JNetworkCinema,
-  NetworkCity as JNetworkCity,
-  NetworkFilm as JNetworkFilm,
-  NetworkMine as JNetworkMine,
-  NetworkOther as JNetworkOther,
-  NetworkTrade as JNetworkTrade,
+    NetworkAccount as JNetworkAccount,
+    NetworkCinema as JNetworkCinema,
+    NetworkCity as JNetworkCity,
+    NetworkFilm as JNetworkFilm,
+    NetworkMine as JNetworkMine,
+    NetworkOther as JNetworkOther,
+    NetworkTrade as JNetworkTrade,
+    NetworkConfig as JNetworkConfig,
 };
 
 import JSDK from './util/JSDK';
 import ManagerSeat from './util/JManagerSeat';
 import ManagerTrade from './util/JManagerTrade';
 export {
-  JSDK,
-  ManagerSeat as JManagerSeat,
-  ManagerTrade as JManagerTrade
+    JSDK,
+    ManagerSeat as JManagerSeat,
+    ManagerTrade as JManagerTrade
 };
 
 /* eslint-enable */

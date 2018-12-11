@@ -2,9 +2,6 @@
  * Created by cuppi on 2017/2/9.
  */
 
-// import ICBCUrl from '../differentiation/icbc.url.config';
-// import ShangHaiUrl from '../differentiation/shanghai.url.config';
-// import ICMCUrl from '../differentiation/icmc.url.config';
 export let cityUrl: any = {};
 export let cinemaUrl: any = {};
 export let filmUrl: any = {};
@@ -67,9 +64,6 @@ let sdkApi = {
   }
 }
 
-// let _inType = '';
-// let _TYPE_OBJECT = {'ICBC-APP': ICBCUrl, 'SHANGHAI-APP': ShangHaiUrl, 'ICMC-APP': ICMCUrl};
-// let _VISIBLE_TYPE = Reflect.ownKeys(_TYPE_OBJECT);
 let _urlMap = {};
 export function UseConfig(urlMap) {
   _urlMap = urlMap;
