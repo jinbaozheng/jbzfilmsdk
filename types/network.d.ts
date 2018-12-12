@@ -1,4 +1,4 @@
-import {JNetworkRoot} from 'icemilk';
+import {JNetworkError, JNetworkRoot} from 'icemilk';
 import {PageModel} from "./model"
 import {CinemaFilterParas} from "./paras"
 import {INetworkConfig} from './interface'
@@ -91,4 +91,7 @@ export declare class JNetworkMine extends JNetworkRoot{
 
 export declare class JNetworkConfig{
     static setConfig(config: INetworkConfig);
+}
+
+export declare class JNetworkWorker extends JNetworkRoot{
 }
