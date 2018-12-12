@@ -39,18 +39,20 @@
         })
 * */
 
+import {INetworkConfig as _IceNetworkConfig} from 'icemilk';
+import {UseConfig as UrlUseConfig} from "../unify/JUrlList";
+import {UseConfig as DataUseConfig} from "../unify/JDataUnify";
 
-/**
- * 没有登录异常
- * @param code
- * @returns {any}
- */
-/*
-*
-*
-static notLoginError(code: number): Error {
-    let error: Error = new Error('NotLogin');
-    Reflect.defineProperty(error, 'errorCode', {value: code});
-    return error;
+interface INetworkConfig extends _IceNetworkConfig{
+    dataMap: any,
+    urlMap: any
 }
-* */
+
+export default class JNetworkConfig{
+    static config;
+    static setConfig(config: INetworkConfig){
+        UrlUseConfig(config.urlMap);
+        DataUseConfig(config.dataMap);
+        JNetworkConfig.config = config;
+    }
+}
