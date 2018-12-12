@@ -2,13 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jbzfilmsdk example</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../../dist/index.js"></script>
+    <script src="../dist/index.js"></script>
+    <script src="./dist/index.js"></script>
 </head>
 <body>
 <script>
-    console.log(icemilk);
+    var JNetworkCity = jbzfilmsdk.JNetworkCity;
+    var JNetworkConfig = jbzfilmsdk.JNetworkConfig;
+    let networkDelegate = {
+        globalParas() {
+            return {
+                test: 'asd111'
+            }
+        }
+    };
+    var DataMap = sdkconfig.unify;
+    var UrlMap = sdkconfig.url;
+    JNetworkConfig.setConfig({
+        baseUrl: 'https://local.idoupiao.com:4443/xabcjsfilm',
+        delegate: networkDelegate,
+        carryData: function () {
+        },
+        dataMap: DataMap,
+        urlMap: UrlMap,
+        axiosConfig: {
+            withCredentials: true
+        }
+    })
+    JNetworkCity.useParas('test').cityList().then(data => {
+        console.log(data);
+    })
+
+
 </script>
 </body>
 </html>
