@@ -4,13 +4,13 @@
 'use strict';
 import {tradeUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
-import {JNetworkRoot} from 'icemilk';
+import JNetworkWorker from "./JNetworkWorker";
 
 /**
  * 交易接口
  * @memberOf module:network
  */
-class JNetworkTrade extends JNetworkRoot{
+class JNetworkTrade extends JNetworkWorker{
   /**
    * 锁座
    * @param type 平台类型

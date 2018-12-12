@@ -4,13 +4,13 @@
 'use strict';
 import _ from '../unify/JDataUnify';
 import {mineUrl} from '../unify/JUrlList';
-import {JNetworkRoot} from 'icemilk';
+import JNetworkWorker from "./JNetworkWorker";
 
 /**
  * 个人中心接口
  * @memberOf module:network
  */
-class JNetworkMine extends JNetworkRoot{
+class JNetworkMine extends JNetworkWorker{
   /**
    * 我的订单
    * @private

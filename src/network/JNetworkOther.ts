@@ -4,13 +4,13 @@
 'use strict';
 import {otherUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
-import {JNetworkRoot} from 'icemilk'
+import JNetworkWorker from "./JNetworkWorker";
 
 /**
  * 其他接口
  * @memberOf module:network
  */
-class JNetworkOther extends JNetworkRoot{
+class JNetworkOther extends JNetworkWorker{
   /**
    * 搜索
    * @param cityId 城市Id

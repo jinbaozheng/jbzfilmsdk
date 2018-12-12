@@ -5,13 +5,13 @@
 import {filmUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
 import PageModel from "../model/PageModel";
-import {JNetworkRoot} from 'icemilk';
+import JNetworkWorker from "./JNetworkWorker";
 
 /**
  * 影片接口
  * @memberOf module:network
  */
-class JNetworkFilm extends JNetworkRoot{
+class JNetworkFilm extends JNetworkWorker{
 
   /**
    * 获取热门电影

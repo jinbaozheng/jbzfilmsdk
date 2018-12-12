@@ -3,16 +3,17 @@
  */
 'use strict';
 import {cinemaUrl} from '../unify/JUrlList';
-import {JToolDate, JNetworkRoot} from 'icemilk';
+import {JToolDate} from 'icemilk';
 import _ from '../unify/JDataUnify';
 import SeatManager from '../util/JManagerSeat';
 import CinemaFilterParas from "../paras/CinemaFilterParas";
+import JNetworkWorker from "./JNetworkWorker";
 
 /**
  * 影院接口
  * @memberOf module:network
  */
-class JNetworkCinema extends JNetworkRoot{
+class JNetworkCinema extends JNetworkWorker{
   /**
    * 获取影院详情
    * @param {string} cinemaId 影院ID

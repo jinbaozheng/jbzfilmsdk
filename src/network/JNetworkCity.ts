@@ -4,14 +4,14 @@
 'use strict';
 import {cityUrl} from '../unify/JUrlList';
 import _ from '../unify/JDataUnify';
-import {JNetworkRoot} from "icemilk";
+import JNetworkWorker from "./JNetworkWorker";
 
 /**
  * 城市及定位接口
  * @memberOf module:network
  * @hideconstructor
  */
-class JNetworkCity extends JNetworkRoot{
+class JNetworkCity extends JNetworkWorker{
   /**
    * 获取城市列表
    * @returns {*}
