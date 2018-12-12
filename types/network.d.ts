@@ -1,6 +1,7 @@
+import {JNetworkRoot} from 'icemilk';
 import {PageModel} from "./model"
 import {CinemaFilterParas} from "./paras"
-import {JNetworkRoot} from 'icemilk';
+import {INetworkConfig} from './interface'
 
 export declare class JNetworkAccount extends JNetworkRoot{
   accountLogin(mobile, password): Promise<any>
@@ -86,4 +87,8 @@ export declare class JNetworkMine extends JNetworkRoot{
   static mineOrder(): Promise<any>
   static mineFavoriteCinema(): Promise<any>
   static mineFavorite(): Promise<any>
+}
+
+export declare class JNetworkConfig{
+    static setConfig(config: INetworkConfig);
 }
