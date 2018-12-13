@@ -7,14 +7,16 @@ export default class JNetworkWorker extends JNetworkRoot{
         super(config);
     }
 
-    generalError(){
+    static instance(): any{
+        return super.instance();
+    }
 
+    generalError(){
     }
 
     prefixPromise(url, paras?: object, headers?: object, options?: object){
         let isOk, _response;
         try{
-            console.log(this);
             return this.POST(url, paras, headers).then((response: AxiosResponse) => {
                 isOk = response.status === 200;
                 _response = response;
