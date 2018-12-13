@@ -10,6 +10,7 @@ import NetworkMine from './network/JNetworkMine';
 import NetworkOther from './network/JNetworkOther';
 import NetworkTrade from './network/JNetworkTrade';
 import NetworkConfig from './network/JNetworkConfig';
+import NetworkWorker from './network/JNetworkWorker';
 export {
     NetworkAccount as JNetworkAccount,
     NetworkCinema as JNetworkCinema,
@@ -19,6 +20,7 @@ export {
     NetworkOther as JNetworkOther,
     NetworkTrade as JNetworkTrade,
     NetworkConfig as JNetworkConfig,
+    NetworkWorker as JNetworkWorker,
 };
 
 import JSDK from './util/JSDK';
