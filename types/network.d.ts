@@ -93,5 +93,9 @@ export declare class JNetworkConfig{
     static setConfig(config: INetworkConfig);
 }
 
+export type PromiseData = Promise<any>;
 export declare class JNetworkWorker extends JNetworkRoot{
+    POST_DATA(url: string, parameters?: object, headers?: object, otherObject?: object): Promise<any>;
+    GET_DATA(url: string, parameters?: object, headers?: object, otherObject?: object): Promise<any>;
+    prefixPromise(url: string, parameters?: object, headers?: object, otherObject?: object): Promise<any>;
 }
