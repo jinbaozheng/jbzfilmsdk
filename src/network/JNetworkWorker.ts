@@ -5,6 +5,7 @@ import {INetworkStandardPromiseType} from 'icemilk'
 export default class JNetworkWorker extends JNetworkRoot{
     constructor(config?){
         config = {...JNetworkConfig.config, ...config};
+        console.log(JNetworkConfig.config)
         super(config);
     }
 
@@ -30,11 +31,11 @@ export default class JNetworkWorker extends JNetworkRoot{
     _prefixPromise(method: string, url: string, paras?: object, headers?: object, otherObject?: object): Promise<any>{
         let doIt = null;
         if (method === 'GET'){
-            doIt = this.GET(url, paras, headers, otherObject)
+            doIt = super.GET(url, paras, headers, otherObject)
         }
 
         if (method === 'POST'){
-            doIt = this.POST(url, paras, headers, otherObject)
+            doIt = super.POST(url, paras, headers, otherObject)
         }
 
         let isOk, _response;

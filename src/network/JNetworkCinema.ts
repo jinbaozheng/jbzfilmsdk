@@ -8,13 +8,13 @@ import _ from '../unify/JDataUnify';
 import SeatManager from '../util/JManagerSeat';
 import CinemaFilterParas from "../paras/CinemaFilterParas";
 import JNetworkWorker from "./JNetworkWorker";
+let _instance = null;
 
 /**
  * 影院接口
  * @memberOf module:network
  */
 class JNetworkCinema extends JNetworkWorker{
-    static _instance = new JNetworkCinema();
     /**
      * 获取影院详情
      * @param {string} cinemaId 影院ID
@@ -172,42 +172,49 @@ class JNetworkCinema extends JNetworkWorker{
         });
     }
 
+    static _instance(){
+        if (!_instance){
+            _instance = new JNetworkCinema();
+        }
+        return _instance;
+    }
+
     static cinemaDetail(cinemaId) {
-        return this._instance.cinemaDetail(cinemaId);
+        return this._instance().cinemaDetail(cinemaId);
     }
 
     static cinemaList(cinemaFilter: CinemaFilterParas);
     static cinemaList(location: any, cinemaFilter: CinemaFilterParas);
     static cinemaList(a: any, b?: any) {
-        return this._instance.cinemaList(a, b);
+        return this._instance().cinemaList(a, b);
     }
 
     static cinemaScreeningFilmList(cinemaId) {
-        return this._instance.cinemaScreeningFilmList(cinemaId);
+        return this._instance().cinemaScreeningFilmList(cinemaId);
     }
 
     static cinemaScreeningDateList(cinemaId, filmId) {
-        return this._instance.cinemaScreeningDateList(cinemaId, filmId);
+        return this._instance().cinemaScreeningDateList(cinemaId, filmId);
     }
 
     static cinemaScreeningItems(cinemaId, filmId, date) {
-        return this._instance.cinemaScreeningItems(cinemaId, filmId, date);
+        return this._instance().cinemaScreeningItems(cinemaId, filmId, date);
     };
 
     static cinemaSeats(type, paras) {
-        return this._instance.cinemaSeats(type, paras);
+        return this._instance().cinemaSeats(type, paras);
     }
 
     static cinemaSmartSeats(type, paras) {
-        return this._instance.cinemaSmartSeats(type, paras);
+        return this._instance().cinemaSmartSeats(type, paras);
     }
 
     static cinemaFavoriteCinema(cinemaId, cinemaName) {
-        return this._instance.cinemaFavoriteCinema(cinemaId, cinemaName);
+        return this._instance().cinemaFavoriteCinema(cinemaId, cinemaName);
     }
 
     static cinemaCancelFavoriteCinema(cinemaId) {
-        return this._instance.cinemaCancelFavoriteCinema(cinemaId);
+        return this._instance().cinemaCancelFavoriteCinema(cinemaId);
     }
 }
 

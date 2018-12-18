@@ -5,12 +5,12 @@
 'use strict';
 import {accountUrl} from '../unify/JUrlList';
 import JNetworkWorker from "./JNetworkWorker";
+let _instance = null;
 /**
  * 账户接口
  * @memberOf module:network
  */
 class JNetworkAccount extends JNetworkWorker{
-    static _instance = new JNetworkAccount();
     /**
      * 用户登录
      * @param {string} mobile 登录需要的手机号码
@@ -77,24 +77,32 @@ class JNetworkAccount extends JNetworkWorker{
         });
     }
 
+
+    static _instance(){
+        if (!_instance){
+            _instance = new JNetworkAccount();
+        }
+        return _instance;
+    }
+
     static accountLogin(mobile, password) {
-        return this._instance.accountLogin(mobile, password);
+        return this._instance().accountLogin(mobile, password);
     }
 
     static accountLogout(sessionId) {
-        return this._instance.accountLogout(sessionId);
+        return this._instance().accountLogout(sessionId);
     }
 
     static accountVerifyCode(mobile, type) {
-        return this._instance.accountVerifyCode(mobile, type);
+        return this._instance().accountVerifyCode(mobile, type);
     }
 
     static accountRegister(mobile, verifyCode, password) {
-        return this._instance.accountRegister(mobile, verifyCode, password);
+        return this._instance().accountRegister(mobile, verifyCode, password);
     }
 
     static accountUpdatepass(mobile, verfyCode, password) {
-        return this._instance.accountUpdatepass(mobile, verfyCode, password);
+        return this._instance().accountUpdatepass(mobile, verfyCode, password);
     }
 }
 
