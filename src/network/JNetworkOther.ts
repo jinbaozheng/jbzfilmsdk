@@ -11,6 +11,7 @@ import JNetworkWorker from "./JNetworkWorker";
  * @memberOf module:network
  */
 class JNetworkOther extends JNetworkWorker{
+  static _instance = new JNetworkOther();
   /**
    * 搜索
    * @param cityId 城市Id
@@ -82,19 +83,19 @@ class JNetworkOther extends JNetworkWorker{
   }
 
   static search(cityId, searchKey, nextPageFirstKey) {
-    return this.instance().search(cityId, searchKey, nextPageFirstKey);
+    return this._instance.search(cityId, searchKey, nextPageFirstKey);
   }
 
   static hotSearchKeyword() {
-    return this.instance().hotSearchKeyword();
+    return this._instance.hotSearchKeyword();
   }
 
   static otherBanners(location, cityId) {
-    return this.instance().otherBanners(location, cityId);
+    return this._instance.otherBanners(location, cityId);
   }
 
   static banners(position, cityId){
-    return this.instance().banners(position, cityId);
+    return this._instance.banners(position, cityId);
   }
 }
 

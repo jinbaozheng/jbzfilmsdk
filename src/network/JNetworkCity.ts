@@ -12,6 +12,7 @@ import JNetworkWorker from "./JNetworkWorker";
  * @hideconstructor
  */
 class JNetworkCity extends JNetworkWorker{
+  static _instance = new JNetworkCity();
   /**
    * 获取城市列表
    * @returns {*}
@@ -100,27 +101,27 @@ class JNetworkCity extends JNetworkWorker{
   }
 
   static cityList() {
-    return this.instance().cityList();
+    return this._instance.cityList();
   }
 
   static cityByCoordinate(coordinate) {
-    return this.instance().cityByCoordinate(coordinate);
+    return this._instance.cityByCoordinate(coordinate);
   }
 
   static cityNeedCoordinate() {
-    return this.instance().cityNeedCoordinate();
+    return this._instance.cityNeedCoordinate();
   }
 
   static cityById(cityId) {
-    return this.instance().cityById(cityId);
+    return this._instance.cityById(cityId);
   }
 
   static cityDistrictList(cityId) {
-    return this.instance().cityDistrictList(cityId);
+    return this._instance.cityDistrictList(cityId);
   }
 
   static cityHotList() {
-    return this.instance().cityHotList();
+    return this._instance.cityHotList();
   }
 }
 

@@ -1,9 +1,9 @@
 import {JNetworkRoot, JNetworkError} from 'icemilk';
 import JNetworkConfig from "./JNetworkConfig";
 import {AxiosResponse} from 'axios';
-import {JPromise} from "icemilk/types/structure";
+import {INetworkStandardPromiseType} from 'icemilk'
 export default class JNetworkWorker extends JNetworkRoot{
-    constructor(config){
+    constructor(config?){
         config = {...JNetworkConfig.config, ...config};
         super(config);
     }
@@ -17,6 +17,14 @@ export default class JNetworkWorker extends JNetworkRoot{
 
     GET_DATA(url: string, paras?: object, headers?: object, otherObject?: object): Promise<any>{
         return this._prefixPromise('GET', url, paras, headers, otherObject);
+    }
+
+    POST(url: string, paras?: object, headers?: object, otherObject?: object): INetworkStandardPromiseType<AxiosResponse | JNetworkError>{
+        throw new Error(`JNetworkWorker's POST method is deprecated, please use POST_DATA method`);
+    }
+
+    GET(url: string, paras?: object, headers?: object, otherObject?: object): INetworkStandardPromiseType<AxiosResponse | JNetworkError>{
+        throw new Error(`JNetworkWorker's GET method is deprecated, please use GET_DATA method`);
     }
 
     _prefixPromise(method: string, url: string, paras?: object, headers?: object, otherObject?: object): Promise<any>{

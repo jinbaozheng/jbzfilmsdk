@@ -11,6 +11,7 @@ import JNetworkWorker from "./JNetworkWorker";
  * @memberOf module:network
  */
 class JNetworkMine extends JNetworkWorker{
+  static _instance = new JNetworkMine();
   /**
    * 我的订单
    * @private
@@ -44,15 +45,15 @@ class JNetworkMine extends JNetworkWorker{
   }
 
   static mineOrder() {
-    return this.instance().mineOrder();
+    return this._instance.mineOrder();
   }
 
   static mineFavoriteCinema() {
-    return this.instance().mineFavoriteCinema();
+    return this._instance.mineFavoriteCinema();
   }
 
   static mineFavorite() {
-    return this.instance().mineFavorite();
+    return this._instance.mineFavorite();
   }
 }
 

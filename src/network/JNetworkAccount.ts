@@ -10,6 +10,7 @@ import JNetworkWorker from "./JNetworkWorker";
  * @memberOf module:network
  */
 class JNetworkAccount extends JNetworkWorker{
+    static _instance = new JNetworkAccount();
     /**
      * 用户登录
      * @param {string} mobile 登录需要的手机号码
@@ -77,23 +78,23 @@ class JNetworkAccount extends JNetworkWorker{
     }
 
     static accountLogin(mobile, password) {
-        return this.instance().accountLogin(mobile, password);
+        return this._instance.accountLogin(mobile, password);
     }
 
     static accountLogout(sessionId) {
-        return this.instance().accountLogout(sessionId);
+        return this._instance.accountLogout(sessionId);
     }
 
     static accountVerifyCode(mobile, type) {
-        return this.instance().accountVerifyCode(mobile, type);
+        return this._instance.accountVerifyCode(mobile, type);
     }
 
     static accountRegister(mobile, verifyCode, password) {
-        return this.instance().accountRegister(mobile, verifyCode, password);
+        return this._instance.accountRegister(mobile, verifyCode, password);
     }
 
     static accountUpdatepass(mobile, verfyCode, password) {
-        return this.instance().accountUpdatepass(mobile, verfyCode, password);
+        return this._instance.accountUpdatepass(mobile, verfyCode, password);
     }
 }
 

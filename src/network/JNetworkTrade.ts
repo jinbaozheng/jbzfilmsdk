@@ -11,6 +11,7 @@ import JNetworkWorker from "./JNetworkWorker";
  * @memberOf module:network
  */
 class JNetworkTrade extends JNetworkWorker{
+  static _instance = new JNetworkTrade();
   /**
    * 锁座
    * @param type 平台类型
@@ -37,11 +38,11 @@ class JNetworkTrade extends JNetworkWorker{
   }
 
   static tradeLockSeat(type, paras) {
-    return this.instance().tradeLockSeat(type, paras);
+    return this._instance.tradeLockSeat(type, paras);
   }
 
   static tradeCancelLockSeat(orderId) {
-    return this.instance().tradeCancelLockSeat(orderId);
+    return this._instance.tradeCancelLockSeat(orderId);
   }
 
 }

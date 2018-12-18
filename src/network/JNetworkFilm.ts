@@ -12,7 +12,7 @@ import JNetworkWorker from "./JNetworkWorker";
  * @memberOf module:network
  */
 class JNetworkFilm extends JNetworkWorker{
-
+static _instance = new JNetworkFilm;
   /**
    * 获取热门电影
    * @param page PageModel 分页模型
@@ -119,23 +119,23 @@ class JNetworkFilm extends JNetworkWorker{
   }
 
   static filmHotfilms(page: PageModel) {
-    return this.instance().filmHotfilms(page);
+    return this._instance.filmHotfilms(page);
   }
 
   static filmHotfilmsSimple() {
-    return this.instance().filmHotfilmsSimple();
+    return this._instance.filmHotfilmsSimple();
   }
 
   static filmWaitfilms(page) {
-    return this.instance().filmWaitfilms(page);
+    return this._instance.filmWaitfilms(page);
   }
 
   static filmDetail(filmId, platform = null) {
-    return this.instance().filmDetail(filmId, platform);
+    return this._instance.filmDetail(filmId, platform);
   }
 
   static filmDateList(filmId) {
-    return this.instance().filmDateList(filmId);
+    return this._instance.filmDateList(filmId);
   }
 }
 
