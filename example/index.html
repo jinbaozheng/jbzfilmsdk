@@ -11,15 +11,23 @@
 <script>
     var JNetworkCity = jbzfilmsdk.JNetworkCity;
     var JNetworkConfig = jbzfilmsdk.JNetworkConfig;
+    var JNetworkWorker = jbzfilmsdk.JNetworkWorker;
     let networkDelegate = {
-        globalParas() {
-            return {
-                test: 'asd111'
-            }
+        globalParas: function () {
+            let gp = {
+                test: function () {
+                    return 'asdasdasd1';
+                },
+                test1: function () {
+                    return 'asdasdasd1';
+                }
+            };
+            return gp;
         }
     };
     var DataMap = sdkconfig.unify;
     var UrlMap = sdkconfig.url;
+    var NetworkCity = sdkconfig.NetworkCity;
     JNetworkConfig.setConfig({
         baseUrl: 'https://local.idoupiao.com:4443/xabcjsfilm',
         delegate: networkDelegate,
@@ -31,9 +39,10 @@
             withCredentials: true
         }
     })
-    JNetworkCity.useParas('test').cityList().then(data => {
+    JNetworkCity.cityList().then(data => {
         console.log(data);
     })
+
 
 
 </script>
