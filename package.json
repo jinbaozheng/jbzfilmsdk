@@ -1,6 +1,6 @@
 {
   "name": "jbzfilmsdk",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "jinbaozheng film sdk",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "axios": "^0.18.0",
-    "icemilk": "^1.0.2"
+    "icemilk": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
