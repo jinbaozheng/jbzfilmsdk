@@ -5,7 +5,7 @@ module.exports = () => {
     return {
         input: './example/src/index.js',
         output: {
-            name: 'sdkconfig',
+            name: 'my_network',
             globals: {
                 icemilk: 'icemilk'
             },
