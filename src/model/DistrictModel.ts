@@ -4,28 +4,25 @@ import {default as RootModel, fillProperty} from "./RootModel";
  * 城市模型
  * @memberOf module:model
  */
-class CityModel extends RootModel{
+class DistrictModel extends RootModel{
     id: number = null;
     name: string = null;
-    latin: string = null;
 
     constructor(obj: object){
         super(obj);
         fillProperty(this, obj);
     }
 
-    public static create(obj): CityModel{
+    public static create(obj): DistrictModel{
         let {
-            city_en,
-            city_name,
+            tails,
             id
         } = obj;
-        return new CityModel({
+        return new DistrictModel({
             id: id,
-            name: city_name,
-            latin: city_en
+            name: tails.Name
         })
     }
 }
 
-export default CityModel;
+export default DistrictModel;
