@@ -1,85 +1,107 @@
-import {JNetworkRoot, JNetworkError} from 'icemilk';
-import JNetworkConfig from "./JNetworkConfig";
-import {AxiosResponse} from 'axios';
+import {JNetwork} from 'icemilk';
 import {INetworkStandardPromiseType} from 'icemilk'
-export default class JNetworkWorker extends JNetworkRoot{
-    constructor(config?){
-        config = {...JNetworkConfig.config, ...config};
-        console.log(JNetworkConfig.config)
-        super(config);
-    }
+import JConfig, {DEFAULT_CONFIG} from '../unify/JConfig';
 
-    generalError(){
-    }
-
-    POST_DATA(url: string, paras?: object, headers?: object, otherObject?: object): Promise<any>{
-        return this._prefixPromise('POST', url, paras, headers, otherObject);
-    }
-
-    GET_DATA(url: string, paras?: object, headers?: object, otherObject?: object): Promise<any>{
-        return this._prefixPromise('GET', url, paras, headers, otherObject);
-    }
-
-    POST(url: string, paras?: object, headers?: object, otherObject?: object): INetworkStandardPromiseType<AxiosResponse | JNetworkError>{
-        throw new Error(`JNetworkWorker's POST method is deprecated, please use POST_DATA method`);
-    }
-
-    GET(url: string, paras?: object, headers?: object, otherObject?: object): INetworkStandardPromiseType<AxiosResponse | JNetworkError>{
-        throw new Error(`JNetworkWorker's GET method is deprecated, please use GET_DATA method`);
-    }
-
-    _prefixPromise(method: string, url: string, paras?: object, headers?: object, otherObject?: object): Promise<any>{
-        let doIt = null;
-        if (method === 'GET'){
-            doIt = super.GET(url, paras, headers, otherObject)
-        }
-
-        if (method === 'POST'){
-            doIt = super.POST(url, paras, headers, otherObject)
-        }
-
-        let isOk, _response;
-        return doIt.then((response: AxiosResponse) => {
-            isOk = response.status === 200;
-            _response = response;
-            if (!isOk){
-                console.log('失败');
-                throw new JNetworkError(response.statusText);
-            }
-            return response.data;
-        }).then((responseJson: { errorCode: number, data: any, message: string }) => {
-            if (!responseJson.errorCode) {
-                if (this.delegate && this.delegate.resolveInterceptor){
-                    if (this.delegate.resolveInterceptor(_response, responseJson.data)){
-                        return responseJson.data;
-                    }
-                } else {
-                    return responseJson.data;
-                }
+export default class JNetworkWorker extends JNetwork{
+    fetchRequest(...args): INetworkStandardPromiseType<any>{
+        return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
+            if (!res.data.errorCode){
+                return res.data;
             } else {
-                if (this.delegate && this.delegate.rejectInterceptor){
-                    if (this.delegate.rejectInterceptor(_response, new JNetworkError(responseJson.message, responseJson.errorCode))) {
-                        throw new JNetworkError(responseJson.message, responseJson.errorCode);
+                throw new Error(res.data.message);
+            }
+        })
+    }
+}
+
+export const revealNetwork = function<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T, networkName: string = networkClass.name): T{
+    if (!JNetworkWorker.isPrototypeOf(networkClass)){
+        throw new Error(`${networkName} is not extends of class JNetworkWorker, please extends class JNetworkWorker`);
+    }
+    let classConfig = JConfig[networkName];
+    for (let key in classConfig) {
+        if (classConfig.hasOwnProperty(key)){
+            let config = classConfig[key];
+            let {
+                precook,
+                cook,
+                method,
+                url,
+                rule,
+                params,
+                headers,
+                bodyData,
+                useParams,
+                useHeaders,
+                useBodyData
+            } = {
+                ...DEFAULT_CONFIG,
+                ...config
+            } as any;
+            if (!Array.isArray(rule) || rule.length !== 3 || rule.some(_ => _ > 2 || _ < 0)){
+                throw new Error(`rule 参数出错`);
+            }
+
+            // if (Array.isArray(params)){
+            // } else if (typeof params === 'object'){
+            // } else {
+            // }
+            const pickValue = function(refer, from){
+                const r = {};
+                for (let key in refer){
+
+                    if (refer.hasOwnProperty(key)){
+                        let referObj = refer[key];
+                        if (typeof referObj === 'boolean'){
+                            const required = referObj;
+                            if (required && !from.hasOwnProperty(key)){
+                                throw new Error(`参数 ${key} 为空`)
+                            }
+                            if (from.hasOwnProperty(key)){
+                                r[key] = from[key];
+                            }
+                        } else if (typeof referObj === 'object'){
+                            const {required} = referObj;
+                            if (from.hasOwnProperty(key)){
+                                r[key] = referObj.cook ? referObj.cook(from[key]) : from[key];
+                            } else if (required){
+                                if (referObj.hasOwnProperty('default')){
+                                    r[key] = referObj.cook ? referObj.cook(referObj['default']) : referObj['default'];
+                                } else {
+                                    throw new Error(`参数 ${key} 为空`)
+                                }
+                            }
+                        }
                     }
-                } else {
-                    throw new JNetworkError(responseJson.message, responseJson.errorCode);
+                }
+                return r;
+            }
+
+            networkClass.prototype[key] = function (...args) {
+                try {
+                    params = pickValue.call(this, params, {
+                        ...(this as JNetworkWorker).pickInjectParams(),
+                        ...(args[rule[0]] || {})
+                    });
+                    bodyData = pickValue.call(this, bodyData, {
+                        ...(this as JNetworkWorker).pickInjectBodyData(),
+                        ...(args[rule[1]] || {})
+                    });
+                    headers = pickValue.call(this, headers, {
+                        ...(this as JNetworkWorker).pickInjectHeaders(),
+                        ...(args[rule[2]] || {})
+                    });
+                    return this
+                        .useParams(...useParams)
+                        .useHeaders(...useHeaders)
+                        .useBodyData(...useBodyData)
+                        .fetchRequest(method, this.baseUrl, url, params, bodyData, headers)
+                        .then((data) => cook(precook(data)));
+                } catch (e) {
+                    return Promise.reject(e);
                 }
             }
-        }).catch(error => {
-            // 请求超时
-            if (error.message.indexOf('timeout') != -1) {
-                throw new JNetworkError('请求超时, 请稍后重试');
-            } else {
-                throw error;
-            }
-        });
-    }
-
-    prefixPromise(url, paras?: object, headers?: object, otherObject?: object){
-        try{
-            return this._prefixPromise('POST', url, paras, headers, otherObject)
-        } catch (e) {
-            console.log(e);
         }
     }
+    return networkClass;
 }
