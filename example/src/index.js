@@ -1,11 +1,12 @@
 import unify from './spd.network.unify';
 import url from './spd.url.config'
-
+import config from './JConfig';
 
 // class NeworkBanner extends jbzfilmsdk.JNetworkBanner{
 //
 // }
 
+const revealNetwork = jbzfilmsdk.revealNetwork;
 
 
 class NeworkCinema extends jbzfilmsdk.JNetworkCinema{
@@ -25,6 +26,7 @@ class NetworkSearch extends jbzfilmsdk.JNetworkSearch{
 class NetworkOther extends jbzfilmsdk.JNetworkOther{
 }
 
+const _NetworkOther = revealNetwork(NetworkOther, 'NetworkOther', config)
 
 let delegate = {
     globalBodyData: function () {
@@ -83,7 +85,7 @@ export default {
             }
         }
     }),
-    NetworkOther: new NetworkOther({
+    NetworkOther: new _NetworkOther({
         baseUrl: 'http://10.1.1.70:10002/cmbc/',
         delegate,
         carryHeaders: function () {
