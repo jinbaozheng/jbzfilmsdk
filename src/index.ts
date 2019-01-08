@@ -9,6 +9,8 @@ import JNetworkFilm from './network/JNetworkFilm';
 import JNetworkSearch from './network/JNetworkSearch';
 import JNetworkOther from './network/JNetworkOther';
 import JNetworkWorker from './network/JNetworkWorker';
+import {revealNetwork, configPicker} from "./network/JNetworkWorker";
+
 export {
     JNetworkBanner,
     JNetworkCinema,
@@ -17,6 +19,8 @@ export {
     JNetworkSearch,
     JNetworkOther,
     JNetworkWorker,
+    revealNetwork,
+    configPicker
 };
 
 import JSDK from './util/JSDK';
