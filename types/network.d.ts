@@ -55,6 +55,11 @@ export declare class JNetworkMine extends JNetworkWorker{
     mineFavorite(): Promise<any>
 }
 
+export declare function revealNetwork<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T,
+                                                                                       networkName?: string,
+                                                                                       config?: object): T;
+export declare function configPicker(picker: any|object|(() => object)): void;
+
 export type PromiseData = Promise<any>;
 export declare class JNetworkWorker extends JNetworkRoot {
     fetchRequest(...args): INetworkStandardPromiseType<any>;
