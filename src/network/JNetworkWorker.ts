@@ -1,7 +1,6 @@
-import {JNetwork} from 'icemilk';
-import {INetworkStandardPromiseType} from 'icemilk'
-import JConfig, {DEFAULT_CONFIG} from '../unify/JConfig';
-
+import {JNetwork, INetworkStandardPromiseType} from 'icemilk';
+import JConfig, {DEFAULT_NETWORK_CONFIG} from '../unify/JConfig';
+let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
     fetchRequest(...args): INetworkStandardPromiseType<any>{
         return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
@@ -14,11 +13,29 @@ export default class JNetworkWorker extends JNetwork{
     }
 }
 
-export const revealNetwork = function<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T, networkName: string = networkClass.name): T{
+export const configPicker = (picker: any|object|(() => object)) => {
+    if (!picker){
+        return;
+    }
+    if (typeof picker === 'function'){
+        _config = picker();
+    } else if (typeof picker === 'object'){
+        _config = picker;
+    }
+}
+
+export const revealNetwork = function<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T, networkName: string = networkClass.name, config?: object): T{
     if (!JNetworkWorker.isPrototypeOf(networkClass)){
         throw new Error(`${networkName} is not extends of class JNetworkWorker, please extends class JNetworkWorker`);
     }
-    let classConfig = JConfig[networkName];
+    let classConfig = config ? config[networkName] : _config[networkName];
+    if (!classConfig){
+        if (!config[networkName]){
+            throw new Error(`network ${networkName} not found in config ${JSON.stringify(config)}`)
+        } else {
+            throw new Error(`network ${networkName} not found in default_config`);
+        }
+    }
     for (let key in classConfig) {
         if (classConfig.hasOwnProperty(key)){
             let config = classConfig[key];
@@ -35,7 +52,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                 useHeaders,
                 useBodyData
             } = {
-                ...DEFAULT_CONFIG,
+                ...DEFAULT_NETWORK_CONFIG,
                 ...config
             } as any;
             if (!Array.isArray(rule) || rule.length !== 3 || rule.some(_ => _ > 2 || _ < 0)){
