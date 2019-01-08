@@ -22,7 +22,8 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.1.5",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "icemilk": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
