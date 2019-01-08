@@ -5,7 +5,7 @@ import JNetworkLocation from './JNetworkLocation';
 import JNetworkSearch from './JNetworkSearch';
 import JNetworkOther from './JNetworkOther';
 
-const DEFAULT_CONFIG = {
+const DEFAULT_NETWORK_CONFIG: object = {
     precook: (_) => _.data,
     cook: (_) => _,
     method: 'post',
@@ -29,5 +29,5 @@ export default {
 };
 
 export {
-    DEFAULT_CONFIG
+    DEFAULT_NETWORK_CONFIG
 };
