@@ -1,5 +1,7 @@
 # jbzfilmsdk changelog
 
+## 1.0.4
+  * 增加revealNetwork方法并暴露config配置参数
 
 ## 1.0.1
   * 删除 JNetworkTrade.tradeApplyOrder  方法
