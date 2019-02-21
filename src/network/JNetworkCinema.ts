@@ -6,6 +6,8 @@ import JNetworkWorker, {revealNetwork} from "./JNetworkWorker";
  * @memberOf module:network
  */
 class JNetworkCinema extends JNetworkWorker{
+
+
 }
 
-export default revealNetwork(JNetworkCinema);
+export default revealNetwork(JNetworkCinema, 'JNetworkCinema');

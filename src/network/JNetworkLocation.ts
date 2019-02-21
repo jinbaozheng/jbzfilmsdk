@@ -9,4 +9,4 @@ import JNetworkWorker, {revealNetwork} from "./JNetworkWorker";
 class JNetworkLocation extends JNetworkWorker{
 }
 
-export default revealNetwork(JNetworkLocation);
+export default revealNetwork(JNetworkLocation, 'JNetworkLocation');

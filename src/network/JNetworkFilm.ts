@@ -8,4 +8,4 @@ import JNetworkWorker, {revealNetwork} from "./JNetworkWorker";
 class JNetworkFilm extends JNetworkWorker {
 }
 
-export default revealNetwork(JNetworkFilm);
+export default revealNetwork(JNetworkFilm, 'JNetworkFilm');
