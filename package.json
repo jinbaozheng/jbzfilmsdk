@@ -48,5 +48,8 @@
     "url": "https://github.com/jinbaozheng/jbzfilmsdk/issues"
   },
   "homepage": "https://github.com/jinbaozheng/jbzfilmsdk#readme",
-  "types": "types/index.d.ts"
+  "types": "types/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
