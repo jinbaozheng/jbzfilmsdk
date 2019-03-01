@@ -12,7 +12,8 @@
       "es2017"
     ],
     // 解决类似 import leftPad from "left-pad"; 的问题
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
   },
   "exclude": [
     "node_modules"
