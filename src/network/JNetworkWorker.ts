@@ -40,7 +40,6 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
     if (!JNetworkWorker.isPrototypeOf(networkClass)){
         throw new Error(`${networkName} is not extends of class JNetworkWorker, please extends class JNetworkWorker`);
     }
-    console.log(networkName)
     let classConfig = config ? config[networkName] : _config[networkName];
     let defaultNetworkConfig =  config ? config['DEFAULT_NETWORK_CONFIG'] : _config['DEFAULT_NETWORK_CONFIG'];
     if (!classConfig){

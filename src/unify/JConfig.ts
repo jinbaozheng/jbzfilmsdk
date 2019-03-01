@@ -10,6 +10,7 @@ const DEFAULT_NETWORK_CONFIG: object = {
     cook: (_) => _,
     method: 'post',
     url: '',
+    book: null,
     params: {},
     headers: {},
     bodyData: {},
@@ -17,7 +18,7 @@ const DEFAULT_NETWORK_CONFIG: object = {
     useHeaders: [],
     useBodyData: [],
     rule: [1, 0, 2]
-}
+};
 
 export default {
     JNetworkBanner,
@@ -25,9 +26,6 @@ export default {
     JNetworkFilm,
     JNetworkLocation,
     JNetworkSearch,
-    JNetworkOther
-};
-
-export {
+    JNetworkOther,
     DEFAULT_NETWORK_CONFIG
 };

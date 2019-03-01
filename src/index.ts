@@ -24,11 +24,11 @@ export {
 };
 
 import JSDK from './util/JSDK';
-// import ManagerSeat from './util/JManagerSeat';
+import ManagerSeat from './util/JManagerSeat';
 // import ManagerTrade from './util/JManagerTrade';
 export {
     JSDK,
-    // ManagerSeat as JManagerSeat,
+    ManagerSeat as JManagerSeat,
     // ManagerTrade as JManagerTrade
 };
 
