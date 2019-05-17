@@ -278,6 +278,26 @@ class TradeManager {
         openId
       }
     }
+      // 影托帮
+      if (type === 'ytb') {
+          let seatsName = [];
+          let areaInfo = [];
+          let seatIds = [];
+          let seatNumberInfos = [];
+          for (let seat of seatList) {
+              seatsName.push(seat.seatModel.seatPieceName);
+              areaInfo.push(seat.seatModel.seatPieceName);
+              seatNumberInfos.push(seat.rowNumber + ':' + seat.colNumber);
+              seatIds.push(seat.seatModel.seatNo);
+          }
+          return {
+              count: seatList.length,
+              areaInfo: areaInfo.join('|'),
+              seatsName: seatsName.join('|'),
+              seatNumberInfos: seatNumberInfos.join('|'),
+              seatIds: seatIds.join('|')
+          }
+      }
   }
 
   /**
