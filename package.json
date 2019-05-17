@@ -7,7 +7,7 @@
     "dev": "rollup -c --watch --config config/rollup.config.dev.js",
     "build:dist": "rollup -c --config config/rollup.config.prod.js",
     "build:lib": "rollup -c --config config/rollup.config.lib.js",
-    "build:link": "rollup -c --config config/rollup.config.link.js",
+    "build:link": "rollup -c --watch --config config/rollup.config.link.js",
     "example": "rollup -c --watch --config example/rollup.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,7 +24,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "axios": "^0.18.0",
-    "icemilk": "^1.0.9-beta4"
+    "icemilk": "^1.0.9-beta9"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
