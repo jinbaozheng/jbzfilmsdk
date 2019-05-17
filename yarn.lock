@@ -981,10 +981,10 @@ htmlparser2@^3.9.0:
     inherits "^2.0.1"
     readable-stream "^3.0.6"
 
-icemilk@^1.0.9-beta2:
-  version "1.0.9-beta2"
-  resolved "https://registry.yarnpkg.com/icemilk/-/icemilk-1.0.9-beta2.tgz#b14b22bada80f405fe21ee5fcf9214464ab99bf3"
-  integrity sha512-P5vUr1Y5NS30QQaR6YOPfVpDQNv2t1ImJYXBI0gBTyII1ulrgzXpIwdEtfmUdlXyDhZ0u6ubD3XmquI1niHgOQ==
+icemilk@^1.0.9-beta4:
+  version "1.0.9-beta9"
+  resolved "https://registry.yarnpkg.com/icemilk/-/icemilk-1.0.9-beta9.tgz#5a74925fe5167263a4f874e81ad4c4cdb8b8b0ef"
+  integrity sha512-QUw/4FcKNinzoFZjSSsbEuENF4Az4gBfIj01Wp/pfBSiVIyyJxyt6vHAndoiqSO/1phS4jCPIjfFyQ5cO69k3Q==
   dependencies:
     "@babel/runtime" "^7.1.5"
     axios "^0.18.0"
