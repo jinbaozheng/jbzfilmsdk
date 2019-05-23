@@ -1,4 +1,6 @@
-
+function _netBanner(banner) {
+    return {cityId:banner.cityId, column: banner.column, id: banner.id, imgUrl: banner.imgUrl, title: banner.title, href: banner.link};
+}
 const JNetworkBanner = {
     banners: {
         url: '/banners'
@@ -14,7 +16,8 @@ const JNetworkBanner = {
             'location',
             'b',
             'cityId'
-        ]
+        ],
+        cook: _=>_.map(_netBanner)
     }
 };
 

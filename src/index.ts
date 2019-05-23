@@ -2,6 +2,7 @@
  * Created by cuppi on 2017/4/14.
  */
 /* eslint-disable */
+import JNetworkCity from './network/JNetworkCity';
 import JNetworkBanner from './network/JNetworkBanner';
 import JNetworkCinema from './network/JNetworkCinema';
 import JNetworkLocation from './network/JNetworkLocation';
@@ -12,6 +13,7 @@ import JNetworkWorker from './network/JNetworkWorker';
 import {revealNetwork, configPicker} from "./network/JNetworkWorker";
 
 export {
+    JNetworkCity,
     JNetworkBanner,
     JNetworkCinema,
     JNetworkLocation,

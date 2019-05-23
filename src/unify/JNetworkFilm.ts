@@ -89,8 +89,22 @@ const JNetworkFilm = {
         ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
+    hotFilmsPage: {
+        url:  '/film/hotfilmspage',
+        params: {
+            b: true,
+            page: true,
+            size: true
+        },
+        book: [
+            'b',
+            'page',
+            'size'
+        ],
+        cook: (data) => data.map(_ => FilmModel.create(_))
+    },
     filmWaitfilms: {
-        url:  '/film/upcomingfilms',
+        url:  '/film/soonfilms',
         params: {
             b: true
         },
@@ -98,6 +112,44 @@ const JNetworkFilm = {
             'b'
         ],
         cook: (data) => data.map(_ => FilmModel.create(_))
+    },
+    soonFilmsPage: {
+        url:  '/film/soonfilmspage',
+        params: {
+            b: true,
+            page: true,
+            size: true
+        },
+        book: [
+            'b',
+            'page',
+            'size'
+        ],
+        cook: (data) => data.map(_ => FilmModel.create(_))
+    },
+    filmFilm: {
+        url:  '/film/film',
+        params: {
+            b: true,
+            filmId: true
+        },
+        book:[
+            'b',
+            'filmId'
+        ],
+        cook: (data) => ({
+            film: FilmModel.create(data)
+        })
+    },
+    filmHotComments: {
+        url:  '/film/hotcomments',
+        params: {
+            filmId: true
+        },
+        book: [
+            'filmId'
+        ],
+        description: '无数据'
     },
 };
 
