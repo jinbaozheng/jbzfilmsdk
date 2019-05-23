@@ -6,9 +6,13 @@ const JNetworkCity = {
     cityByCoordinate: {
         url: '/location/city',
         params: {
-            'latitude': true,
-            'longitude': true
+            longitude: true,
+            latitude: true
         },
+        book: [
+            'longitude',
+            'latitude'
+        ],
         cook: data => {
             let address = data.city;
             ObjectTool.deleteProperty(data.city, 'formatAddress');
