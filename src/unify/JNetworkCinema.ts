@@ -67,24 +67,25 @@ const JNetworkCinema = {
             longitude: true,
             latitude: true,
             orderType: true,
-            bank: true,
+            b: true,
             filmId: false,
             feature: false,
             regionName: false,
-            limit: false,
+            page: false,
+            size: false,
             date: false,
-
         },
         book: [
             'cityId',
             'longitude',
             'latitude',
             'orderType',
-            'bank',
+            'b',
             'filmId',
             'feature',
             'regionName',
-            'limit',
+            'page',
+            'size',
             'date'
         ]
     }

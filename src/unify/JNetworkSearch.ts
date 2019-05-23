@@ -38,10 +38,6 @@ const JNetworkSearch = {
           'page',
           'size'
         ],
-        cook: data => ({
-            filmList: data.films.map(_ => FilmModel.create(_)),
-            cinemaList: data.cinemas.map(_ => CinemaModel.create(_))
-        }),
         description: 'cinema 无数据'
     }
 }
