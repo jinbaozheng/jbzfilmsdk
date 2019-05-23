@@ -1,4 +1,14 @@
-import {JToolDate} from 'icemilk'
+function _netcinema(cinema) {
+    return {
+        address: cinema.cinemaAddress,
+        id: cinema.cinemaId,
+        name: cinema.cinemaName,
+        distance: cinema.distance,
+        comparecount: cinema.maxCompareCount,
+        comparedNames: JSON.parse(cinema.maxCompareNames),
+        minprice: cinema.minPrice
+    }
+}
 
 const JNetworkCinema = {
     cinemasList: {
@@ -9,9 +19,9 @@ const JNetworkCinema = {
             latitude: true,
             orderType: true,
             b: true,
+            regionName: false,
             filmId: false,
             feature: false,
-            regionName: false,
             page: false,
             size: false,
             date: false,
@@ -22,13 +32,14 @@ const JNetworkCinema = {
             'latitude',
             'orderType',
             'b',
+            'regionName',
             'filmId',
             'feature',
-            'regionName',
             'page',
             'size',
             'date'
-        ]
+        ],
+        cook: _ => _.map(_netcinema)
     }
 };
 

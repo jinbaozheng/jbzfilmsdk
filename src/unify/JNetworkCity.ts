@@ -1,7 +1,9 @@
 import {JToolObject as ObjectTool} from "icemilk";
+
 function _netCityToCity(city) {
     return {id: city.id, name: city.cityName, latin: city.cityEn, provinceId: city.provinceId};
 }
+
 const JNetworkCity = {
     cityByCoordinate: {
         url: '/location/city',
@@ -28,11 +30,11 @@ const JNetworkCity = {
             return {city: _netCityToCity(data.city), address};
         }
     },
-    cityHotList:{
+    cityHotList: {
         url: '/location/hotcities',
         cook: _ => _.map(_netCityToCity)
     },
-    cityList:{
+    cityList: {
         url: '/location/cities',
         cook: _ => _.map(_netCityToCity)
     },
@@ -53,6 +55,19 @@ const JNetworkCity = {
         book: [
             'cityId'
         ]
+    },
+    cityDistrictList: {
+        url: '/location/districts',
+        params: {
+            cityId: true
+        },
+        book: [
+            'cityId'
+        ],
+        cook: data => data.map(_ => ({
+            name: _.districtName,
+            id: _.id
+        }))
     }
 };
 
