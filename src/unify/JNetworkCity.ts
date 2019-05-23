@@ -5,9 +5,9 @@ function _netCityToCity(city) {
 const JNetworkCity = {
     cityByCoordinate: {
         url: '/location/city',
-        bodyData: {
-            "latitude": false,
-            "longitude": false
+        params: {
+            'latitude': true,
+            'longitude': true
         },
         cook: data => {
             let address = data.city;

@@ -78,7 +78,27 @@ const JNetworkFilm = {
             }
         },
         descirption: '系统异常'
-    }
+    },
+    filmHotfilms: {
+        url:  '/film/hotfilms',
+        params: {
+            b: true
+        },
+        book: [
+          'b'
+        ],
+        cook: (data) => data.map(_ => FilmModel.create(_))
+    },
+    filmWaitfilms: {
+        url:  '/film/upcomingfilms',
+        params: {
+            b: true
+        },
+        book: [
+            'b'
+        ],
+        cook: (data) => data.map(_ => FilmModel.create(_))
+    },
 };
 
 export default JNetworkFilm;

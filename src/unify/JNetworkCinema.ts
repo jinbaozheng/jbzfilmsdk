@@ -59,6 +59,34 @@ const JNetworkCinema = {
             sectionId: false,
             showId: true
         }
+    },
+    cinemasList: {
+        url: '/cinema/cinemasbycityordertype',
+        params: {
+            cityId: true,
+            longitude: true,
+            latitude: true,
+            orderType: true,
+            bank: true,
+            filmId: false,
+            feature: false,
+            regionName: false,
+            limit: false,
+            date: false,
+
+        },
+        book: [
+            'cityId',
+            'longitude',
+            'latitude',
+            'orderType',
+            'bank',
+            'filmId',
+            'feature',
+            'regionName',
+            'limit',
+            'date'
+        ]
     }
 };
 

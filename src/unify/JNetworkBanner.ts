@@ -6,12 +6,14 @@ const JNetworkBanner = {
     bannerList: {
         url: '/banner/banners',
         params: {
-            cityId: true,
-            location: false
+            location: true,
+            b: true,
+            cityId: false,
         },
-        book:[
-            'cityId',
-            'location'
+        book: [
+            'location',
+            'b',
+            'cityId'
         ]
     }
 };
