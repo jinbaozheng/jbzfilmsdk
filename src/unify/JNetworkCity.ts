@@ -19,11 +19,10 @@ const JNetworkCity = {
             // 轮询为空防止找不到报错
             if (data.requestId) {
                 return data;
-            } else {
-                let address = data;
-                ObjectTool.deleteProperty(address, 'formatAddress');
-                return {city: _netCityToCity(address), address};
             }
+            let address = data;
+            ObjectTool.deleteProperty(address, 'formatAddress');
+            return {city: _netCityToCity(address), address};
         }
     },
     locationCityInfo: {
