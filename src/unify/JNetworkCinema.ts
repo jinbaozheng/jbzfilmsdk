@@ -12,6 +12,28 @@ function _netcinema(cinema) {
     }
 }
 function _cinemaScreeningItems(data){
+    let showItems = data.showItems;
+    let showItemsObj = {
+        cinemaId: data.cinemaId,
+        cityId: data.cityId,
+        cityName: data.cityName,
+        compareCount: data.compareCount,
+        compareNames: data.compareNames,
+        dimensional: data.dimensional,
+        duration: data.duration,
+        filmId: data.filmId,
+        filmName: data.filmName,
+        hallName: data.hallName,
+        jbzEndTime: data.jbzEndTime,
+        jbzShowTime: data.jbzShowTime,
+        language: data.language,
+        minPrice: data.minPrice,
+        showDate: data.showDate,
+        showTime: data.showTime,
+    };
+    for (let i = 0; i < data.showItems.length; i++){
+        showItems[i] = Object.assign({},showItems[i], showItemsObj);
+    }
     return {
         cinemaId: data.cinemaId,
         cityId: data.cityId,
@@ -28,28 +50,30 @@ function _cinemaScreeningItems(data){
         language: data.language,
         minPrice: data.minPrice,
         showDate: data.showDate,
-        showItems: {
-            cinemaId: data.jbzPrice,
-            dimensional: data.dimensional,
-            filmId: data.filmId,
-            hallName: data.hallName,
-            language: data.language,
-            minPrice: data.minPrice,
-            cityId: data.cityId,
-            cityName: data.cityName,
-            compareCount: data.compareCount,
-            compareNames: data.compareNames,
-            duration: data.duration,
-            filmName: data.filmName,
-            jbzEndTime: data.jbzEndTime,
-            jbzShowTime: data.jbzShowTime,
-            showDate: data.showDate,
-            jbzPrice: data.showItems.jbzPrice,
-            oriPrice: data.showItems.oriPrice,
-            priority: data.showItems.priority,
-            showId: data.showItems.showId,
-            type: data.showItems.type
-        }
+        showTime: data.showTime,
+        showItems: showItems
+        // showItems: {
+        //     cinemaId: data.jbzPrice,
+        //     dimensional: data.dimensional,
+        //     filmId: data.filmId,
+        //     hallName: data.hallName,
+        //     language: data.language,
+        //     minPrice: data.minPrice,
+        //     cityId: data.cityId,
+        //     cityName: data.cityName,
+        //     compareCount: data.compareCount,
+        //     compareNames: data.compareNames,
+        //     duration: data.duration,
+        //     filmName: data.filmName,
+        //     jbzEndTime: data.jbzEndTime,
+        //     jbzShowTime: data.jbzShowTime,
+        //     showDate: data.showDate,
+        //     jbzPrice: data.showItems.jbzPrice,
+        //     oriPrice: data.showItems.oriPrice,
+        //     priority: data.showItems.priority,
+        //     showId: data.showItems.showId,
+        //     type: data.showItems.type
+        // }
     }
 }
 const JNetworkCinema = {
