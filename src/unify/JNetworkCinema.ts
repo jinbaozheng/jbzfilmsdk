@@ -1,4 +1,4 @@
-import DateTool from 'icemilk'
+import {JToolDate} from 'icemilk'
 function _netcinema(cinema) {
     return {
         address: cinema.cinemaAddress,
@@ -65,7 +65,10 @@ const JNetworkCinema = {
             'b',
             'cinemaId',
             'filmId'
-        ]
+        ],
+        cook: data => data.map(dateString => {
+            return JToolDate.timeIntervalFromDateString(dateString);
+        })
     },
     cinemaScreeningItems: {
         url: '/cinema/filmshows',
@@ -76,7 +79,7 @@ const JNetworkCinema = {
             date: {
                 required: true,
                 cook: _ => {
-                    return DateTool.dateStringFromTimeInterval(_, 'yyyy-MM-dd');
+                    return JToolDate.dateStringFromTimeInterval(_, 'yyyy-MM-dd');
                 }
             }
         },

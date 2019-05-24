@@ -14,7 +14,17 @@ const JNetworkCity = {
         book: [
             'longitude',
             'latitude'
-        ]
+        ],
+        cook: data => {
+            // 轮询为空防止找不到报错
+            if (data.requestId) {
+                return data;
+            } else {
+                let address = data;
+                ObjectTool.deleteProperty(address, 'formatAddress');
+                return {city: _netCityToCity(address), address};
+            }
+        }
     },
     locationCityInfo: {
         url: '/location/cityinfo',
@@ -25,9 +35,14 @@ const JNetworkCity = {
             'requestId'
         ],
         cook: data => {
-            let address = data.city;
-            ObjectTool.deleteProperty(data.city, 'formatAddress');
-            return {city: _netCityToCity(data.city), address};
+            // 轮询为空防止找不到报错
+            if (data) {
+                let address = data.city;
+                ObjectTool.deleteProperty(address, 'formatAddress');
+                return {city: _netCityToCity(address), address};
+            } else {
+                return data;
+            }
         }
     },
     cityHotList: {
