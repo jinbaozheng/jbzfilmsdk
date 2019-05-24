@@ -3,6 +3,7 @@
  */
 /* eslint-disable */
 import JNetworkCity from './network/JNetworkCity';
+import JNetworkTrade from './network/JNetworkTrade';
 import JNetworkBanner from './network/JNetworkBanner';
 import JNetworkCinema from './network/JNetworkCinema';
 import JNetworkLocation from './network/JNetworkLocation';
@@ -13,6 +14,7 @@ import JNetworkWorker from './network/JNetworkWorker';
 import {revealNetwork, configPicker} from "./network/JNetworkWorker";
 
 export {
+    JNetworkTrade,
     JNetworkCity,
     JNetworkBanner,
     JNetworkCinema,
