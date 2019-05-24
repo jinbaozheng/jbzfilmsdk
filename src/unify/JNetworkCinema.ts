@@ -149,20 +149,26 @@ const JNetworkCinema = {
             if (_.requestId){
                 return _;
             }
-            return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _.realTimeSeats);
+            return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
         }
     },
+    // 这里传type是座位图进行判断的，绝望的异步
     realTimeSeatsInfo: {
         url: '/cinema/realtimeseatsinfo',
         params: {
+            type: {
+                require: true,
+                cook: _ => ((_ === 'meituan' || _ === 'dazhong') ? 'maoyan' : _)
+            },
             requestId: true
         },
         book: [
-            'requestId'
+            'requestId',
+            'type'
         ],
         cook: (_, {params}) => {
             if (_){
-                return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _.realTimeSeats);
+                return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
             }
             return _;
         }
