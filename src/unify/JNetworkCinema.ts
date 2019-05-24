@@ -52,28 +52,6 @@ function _cinemaScreeningItems(data){
         showDate: data.showDate,
         showTime: data.showTime,
         showItems: showItems
-        // showItems: {
-        //     cinemaId: data.jbzPrice,
-        //     dimensional: data.dimensional,
-        //     filmId: data.filmId,
-        //     hallName: data.hallName,
-        //     language: data.language,
-        //     minPrice: data.minPrice,
-        //     cityId: data.cityId,
-        //     cityName: data.cityName,
-        //     compareCount: data.compareCount,
-        //     compareNames: data.compareNames,
-        //     duration: data.duration,
-        //     filmName: data.filmName,
-        //     jbzEndTime: data.jbzEndTime,
-        //     jbzShowTime: data.jbzShowTime,
-        //     showDate: data.showDate,
-        //     jbzPrice: data.showItems.jbzPrice,
-        //     oriPrice: data.showItems.oriPrice,
-        //     priority: data.showItems.priority,
-        //     showId: data.showItems.showId,
-        //     type: data.showItems.type
-        // }
     }
 }
 const JNetworkCinema = {
@@ -154,9 +132,6 @@ const JNetworkCinema = {
             'filmId',
             'date'
         ],
-        // cook: data => {
-        //     return {city: _cinemaScreeningItems(data)};
-        // },
         cook: _ => _.map(_cinemaScreeningItems)
     },
     cinemaSmartSeats: {
