@@ -1,5 +1,5 @@
-import JNetworkCity from './JNetworkCity';
 import JNetworkTrade from './JNetworkTrade';
+import JNetworkCity from './JNetworkCity';
 import JNetworkBanner from './JNetworkBanner';
 import JNetworkCinema from './JNetworkCinema';
 import JNetworkFilm from './JNetworkFilm';
@@ -23,8 +23,8 @@ const DEFAULT_NETWORK_CONFIG: object = {
 };
 
 export default {
-    JNetworkCity,
     JNetworkTrade,
+    JNetworkCity,
     JNetworkBanner,
     JNetworkCinema,
     JNetworkFilm,
