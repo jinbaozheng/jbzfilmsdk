@@ -4,4 +4,4 @@ import JNetworkWorker, {revealNetwork} from "./JNetworkWorker";
 class JNetworkTrade extends JNetworkWorker{
 }
 
-export default new (revealNetwork(JNetworkTrade, 'JNetworkTrade'));
+export default revealNetwork(JNetworkTrade, 'JNetworkTrade');
