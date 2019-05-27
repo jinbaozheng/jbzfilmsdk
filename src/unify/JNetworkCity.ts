@@ -36,7 +36,7 @@ const JNetworkCity = {
         cook: data => {
             // 轮询为空防止找不到报错
             if (data) {
-                let address = data.city;
+                let address = data;
                 ObjectTool.deleteProperty(address, 'formatAddress');
                 return {city: _netCityToCity(address), address};
             } else {
