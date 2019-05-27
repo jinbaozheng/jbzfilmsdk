@@ -29,11 +29,11 @@ export {
 
 import JSDK from './util/JSDK';
 import ManagerSeat from './util/JManagerSeat';
-// import ManagerTrade from './util/JManagerTrade';
+import ManagerTrade from './util/JManagerTrade';
 export {
     JSDK,
     ManagerSeat as JManagerSeat,
-    // ManagerTrade as JManagerTrade
+    ManagerTrade as JManagerTrade
 };
 
 /* eslint-enable */
