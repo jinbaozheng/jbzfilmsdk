@@ -2,6 +2,8 @@
  * Created by cuppi on 2017/4/14.
  */
 /* eslint-disable */
+import JNetworkAccount from './network/JNetworkAccount';
+import JNetworkMine from './network/JNetworkMine';
 import JNetworkTrade from './network/JNetworkTrade';
 import JNetworkCity from './network/JNetworkCity';
 import JNetworkBanner from './network/JNetworkBanner';
@@ -14,6 +16,8 @@ import JNetworkWorker from './network/JNetworkWorker';
 import {revealNetwork, configPicker} from "./network/JNetworkWorker";
 
 export {
+    JNetworkAccount,
+    JNetworkMine,
     JNetworkTrade,
     JNetworkCity,
     JNetworkBanner,

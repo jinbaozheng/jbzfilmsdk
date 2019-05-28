@@ -55,6 +55,17 @@ function _cinemaScreeningItems(data){
     }
 }
 const JNetworkCinema = {
+    cinemaDetail: {
+        url: '/cinema/cinemadetail',
+        params: {
+            cinemaId: true,
+            openId: false
+        },
+        book: [
+            'cinemaId',
+            'openId'
+        ]
+    },
     cinemasList: {
         url: '/cinema/cinemasbycityordertype',
         params: {

@@ -1,3 +1,5 @@
+import JNetworkAccount from './JNetworkAccount';
+import JNetworkMine from './JNetworkMine';
 import JNetworkTrade from './JNetworkTrade';
 import JNetworkCity from './JNetworkCity';
 import JNetworkBanner from './JNetworkBanner';
@@ -23,6 +25,8 @@ const DEFAULT_NETWORK_CONFIG: object = {
 };
 
 export default {
+    JNetworkAccount,
+    JNetworkMine,
     JNetworkTrade,
     JNetworkCity,
     JNetworkBanner,
