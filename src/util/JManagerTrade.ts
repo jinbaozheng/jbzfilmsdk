@@ -149,9 +149,9 @@ class TradeManager {
             return {
                 count: seatList.length,
                 areaInfo: areaInfo.join('|'),
-                seatsName: seatsName.join('|'),
+                seatsName: seatsName.join(','),
                 seatInfos: seatInfos.join('|'),
-                seatIds: seatIds.join('|')
+                seatIds: seatIds.join(',')
             }
         }
         // 影托帮

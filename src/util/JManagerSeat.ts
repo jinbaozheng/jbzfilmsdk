@@ -650,7 +650,7 @@ class SeatManager {
             let loveIndex = 0;
             if (seatRowModel.seatType === 'L') {
                 loveIndex = 1;
-            } else if (seatRowModel.status === 'R') {
+            } else if (seatRowModel.seatType === 'R') {
                 loveIndex = 2;
             }
             return {
