@@ -12,13 +12,13 @@ function _netcinema(cinema) {
         minprice: cinema.minPrice
     }
 }
-data = {
-    ...data,
-    list: data[list].map(_ => ({
-        ..._,
-        cinemaId: data.cinemaId
-    }))
-}
+// data = {
+//     ...data,
+//     list: data[list].map(_ => ({
+//         ..._,
+//         cinemaId: data.cinemaId
+//     }))
+// }
 
 function _cinemaScreeningItems(data) {
     let showItems = data.showItems;
