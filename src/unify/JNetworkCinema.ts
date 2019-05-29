@@ -1,5 +1,6 @@
 import {JToolDate} from 'icemilk'
 import JManagerSeat from './../util/JManagerSeat';
+
 function _netcinema(cinema) {
     return {
         address: cinema.cinemaAddress,
@@ -11,7 +12,15 @@ function _netcinema(cinema) {
         minprice: cinema.minPrice
     }
 }
-function _cinemaScreeningItems(data){
+data = {
+    ...data,
+    list: data[list].map(_ => ({
+        ..._,
+        cinemaId: data.cinemaId
+    }))
+}
+
+function _cinemaScreeningItems(data) {
     let showItems = data.showItems;
     let showItemsObj = {
         cinemaId: data.cinemaId,
@@ -31,8 +40,8 @@ function _cinemaScreeningItems(data){
         showDate: data.showDate,
         showTime: data.showTime,
     };
-    for (let i = 0; i < data.showItems.length; i++){
-        showItems[i] = Object.assign({},showItems[i], showItemsObj);
+    for (let i = 0; i < data.showItems.length; i++) {
+        showItems[i] = Object.assign({}, showItems[i], showItemsObj);
     }
     return {
         cinemaId: data.cinemaId,
@@ -54,6 +63,7 @@ function _cinemaScreeningItems(data){
         showItems: showItems
     }
 }
+
 const JNetworkCinema = {
     cinemaDetail: {
         url: '/cinema/cinemadetail',
@@ -157,7 +167,7 @@ const JNetworkCinema = {
             sectionId: false
         },
         cook: (_, {params}) => {
-            if (_.requestId){
+            if (_.requestId) {
                 return _;
             }
             return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
@@ -178,7 +188,7 @@ const JNetworkCinema = {
             'type'
         ],
         cook: (_, {params}) => {
-            if (_){
+            if (_) {
                 return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
             }
             return _;

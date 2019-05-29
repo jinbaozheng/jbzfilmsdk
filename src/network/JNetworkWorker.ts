@@ -138,6 +138,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                             }
                         }
                     }
+
                     let paramsValue = pickValue.call(this, params, {
                         ...(this as JNetworkWorker).pickInjectParams(),
                         ...(networkArgs[rule[0]] || {})
