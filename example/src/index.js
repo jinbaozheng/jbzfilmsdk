@@ -1,5 +1,5 @@
-import unify from './spd.network.unify';
-import url from './spd.url.config'
+// import unify from './spd.network.unify';
+// import url from './spd.url.config'
 import config from './JConfig';
 
 // class NeworkBanner extends jbzfilmsdk.JNetworkBanner{
@@ -25,7 +25,6 @@ class NetworkSearch extends jbzfilmsdk.JNetworkSearch{
 
 class NetworkOther extends jbzfilmsdk.JNetworkOther{
 }
-
 const _NetworkOther = revealNetwork(NetworkOther, 'NetworkOther', config)
 
 let delegate = {
@@ -95,3 +94,14 @@ export default {
         }
     })
 }
+// console.log('*****aaaa')
+// const a = {
+//     a: 1,
+//     b: 2,
+//     c: 3,
+//     d: 4
+// }
+//
+// const {b, ..._} = a;
+// console.log(b);
+// console.log(_);

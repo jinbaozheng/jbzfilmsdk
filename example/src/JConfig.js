@@ -5,7 +5,7 @@
 // import JNetworkSearch from './JNetworkSearch';
 // import JNetworkOther from './JNetworkOther';
 
-const DEFAULT_CONFIG = {
+const DEFAULT_NETWORK_CONFIG = {
     precook: (_) => _.data,
     cook: (_) => _,
     method: 'post',
@@ -20,6 +20,7 @@ const DEFAULT_CONFIG = {
 }
 
 export default {
+    DEFAULT_NETWORK_CONFIG,
     // JNetworkBanner,
     // JNetworkCinema,
     // JNetworkFilm,
@@ -33,8 +34,4 @@ export default {
             }
         }
     }
-};
-
-export {
-    DEFAULT_CONFIG
 };
