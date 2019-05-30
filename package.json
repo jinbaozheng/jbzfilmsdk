@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "dev": "rollup -c --watch --config config/rollup.config.dev.js",
-    "build:dist": "rollup -c --config config/rollup.config.prod.js",
+    "build:dist": "rollup -c --config config/rollup.config.dist.js && rollup -c --config config/rollup.config.dist.uglify.js",
     "build:lib": "rollup -c --config config/rollup.config.lib.js",
     "build:link": "rollup -c --watch --config config/rollup.config.link.js",
     "example": "rollup -c --watch --config example/rollup.config.js",
