@@ -1,5 +1,20 @@
 import {JNetwork, INetworkStandardPromiseType, JNetworkGroup} from 'icemilk';
 import JConfig from '../unify/JConfig';
+
+const DEFAULT_NETWORK_CONFIG = {
+    precook: (_) => _.data,
+    cook: (_) => _,
+    method: 'get',
+    url: '',
+    book: null,
+    params: {},
+    headers: {},
+    bodyData: {},
+    useParams: [],
+    useHeaders: [],
+    useBodyData: [],
+    rule: [0, 1, 2]
+}
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
     fetchRequest(...args): INetworkStandardPromiseType<any>{
@@ -41,7 +56,12 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
         throw new Error(`${networkName} is not extends of class JNetworkWorker, please extends class JNetworkWorker`);
     }
     let classConfig = config ? config[networkName] : _config[networkName];
-    let defaultNetworkConfig =  config ? config['DEFAULT_NETWORK_CONFIG'] : _config['DEFAULT_NETWORK_CONFIG'];
+    // config[DEFAULT_NETWORK_CONFIG]为用户默认配置 _config['DEFAULT_NETWORK_CONFIG'] 为SDK默认配置
+    // 目前没有实现revealNetwork内部默认配置
+    let defaultNetworkConfig = {
+        ...DEFAULT_NETWORK_CONFIG,
+        ...(config ? config['DEFAULT_NETWORK_CONFIG'] : _config['DEFAULT_NETWORK_CONFIG'])
+    }
     if (!classConfig){
         if (config){
             throw new Error(`network ${networkName} not found in config ${JSON.stringify(config)}`)
@@ -124,7 +144,9 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
             if (networkClass.prototype.hasOwnProperty(key)){
                 continue;
             }
+
             networkClass.prototype[key] = function (...args) {
+
                 try {
                     let networkArgs = args;
                     if (book){
