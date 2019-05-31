@@ -5,6 +5,12 @@ const GONG_YAO = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0p7HYaOqNk9aidIJlYMOhTH
 const encrypt = new JSEncrypt();
 const b64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const b64pad = '=';
+const routerPath = [
+    '/banner/banners'
+];
+const routerName = [
+    'M10001'
+];
 function hex2b64(h:string) {
     let i;
     let c;
@@ -13,11 +19,11 @@ function hex2b64(h:string) {
         c = parseInt(h.substring(i, i + 3), 16);
         ret += b64map.charAt(c >> 6) + b64map.charAt(c & 63);
     }
-    if (i + 1 == h.length) {
+    if (i + 1 === h.length) {
         c = parseInt(h.substring(i, i + 1), 16);
         ret += b64map.charAt(c << 2);
     }
-    else if (i + 2 == h.length) {
+    else if (i + 2 === h.length) {
         c = parseInt(h.substring(i, i + 2), 16);
         ret += b64map.charAt(c >> 2) + b64map.charAt((c & 3) << 4);
     }
@@ -105,11 +111,17 @@ class JEncryptionTool {
         // 加密
         encrypt.setPublicKey(GONG_YAO);
         const encryption = encrypt.encryptLong(value);
+        console.log(value)
         console.log(encryption)
         return {cipher: encryption};
     }
-    static router(){
-        const routerList = []
+    static router(url){
+        for (let i = 0; i < routerPath.length; i++) {
+            if (routerPath[i] === url){
+                return {method: routerName[i]}
+            }
+        }
+        return false;
     }
 }
 export default JEncryptionTool;
