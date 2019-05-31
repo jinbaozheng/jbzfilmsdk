@@ -24,7 +24,9 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "axios": "^0.18.0",
-    "icemilk": "^1.0.9-beta9"
+    "icemilk": "^1.0.9-beta9",
+    "jsencrypt": "^3.0.0-rc.1",
+    "md5": "^2.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",

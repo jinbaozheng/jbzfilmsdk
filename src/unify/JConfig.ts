@@ -21,7 +21,8 @@ const DEFAULT_NETWORK_CONFIG: object = {
     useParams: [],
     useHeaders: [],
     useBodyData: [],
-    rule: [0, 1, 2]
+    rule: [0, 1, 2],
+    encryption: true
 };
 
 export default {

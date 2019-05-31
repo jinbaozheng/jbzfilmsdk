@@ -1,6 +1,7 @@
 import {JNetwork, INetworkStandardPromiseType, JNetworkGroup} from 'icemilk';
 import JConfig from '../unify/JConfig';
-
+import JEncryptionTool from './../util/JEncryptionTool';
+import {isBoolean} from "util";
 const DEFAULT_NETWORK_CONFIG = {
     precook: (_) => _.data,
     cook: (_) => _,
@@ -13,7 +14,8 @@ const DEFAULT_NETWORK_CONFIG = {
     useParams: [],
     useHeaders: [],
     useBodyData: [],
-    rule: [0, 1, 2]
+    rule: [0, 1, 2],
+    encryption: true
 }
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
@@ -50,6 +52,18 @@ export const configPicker = (picker: any|object|(() => object)) => {
         _config = picker;
     }
 }
+
+// export const needSecret = (isNeed: boolean | (() => boolean)) => {
+//     _config['DEF...']['encryption'] = isNeed
+// }
+//
+// needSecret(function () {
+//     if (sdasdaw)
+//         return true
+//     else
+//         return false
+// })
+
 
 export const revealNetwork = function<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T, networkName: string = networkClass.name, config?: object): T{
     if (!JNetworkWorker.isPrototypeOf(networkClass)){
@@ -127,7 +141,8 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                 bodyData,
                 useParams,
                 useHeaders,
-                useBodyData
+                useBodyData,
+                encryption
             } = {
                 ...defaultNetworkConfig,
                 ...config
@@ -135,7 +150,6 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
             if (!Array.isArray(rule) || rule.length !== 3 || rule.some(_ => _ > 2 || _ < 0)){
                 throw new Error(`rule 参数出错`);
             }
-
             // if (Array.isArray(params)){
             // } else if (typeof params === 'object'){
             // } else {
@@ -144,9 +158,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
             if (networkClass.prototype.hasOwnProperty(key)){
                 continue;
             }
-
             networkClass.prototype[key] = function (...args) {
-
                 try {
                     let networkArgs = args;
                     if (book){
@@ -160,7 +172,6 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                             }
                         }
                     }
-
                     let paramsValue = pickValue.call(this, params, {
                         ...(this as JNetworkWorker).pickInjectParams(),
                         ...(networkArgs[rule[0]] || {})
@@ -173,11 +184,22 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         ...(this as JNetworkWorker).pickInjectHeaders(),
                         ...(networkArgs[rule[2]] || {})
                     }, useHeaders, url);
-
-                    let pizza = {
-                        params: paramsValue,
-                        bodyData: bodyDataValue,
-                        headers: headersValue
+                    if (encryption){
+                        console.log(url)
+                        console.log('pds--------------')
+                        paramsValue = JEncryptionTool.Encryption(paramsValue);
+                        console.log(paramsValue)
+                        let pizza = {
+                            params: paramsValue,
+                            bodyData: bodyDataValue,
+                            headers: headersValue
+                        }
+                    } else {
+                        let pizza = {
+                            params: paramsValue,
+                            bodyData: bodyDataValue,
+                            headers: headersValue
+                        }
                     }
                     return this
                         .createGroup({
