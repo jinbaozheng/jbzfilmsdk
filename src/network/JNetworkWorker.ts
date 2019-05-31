@@ -185,21 +185,13 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         ...(networkArgs[rule[2]] || {})
                     }, useHeaders, url);
                     if (encryption){
-                        console.log(url)
                         console.log('pds--------------')
-                        paramsValue = JEncryptionTool.Encryption(paramsValue);
-                        console.log(paramsValue)
-                        let pizza = {
-                            params: paramsValue,
-                            bodyData: bodyDataValue,
-                            headers: headersValue
-                        }
-                    } else {
-                        let pizza = {
-                            params: paramsValue,
-                            bodyData: bodyDataValue,
-                            headers: headersValue
-                        }
+                        paramsValue = JEncryptionTool.encryption(paramsValue);
+                    }
+                    let pizza = {
+                        params: paramsValue,
+                        bodyData: bodyDataValue,
+                        headers: headersValue
                     }
                     return this
                         .createGroup({
