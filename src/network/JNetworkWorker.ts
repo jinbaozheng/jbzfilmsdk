@@ -1,7 +1,7 @@
 import {JNetwork, INetworkStandardPromiseType, JNetworkGroup} from 'icemilk';
 import JConfig from '../unify/JConfig';
 import JEncryptionTool from './../util/JEncryptionTool';
-const BUS_GW = '';
+const BUS_GW = '/bus/gw';
 const DEFAULT_NETWORK_CONFIG = {
     precook: (_) => _.data,
     cook: (_) => _,
@@ -185,16 +185,14 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         ...(networkArgs[rule[2]] || {})
                     }, useHeaders, url);
                     if (encryption){
-                        let baseUrl = JEncryptionTool.router(url);
-                        let encryption = {};
-                        if (!baseUrl){
+                        let paramsObj = {};
+                        paramsObj = JEncryptionTool.encryption(url, paramsValue);
+                        if (!paramsObj){
                             throw new Error(`url参数出错`);
                         }
                         url = BUS_GW;
-                        encryption = JEncryptionTool.encryption(paramsValue);
                         paramsValue = {
-                            ...encryption,
-                            ...baseUrl
+                            ...paramsObj,
                         };
                         console.log(paramsValue)
                     }

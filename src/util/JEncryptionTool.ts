@@ -6,10 +6,70 @@ const encrypt = new JSEncrypt();
 const b64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const b64pad = '=';
 const routerPath = [
-    '/banner/banners'
+    '/banner/banners', // 广告
+    '/cinema/realtimeseats', // 请求获取实时座位图
+    '/cinema/realtimeseatsinfo', //实时座位图详情
+    '/cinema/cinemadetail', //影院详情
+    '/cinema/films', //影院下某电影排片日期
+    '/cinema/filmshowdates', //影院下某电影排片日期
+    '/cinema/filmshows',//影院下某电影某天的排片列表
+    '/cinema/cinemasbycityordertype',//某城市下影院列表_多条件
+    '/film/film',//电影详情
+    '/film/hotcomments',//热门评论
+    '/film/hotfilms',//热门电影
+    '/film/hotfilmspage',//分页热门电影
+    '/film/soonfilms',//待映电影
+    '/film/soonfilmspage',//分页待映电影
+    '/location/cities',//城市列表
+    '/location/hotcities',//热门城市
+    '/location/city',//请求经纬度获取城市
+    '/location/cityinfo',//获取经纬度定位结果
+    '/location/citybyid',//根据城市ID获取城市
+    '/location/districts',//根据城市Id获取区域
+    '/search/searchall',//搜索电影和影院
+    '/order/lockseat',//请求锁座
+    '/order/lockstatus',//锁座结果
+    '/mine/orderlist',//订单列表
+    '/mine/orderdetail',//订单详情
+    '/mine/cltedcinemalist',//收藏影院列表
+    '/mine/cltcinema',//收藏影院
+    '/mine/celcltcinema',//取消收藏影院
+    '/system/encrypt',//民生加密
+    '/system/decrypt',//民生解密
+    '/cmbc/login',//民生登录
 ];
 const routerName = [
-    'M10001'
+    'M10001',// 广告
+    'M10010',// 请求获取实时座位图
+    'M10011',//实时座位图详情
+    'M10012', //影院详情
+    'M10013', //影院下某电影排片日期
+    'M10014', //影院下某电影排片日期
+    'M10015',//影院下某电影某天的排片列表
+    'M10016',//某城市下影院列表_多条件
+    'M10020',//电影详情
+    'M10021',//热门评论
+    'M10022',//热门电影
+    'M10023',//分页热门电影
+    'M10024',//待映电影
+    'M10025',//分页待映电影,
+    'M10030',//城市列表
+    'M10031',//热门城市
+    'M10032',//请求经纬度获取城市
+    'M10033',//获取经纬度定位结果
+    'M10034',//根据城市ID获取城市
+    'M10035',//根据城市Id获取区域
+    'M10040',//搜索电影和影院
+    'M10050',//请求锁座
+    'M10051',//锁座结果
+    'M10060',//订单列表
+    'M10061',//订单详情
+    'M10062',//收藏影院列表
+    'M10063',//收藏影院
+    'M10064',//取消收藏影院
+    'M10080',//民生加密
+    'M10081',//民生解密
+    'M10082',//民生登录
 ];
 function hex2b64(h:string) {
     let i;
@@ -96,8 +156,13 @@ class JEncryptionTool {
         }
         return object;
     }
-    static encryption(obj){
+    static encryption(url, obj){
+        let routerNumber = this.router(url);
+        if (!routerNumber) {
+            return false;
+        }
         let params = obj;
+        params.method = routerNumber.method;
         // 删除空字段
         params = this.deleteEmptyProperty(params);
         // ascii排序，升序
