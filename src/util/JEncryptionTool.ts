@@ -156,12 +156,14 @@ class JEncryptionTool {
         }
         return object;
     }
-    static encryption(url, obj){
+    static encryption(url, obj, b){
+        console.log(url);
         let routerNumber = this.router(url);
         if (!routerNumber) {
             return false;
         }
         let params = obj;
+        params.b = md5(b);
         params.method = routerNumber.method;
         // 删除空字段
         params = this.deleteEmptyProperty(params);
@@ -176,8 +178,6 @@ class JEncryptionTool {
         // 加密
         encrypt.setPublicKey(GONG_YAO);
         const encryption = encrypt.encryptLong(value);
-        console.log(value)
-        console.log(encryption)
         return {cipher: encryption};
     }
     static router(url){
