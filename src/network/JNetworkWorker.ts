@@ -186,6 +186,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                     }, useHeaders, url);
                     if (encryption){
                         let b = this.config.inType;
+                        console.log(paramsValue)
                         let paramsObj = JEncryptionTool.encryption(url, paramsValue, b);
                         if (!paramsObj){
                             throw new Error(`url参数出错`);

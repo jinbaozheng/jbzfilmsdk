@@ -1,24 +1,14 @@
-import {JToolDate} from 'icemilk';
 import FilmModel from '../model/FilmModel';
 import FilmSimpleModel from '../model/FilmSimpleModel';
-import CommentModel from '../model/CommentModel';
 
 const JNetworkFilm = {
-    hotfilms: {
-        url:  '/film/hotFilms',
-        cook: (data) => data.map(_ => FilmModel.create(_))
-    },
-    hotFilmsSimple: {
-        url:  '/film/hotFilmsSimple',
-        cook: (data) => data.map(_ => FilmSimpleModel.create(_))
-    },
-    waitFilms: {
-        url:  '/film/upcomingFilms',
-        cook: (data) => data.map(_ => FilmModel.create(_))
-    },
     filmHotfilms: {
         url:  '/film/hotfilms',
-        cook: (data) => data.map(_ => FilmModel.create(_))
+        cook: data => {
+            console.log(data)
+            let films = data.films.map(_ => FilmModel.create(_))
+            return {count: data.count, films};
+        }
     },
     hotFilmsPage: {
         url:  '/film/hotfilmspage',
@@ -34,7 +24,11 @@ const JNetworkFilm = {
     },
     filmWaitfilms: {
         url:  '/film/soonfilms',
-        cook: (data) => data.map(_ => FilmModel.create(_))
+        cook: data => {
+            console.log(data)
+            let films = data.films.map(_ => FilmModel.create(_))
+            return {count: data.count, films};
+        }
     },
     soonFilmsPage: {
         url:  '/film/soonfilmspage',
