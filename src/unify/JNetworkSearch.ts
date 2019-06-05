@@ -5,7 +5,6 @@ const JNetworkSearch = {
     searchall: {
         url: '/search/searchall',
         params: {
-          b: true,
           cityId: true,
           key: true,
           longitude: true,
@@ -14,7 +13,6 @@ const JNetworkSearch = {
           size: false
         },
         book: [
-          'b',
           'cityId',
           'key',
           'longitude',

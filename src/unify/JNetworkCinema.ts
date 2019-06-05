@@ -83,7 +83,6 @@ const JNetworkCinema = {
             longitude: true,
             latitude: true,
             orderType: true,
-            b: true,
             regionName: false,
             filmId: false,
             feature: false,
@@ -96,7 +95,6 @@ const JNetworkCinema = {
             'longitude',
             'latitude',
             'orderType',
-            'b',
             'regionName',
             'filmId',
             'feature',
@@ -109,24 +107,20 @@ const JNetworkCinema = {
     cinemaScreeningFilmList: {
         url: '/cinema/films',
         params: {
-            b: true,
             cinemaId: true
 
         },
         book: [
-            'b',
             'cinemaId'
         ]
     },
     cinemaScreeningDateList: {
         url: '/cinema/filmshowdates',
         params: {
-            b: true,
             cinemaId: true,
             filmId: true
         },
         book: [
-            'b',
             'cinemaId',
             'filmId'
         ],
@@ -137,7 +131,6 @@ const JNetworkCinema = {
     cinemaScreeningItems: {
         url: '/cinema/filmshows',
         params: {
-            b: true,
             cinemaId: true,
             filmId: true,
             date: {
@@ -148,7 +141,6 @@ const JNetworkCinema = {
             }
         },
         book: [
-            'b',
             'cinemaId',
             'filmId',
             'date'

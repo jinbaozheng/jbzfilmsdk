@@ -2,7 +2,6 @@ const JNetworkTrade = {
     lockSeat: {
         url: '/order/lockseat',
         params: {
-            b: true,
             openId: true,
             mobile: true,
             showId: true,

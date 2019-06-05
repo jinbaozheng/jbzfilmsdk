@@ -18,23 +18,15 @@ const JNetworkFilm = {
     },
     filmHotfilms: {
         url:  '/film/hotfilms',
-        params: {
-            b: true
-        },
-        book: [
-          'b'
-        ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
     hotFilmsPage: {
         url:  '/film/hotfilmspage',
         params: {
-            b: true,
             page: true,
             size: true
         },
         book: [
-            'b',
             'page',
             'size'
         ],
@@ -42,23 +34,15 @@ const JNetworkFilm = {
     },
     filmWaitfilms: {
         url:  '/film/soonfilms',
-        params: {
-            b: true
-        },
-        book: [
-            'b'
-        ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
     soonFilmsPage: {
         url:  '/film/soonfilmspage',
         params: {
-            b: true,
             page: true,
             size: true
         },
         book: [
-            'b',
             'page',
             'size'
         ],
@@ -67,11 +51,9 @@ const JNetworkFilm = {
     filmFilm: {
         url:  '/film/film',
         params: {
-            b: true,
             filmId: true
         },
         book:[
-            'b',
             'filmId'
         ],
         cook: (data) => ({
