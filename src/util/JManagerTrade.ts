@@ -183,13 +183,12 @@ class TradeManager {
      * @param mobile 手机号码
      * @returns {Promise} 返回请求promise
      */
-    lockSeat(tradeParas, seatList, mobile, b, openId, cinemaId, cityId) {
+    lockSeat(tradeParas, seatList, mobile, openId, cinemaId, cityId) {
         if (tradeParas.type === 'meituan' || tradeParas.type === 'dazhong') {
             tradeParas.type = 'maoyan'
         }
-        let paras = {...tradeParas, mobile, ...this.seatInforParas(tradeParas.type, seatList), b, openId, cinemaId, cityId};
+        let paras = {...tradeParas, mobile, ...this.seatInforParas(tradeParas.type, seatList), openId, cinemaId, cityId};
         console.log(paras);
-        console.log(JNetworkTrade);
         return JNetworkTrade.lockSeat(paras);
     }
 }

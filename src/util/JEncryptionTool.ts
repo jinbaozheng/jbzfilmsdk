@@ -178,8 +178,16 @@ class JEncryptionTool {
         //转换成字符串json
         const value = JSON.stringify(params);
         // 加密
+        console.log(value)
         encrypt.setPublicKey(GONG_YAO);
         const encryption = encrypt.encryptLong(value);
+        // 简单处理座位图
+        if (url === '/cinema/realtimeseats' || url === '/cinema/realtimeseatsinfo'){
+            return {
+                cipher: encryption,
+                type: obj.type
+            };
+        }
         return {cipher: encryption};
     }
     static router(url){

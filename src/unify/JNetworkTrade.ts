@@ -21,10 +21,12 @@ const JNetworkTrade = {
     lockStatus: {
         url: '/order/lockstatus',
         params: {
-            requestId: true
+            requestId: true,
+            openId: true
         },
         book: [
-            'requestId'
+            'requestId',
+            'openId'
         ]
     }
 }

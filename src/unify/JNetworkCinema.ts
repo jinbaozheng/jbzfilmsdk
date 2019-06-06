@@ -12,56 +12,56 @@ function _netcinema(cinema) {
         minprice: cinema.minPrice
     }
 }
-// data = {
-//     ...data,
-//     list: data[list].map(_ => ({
-//         ..._,
-//         cinemaId: data.cinemaId
-//     }))
-// }
 
 function _cinemaScreeningItems(data) {
-    let showItems = data.showItems;
-    let showItemsObj = {
-        cinemaId: data.cinemaId,
-        cityId: data.cityId,
-        cityName: data.cityName,
-        compareCount: data.compareCount,
-        compareNames: data.compareNames,
-        dimensional: data.dimensional,
-        duration: data.duration,
-        filmId: data.filmId,
-        filmName: data.filmName,
-        hallName: data.hallName,
-        jbzEndTime: data.jbzEndTime,
-        jbzShowTime: data.jbzShowTime,
-        language: data.language,
-        minPrice: data.minPrice,
-        showDate: data.showDate,
-        showTime: data.showTime,
-    };
-    for (let i = 0; i < data.showItems.length; i++) {
-        showItems[i] = Object.assign({}, showItems[i], showItemsObj);
+    return data = {
+        ...data,
+        showItems: data.showItems.map(_ => ({
+            ..._,
+            ...data
+        }))
     }
-    return {
-        cinemaId: data.cinemaId,
-        cityId: data.cityId,
-        cityName: data.cityName,
-        compareCount: data.compareCount,
-        compareNames: data.compareNames,
-        dimensional: data.dimensional,
-        duration: data.duration,
-        filmId: data.filmId,
-        filmName: data.filmName,
-        hallName: data.hallName,
-        jbzEndTime: data.jbzEndTime,
-        jbzShowTime: data.jbzShowTime,
-        language: data.language,
-        minPrice: data.minPrice,
-        showDate: data.showDate,
-        showTime: data.showTime,
-        showItems: showItems
-    }
+    // let showItems = data.showItems;
+    // let showItemsObj = {
+    //     cinemaId: data.cinemaId,
+    //     cityId: data.cityId,
+    //     cityName: data.cityName,
+    //     compareCount: data.compareCount,
+    //     compareNames: data.compareNames,
+    //     dimensional: data.dimensional,
+    //     duration: data.duration,
+    //     filmId: data.filmId,
+    //     filmName: data.filmName,
+    //     hallName: data.hallName,
+    //     jbzEndTime: data.jbzEndTime,
+    //     jbzShowTime: data.jbzShowTime,
+    //     language: data.language,
+    //     minPrice: data.minPrice,
+    //     showDate: data.showDate,
+    //     showTime: data.showTime,
+    // };
+    // for (let i = 0; i < data.showItems.length; i++) {
+    //     showItems[i] = Object.assign({}, showItems[i], showItemsObj);
+    // }
+    // return {
+    //     cinemaId: data.cinemaId,
+    //     cityId: data.cityId,
+    //     cityName: data.cityName,
+    //     compareCount: data.compareCount,
+    //     compareNames: data.compareNames,
+    //     dimensional: data.dimensional,
+    //     duration: data.duration,
+    //     filmId: data.filmId,
+    //     filmName: data.filmName,
+    //     hallName: data.hallName,
+    //     jbzEndTime: data.jbzEndTime,
+    //     jbzShowTime: data.jbzShowTime,
+    //     language: data.language,
+    //     minPrice: data.minPrice,
+    //     showDate: data.showDate,
+    //     showTime: data.showTime,
+    //     showItems: showItems
+    // }
 }
 
 const JNetworkCinema = {
