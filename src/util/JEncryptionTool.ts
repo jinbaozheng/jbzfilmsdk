@@ -106,9 +106,11 @@ JSEncrypt.prototype.encryptLong = function(string: string) {
                 ct += t1 ;
             });
             return hex2b64(ct);
+            // return window.btoa(ct);
         }
         let t = k.encrypt(string);
         let y = hex2b64(t);
+        // let y = window.btoa(t);
         return y;
     } catch (ex) {
         return false;
@@ -177,8 +179,13 @@ class JEncryptionTool {
         params.signCode = signCode;
         //转换成字符串json
         const value = JSON.stringify(params);
-        // 加密
         console.log(value)
+        // const value = hex2b64(value);
+        // const value = window.btoa(value);
+        const value = window.btoa(unescape(encodeURIComponent(value)));
+        console.log('base64');
+        console.log(value)
+        // 加密
         encrypt.setPublicKey(GONG_YAO);
         const encryption = encrypt.encryptLong(value);
         // 简单处理座位图
