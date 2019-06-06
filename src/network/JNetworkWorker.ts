@@ -159,6 +159,8 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                 continue;
             }
             networkClass.prototype[key] = function (...args) {
+                // 解决url 闭包被修改，初始化地址
+                url = config.url;
                 try {
                     let networkArgs = args;
                     if (book){
@@ -186,7 +188,6 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                     }, useHeaders, url);
                     if (encryption){
                         let b = this.config.inType;
-                        console.log(paramsValue)
                         let paramsObj = JEncryptionTool.encryption(url, paramsValue, b);
                         if (!paramsObj){
                             throw new Error(`url参数出错`);

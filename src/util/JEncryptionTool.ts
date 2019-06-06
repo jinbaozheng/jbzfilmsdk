@@ -158,6 +158,8 @@ class JEncryptionTool {
     }
     static encryption(url, obj, b){
         console.log('url:' + url);
+        console.log('obj:' + JSON.stringify(obj));
+        console.log('b:' + b);
         let routerNumber = this.router(url);
         if (!routerNumber) {
             return false;
