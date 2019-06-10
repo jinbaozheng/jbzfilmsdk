@@ -23,9 +23,9 @@ class NetworkSearch extends jbzfilmsdk.JNetworkSearch{
 }
 
 
-class NetworkOther extends jbzfilmsdk.JNetworkOther{
+class _NetworkOther extends jbzfilmsdk.JNetworkOther{
 }
-const _NetworkOther = revealNetwork(NetworkOther, 'NetworkOther', config)
+const NetworkOther = revealNetwork(_NetworkOther, 'NetworkOther', config)
 
 let delegate = {
     globalBodyData: function () {
@@ -41,6 +41,15 @@ let delegate = {
             }
         };
         return gp;
+    },
+    requestInterceptor(config){
+        if (config.url === '/otaadmin/otaAdmin/city/getHotCities'){
+            config.url = '/test'
+            config.params = {
+                method: 'M00001'
+            }
+        }
+        return config;
     }
 };
 
@@ -84,8 +93,9 @@ export default {
             }
         }
     }),
-    NetworkOther: new _NetworkOther({
-        baseUrl: 'http://10.1.1.70:10002/cmbc/',
+    NetworkOther: new NetworkOther({
+        // baseUrl: 'http://10.1.1.70:10002/cmbc/',
+        baseUrl: 'https://local.idoupiao.com',
         delegate,
         carryHeaders: function () {
             return {
@@ -94,14 +104,3 @@ export default {
         }
     })
 }
-// console.log('*****aaaa')
-// const a = {
-//     a: 1,
-//     b: 2,
-//     c: 3,
-//     d: 4
-// }
-//
-// const {b, ..._} = a;
-// console.log(b);
-// console.log(_);

@@ -16,7 +16,7 @@ const DEFAULT_NETWORK_CONFIG = {
     useParams: [],
     useHeaders: [],
     useBodyData: [],
-    rule: [1, 0, 2]
+    rule: [0, 1, 2]
 }
 
 export default {
@@ -32,6 +32,18 @@ export default {
             params: {
                 key: true
             }
+        },
+        test: {
+            url: '/otaadmin/otaAdmin/city/getHotCities',
+            params: {
+                page: true,
+                pageSize: true,
+                status: true
+            },
+            headers: {
+                authorization: false
+            },
+
         }
     }
 };
