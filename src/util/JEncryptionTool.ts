@@ -97,7 +97,7 @@ JSEncrypt.prototype.encryptLong = function(string: string) {
     let maxLength = (((k.n.bitLength()+7)>>3)-11);
     // var maxLength = 117;
     try {
-        let lt = ''
+        let lt = '';
         let ct = '';
         if (string.length > maxLength) {
             lt = string.match(/.{1,117}/g);
@@ -106,10 +106,12 @@ JSEncrypt.prototype.encryptLong = function(string: string) {
                 ct += t1 ;
             });
             return hex2b64(ct);
+            // return ct;
             // return window.btoa(ct);
         }
         let t = k.encrypt(string);
         let y = hex2b64(t);
+        // let y = t;
         // let y = window.btoa(t);
         return y;
     } catch (ex) {
@@ -172,22 +174,17 @@ class JEncryptionTool {
         // 删除空字段
         params = this.deleteEmptyProperty(params);
         // ascii排序，升序
-        const jsonString = this.sortAsc(params);
+        const ascii = this.sortAsc(params);
         // 拼接并加密
-        const signCode = md5(jsonString + JBZ_KEY);
+        const signCode = md5(ascii + JBZ_KEY);
         // 存json中
         params.signCode = signCode;
         //转换成字符串json
-        const value = JSON.stringify(params);
-        console.log(value)
-        // const value = hex2b64(value);
-        // const value = window.btoa(value);
-        const value = window.btoa(unescape(encodeURIComponent(value)));
-        console.log('base64');
-        console.log(value)
+        let jsonString = JSON.stringify(params);
+        jsonString = window.btoa(unescape(encodeURIComponent(jsonString)));
         // 加密
         encrypt.setPublicKey(GONG_YAO);
-        const encryption = encrypt.encryptLong(value);
+        const encryption = encrypt.encryptLong(jsonString);
         // 简单处理座位图
         if (url === '/cinema/realtimeseats' || url === '/cinema/realtimeseatsinfo'){
             return {
