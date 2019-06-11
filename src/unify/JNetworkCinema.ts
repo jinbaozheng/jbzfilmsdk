@@ -161,8 +161,10 @@ const JNetworkCinema = {
         cook: (_, {params}) => {
             if (_.requestId) {
                 return _;
+            } else if (_){
+                return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
             }
-            return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
+            return _;
         }
     },
     // 这里传type是座位图进行判断的，绝望的异步
