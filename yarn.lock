@@ -1222,10 +1222,10 @@ htmlparser2@^3.9.0:
     inherits "^2.0.1"
     readable-stream "^3.0.6"
 
-icemilk@1.0.9-beta10:
-  version "1.0.9-beta10"
-  resolved "https://registry.yarnpkg.com/icemilk/-/icemilk-1.0.9-beta10.tgz#a9fed8e6120d35f35b4b80e9c3f408c1a761acda"
-  integrity sha512-twfTNsoYkP6wBEanH1yL2EvNMgHL5pIvqfdR27s64hI7pNP5YaZXVNtaxjowoftiDuuP43hE3xA4nFj1NyFFjg==
+icemilk@1.0.9-beta11:
+  version "1.0.9-beta11"
+  resolved "https://registry.yarnpkg.com/icemilk/-/icemilk-1.0.9-beta11.tgz#2880f9158bf9bd340115056aa0739c9526a1586d"
+  integrity sha512-VVj9lMlxM7iO/Y707+WWFfzJmWKQTQF0gSVjRDIty8J5b5TNveUGdnmemGcBjtCVeUYzREoYcb9Vmp+XD/xVRQ==
   dependencies:
     "@babel/runtime" "^7.1.5"
     axios "^0.18.0"
