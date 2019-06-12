@@ -23,6 +23,8 @@ export default class JNetworkWorker extends JNetwork{
         return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
             if (!res.data.errorCode){
                 return res.data;
+            } else if (res.data.errorCode === 1){
+                throw new Error(res.data.message);
             } else {
                 throw new Error(res.data);
             }
@@ -35,6 +37,8 @@ class JNetworkWorkerGroup extends JNetworkGroup{
         return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
             if (!res.data.errorCode){
                 return res.data;
+            } else if (res.data.errorCode === 1){
+                throw new Error(res.data.message);
             } else {
                 throw new Error(res.data);
             }
