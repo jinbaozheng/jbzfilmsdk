@@ -139,19 +139,19 @@ class TradeManager {
             let seatsName = [];
             let areaInfo = [];
             let seatIds = [];
-            let seatInfos = [];
+            let seatNumberInfos = [];
             for (let seat of seatList) {
                 seatsName.push(seat.seatModel.name);
                 areaInfo.push(seat.seatModel.name);
-                seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
+                seatNumberInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatIds.push(seat.seatModel.seatId);
             }
             return {
                 count: seatList.length,
                 areaInfo: areaInfo.join('|'),
-                seatsName: seatsName.join(','),
-                seatInfos: seatInfos.join('|'),
-                seatIds: seatIds.join(',')
+                seatsName: seatsName.join('|'),
+                seatNumberInfos: seatNumberInfos.join('|'),
+                seatIds: seatIds.join('|')
             }
         }
         // 影托帮
@@ -159,18 +159,18 @@ class TradeManager {
             let seatsName = [];
             let areaInfo = [];
             let seatIds = [];
-            let seatInfos = [];
+            let seatNumberInfos = [];
             for (let seat of seatList) {
                 seatsName.push(seat.seatModel.seatPieceName);
                 areaInfo.push(seat.seatModel.seatPieceName);
-                seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
+                seatNumberInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatIds.push(seat.seatModel.seatNo);
             }
             return {
                 count: seatList.length,
                 areaInfo: areaInfo.join('|'),
                 seatsName: seatsName.join('|'),
-                seatInfos: seatInfos.join('|'),
+                seatNumberInfos: seatNumberInfos.join('|'),
                 seatIds: seatIds.join('|')
             }
         }
