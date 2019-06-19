@@ -1,8 +1,8 @@
 import md5 from 'md5';
-import JSEncrypt from 'jsencrypt'
 const JBZ_KEY = '&jbzkey=filmjbz2016';
 const GONG_YAO = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0p7HYaOqNk9aidIJlYMOhTHjTWdLXCUB2LvMeq0BH5yYI4mGu/A38z1s98C1JWwf4xnAFfBH3+dWfUntsjNeg+JDIEGrwhJAJR84ZN5IJy8WlHbrygfw40/HQ809VGNsOb8fFRBpx0hV/kon2yHwiI/RTVGViceXmE0Ksw+jLNQIDAQAB';
-const encrypt = new JSEncrypt();
+const SI_YAO = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALSnsdho6o2T1qJ0gmVgw6FMeNNZ0tcJQHYu8x6rQEfnJgjiYa78DfzPWz3wLUlbB/jGcAV8Eff51Z9Se2yM16D4kMgQavCEkAlHzhk3kgnLxaUduvKB/DjT8dDzT1UY2w5vx8VEGnHSFX+SifbIfCIj9FNUZWJx5eYTQqzD6Ms1AgMBAAECgYBPqqgmHFZbave7GpAqbtq2tgeOhM0S4VSZCalTPAgT7V57ioGzbhopA7RkAxelgsxoK/JYqNcvuPA422Hsg8vOxj55EYfT9C0cP0IeCnc74r1nyWIobBFDy0j7j48ktW20/nd4WwUGOkRpbmuHiawGUjH4XCmUpG5GVCWbDdKynQJBANnJ8G3tUcUrSnfx9kZfpcqrfuA33NL0Rv2a7AXQxNus7Rc0/yHje9JYDj3TpybSDhzQ47u1bj41G1Y2k70AmP8CQQDUWeEjnvlxX40JXJcLngcfEw72ussUxBPGjEOWJCGrqQCUULR8Cd0SCyDk/R7ydeEO2dugE0UDAjugsaYTP4fLAkAoMYOk1fqUV+P7dPVNkZNobvQQb17as+hyH2hVvmzGWgi7krVPTMtqS4P9VxVvLa8bFFYjK124L1bnN1VWuUiDAkAxd7ql1KvhSFQPoT0inK6mA4eR3JPgg4jj0NsRx9r8JUOYSXCyEI4qXONN1NV3wBQspH2wPazu9X80gQ3iIAOfAkEAkAzm56WIq+c7i5W/GLzqjlbFtlYAk8NKMyZX5Od4yjtFREslWeC78YtvzB5dkXbdakq0PLTrmKGhTrhui+VyIg==';
+let jsencrypt_1 = require('jsencrypt');
 const b64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const b64pad = '=';
 const routerPath = [
@@ -71,7 +71,51 @@ const routerName = [
     'M10081',//民生解密
     'M10082',//民生登录
 ];
-function hex2b64(h:string) {
+var BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
+function int2char(n) {
+    return BI_RM.charAt(n);
+}
+function b64tohex(s) {
+    var ret = '';
+    var i;
+    var k = 0; // b64 state, 0-3
+    var slop = 0;
+    for (i = 0; i < s.length; ++i) {
+        if (s.charAt(i) === b64pad) {
+            break;
+        }
+        var v = b64map.indexOf(s.charAt(i));
+        if (v < 0) {
+            continue;
+        }
+        if (k === 0) {
+            ret += int2char(v >> 2);
+            slop = v & 3;
+            k = 1;
+        }
+        else if (k === 1) {
+            ret += int2char((slop << 2) | (v >> 4));
+            slop = v & 0xf;
+            k = 2;
+        }
+        else if (k === 2) {
+            ret += int2char(slop);
+            ret += int2char(v >> 2);
+            slop = v & 3;
+            k = 3;
+        }
+        else {
+            ret += int2char((slop << 2) | (v >> 4));
+            ret += int2char(v & 0xf);
+            k = 0;
+        }
+    }
+    if (k === 1) {
+        ret += int2char(slop << 2);
+    }
+    return ret;
+}
+function hex2b64(h) {
     let i;
     let c;
     let ret = '';
@@ -92,29 +136,84 @@ function hex2b64(h:string) {
     }
     return ret;
 }
-JSEncrypt.prototype.encryptLong = function(string: string) {
-    let k = this.getKey();
-    let maxLength = (((k.n.bitLength()+7)>>3)-11);
-    // var maxLength = 117;
-    try {
-        let lt = '';
-        let ct = '';
-        if (string.length > maxLength) {
-            lt = string.match(/.{1,117}/g);
-            lt.forEach(function(entry) {
-                var t1 = k.encrypt(entry);
-                ct += t1 ;
-            });
-            return hex2b64(ct);
-            // return ct;
-            // return window.btoa(ct);
+function encryptPublicLong(text, publicKey) {
+    let rsa = new jsencrypt_1['default']();
+    rsa.setPublicKey(publicKey);
+    let key = rsa.getKey();
+    let ct = "";
+    // RSA每次加密117bytes，需要辅助方法判断字符串截取位置
+    // 1.获取字符串截取点
+    let bytes = new Array();
+    bytes.push(0);
+    let byteNo = 0;
+    let len = text.length;
+    let c;
+    let temp = 0;
+    for (let i = 0; i < len; i++) {
+        c = text.charCodeAt(i);
+        if (c >= 0x010000 && c <= 0x10FFFF) { // 特殊字符，如Ř，Ţ
+            byteNo += 4;
         }
-        let t = k.encrypt(string);
-        let y = hex2b64(t);
-        // let y = t;
-        // let y = window.btoa(t);
+        else if (c >= 0x000800 && c <= 0x00FFFF) { // 中文以及标点符号
+            byteNo += 3;
+        }
+        else if (c >= 0x000080 && c <= 0x0007FF) { // 特殊字符，如È，Ò
+            byteNo += 2;
+        }
+        else { // 英文以及标点符号
+            byteNo += 1;
+        }
+        if ((byteNo % 117) >= 114 || (byteNo % 117) === 0) {
+            if (byteNo - temp >= 114) {
+                bytes.push(i);
+                temp = byteNo;
+            }
+        }
+    }
+    // 2.截取字符串并分段加密
+    if (bytes.length > 1) {
+        for (let i = 0; i < bytes.length - 1; i++) {
+            let str = void 0;
+            if (i === 0) {
+                str = text.substring(0, bytes[i + 1] + 1);
+            }
+            else {
+                str = text.substring(bytes[i] + 1, bytes[i + 1] + 1);
+            }
+            let t1 = key.encrypt(str);
+            ct += t1;
+        }
+        if (bytes[bytes.length - 1] !== text.length - 1) {
+            let lastStr = text.substring(bytes[bytes.length - 1] + 1);
+            ct += key.encrypt(lastStr);
+        }
+        return (hex2b64(ct));
+    }
+    let t = key.encrypt(text);
+    return hex2b64(t);
+}
+function decryptPrivateLong(text, privateKey) {
+    var rsa = new jsencrypt_1['default']();
+    rsa.setPrivateKey(privateKey);
+    var key = rsa.getKey();
+    text = b64tohex(text);
+    var maxLength = ((key.n.bitLength() + 7) >> 3);
+    try {
+        if (text.length > maxLength) {
+            var ct1_1 = "";
+            var lt = text.match(/.{1,256}/g);
+            if (lt) {
+                lt.forEach(function (entry) {
+                    var t1 = key.decrypt(entry);
+                    ct1_1 += t1;
+                });
+            }
+            return ct1_1;
+        }
+        var y = key.decrypt(text);
         return y;
-    } catch (ex) {
+    }
+    catch (ex) {
         return false;
     }
 }
@@ -181,10 +280,11 @@ class JEncryptionTool {
         params.signCode = signCode;
         //转换成字符串json
         let jsonString = JSON.stringify(params);
-        jsonString = window.btoa(unescape(encodeURIComponent(jsonString)));
-        // 加密
-        encrypt.setPublicKey(GONG_YAO);
-        const encryption = encrypt.encryptLong(jsonString);
+        const encryption = encryptPublicLong(jsonString, GONG_YAO);
+        console.log('---------加密')
+        console.log(encryption)
+        console.log('**********************解密')
+        console.log(decryptPrivateLong(encryption, SI_YAO))
         // 简单处理座位图
         if (url === '/cinema/realtimeseats' || url === '/cinema/realtimeseatsinfo'){
             return {
