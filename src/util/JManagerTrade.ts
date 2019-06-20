@@ -3,7 +3,6 @@
  *  交易相关
  */
 'use strict'
-import JNetworkTrade from './../network/JNetworkTrade';
 let instance = null;
 class TradeManager {
     constructor() {
@@ -189,7 +188,8 @@ class TradeManager {
         }
         let paras = {...tradeParas, mobile, ...this.seatInforParas(tradeParas.type, seatList), openId, cinemaId, cityId};
         console.log(paras);
-        return JNetworkTrade.lockSeat(paras);
+        console.log('************')
+        return paras;
     }
 }
 
