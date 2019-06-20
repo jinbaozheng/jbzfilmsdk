@@ -3,8 +3,6 @@
  *  交易相关
  */
 'use strict'
-import JNetworkTrade from './../network/JNetworkTrade';
-let NetworkTrade = new (JNetworkTrade);
 let instance = null;
 class TradeManager {
     constructor() {
@@ -184,18 +182,14 @@ class TradeManager {
      * @param mobile 手机号码
      * @returns {Promise} 返回请求promise
      */
-    lockSeat(tradeParas, seatList, mobile, openId, cinemaId, cityId) {
+    lockSeat(tradeParas) {
         if (tradeParas.type === 'meituan' || tradeParas.type === 'dazhong') {
             tradeParas.type = 'maoyan'
         }
-        let paras = {...tradeParas, mobile, ...this.seatInforParas(tradeParas.type, seatList), openId, cinemaId, cityId};
+        let paras = {...tradeParas, ...this.seatInforParas(tradeParas.type, tradeParas.selectedSeats)};
         console.log(paras);
-        console.log('************')
-        console.log(NetworkTrade)
         return paras;
-        // return NetworkTrade.lockSeat(paras);
     }
-
 }
 
 export default TradeManager;
