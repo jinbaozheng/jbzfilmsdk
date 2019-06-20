@@ -71,20 +71,20 @@ const routerName = [
     'M10081',//民生解密
     'M10082',//民生登录
 ];
-var BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
+let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {
     return BI_RM.charAt(n);
 }
 function b64tohex(s) {
-    var ret = '';
-    var i;
-    var k = 0; // b64 state, 0-3
-    var slop = 0;
+    let ret = '';
+    let i;
+    let k = 0; // b64 state, 0-3
+    let slop = 0;
     for (i = 0; i < s.length; ++i) {
         if (s.charAt(i) === b64pad) {
             break;
         }
-        var v = b64map.indexOf(s.charAt(i));
+        let v = b64map.indexOf(s.charAt(i));
         if (v < 0) {
             continue;
         }
@@ -193,24 +193,24 @@ function encryptPublicLong(text, publicKey) {
     return hex2b64(t);
 }
 function decryptPrivateLong(text, privateKey) {
-    var rsa = new jsencrypt_1['default']();
+    let rsa = new jsencrypt_1['default']();
     rsa.setPrivateKey(privateKey);
-    var key = rsa.getKey();
+    let key = rsa.getKey();
     text = b64tohex(text);
-    var maxLength = ((key.n.bitLength() + 7) >> 3);
+    let maxLength = ((key.n.bitLength() + 7) >> 3);
     try {
         if (text.length > maxLength) {
-            var ct1_1 = "";
-            var lt = text.match(/.{1,256}/g);
+            let ct1_1 = "";
+            let lt = text.match(/.{1,256}/g);
             if (lt) {
                 lt.forEach(function (entry) {
-                    var t1 = key.decrypt(entry);
+                    let t1 = key.decrypt(entry);
                     ct1_1 += t1;
                 });
             }
             return ct1_1;
         }
-        var y = key.decrypt(text);
+        let y = key.decrypt(text);
         return y;
     }
     catch (ex) {
