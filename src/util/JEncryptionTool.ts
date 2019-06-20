@@ -283,7 +283,7 @@ class JEncryptionTool {
         const encryption = encryptPublicLong(jsonString, GONG_YAO);
         console.log('---------加密')
         console.log(encryption)
-        console.log('**********************解密')
+        console.log('*****************解密')
         console.log(decryptPrivateLong(encryption, SI_YAO))
         // 简单处理座位图
         if (url === '/cinema/realtimeseats' || url === '/cinema/realtimeseatsinfo'){
