@@ -192,8 +192,8 @@ class TradeManager {
         console.log(paras);
         console.log('************')
         console.log(NetworkTrade)
-        // return paras;
-        return NetworkTrade.lockSeat(paras);
+        return paras;
+        // return NetworkTrade.lockSeat(paras);
     }
 
 }
