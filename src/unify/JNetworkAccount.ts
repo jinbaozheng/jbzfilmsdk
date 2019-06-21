@@ -75,7 +75,7 @@ const JNetworkAccount = {
         ]
     },
     SystemLogin: {
-        url: '/system/login',
+        url: '/cmbc/login',
         params: {
             key:true
         },
