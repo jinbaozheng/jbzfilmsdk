@@ -243,7 +243,7 @@ class JEncryptionTool {
         let object = obj;
         for (let i in object) {
             let value = object[i];
-            if (typeof value === 'object') {
+            if (typeof value === 'object' && value !== null) {
                 if (Array.isArray(value)) {
                     if (value.length === 0) {
                         delete object[i];
@@ -252,7 +252,10 @@ class JEncryptionTool {
                 }
                 this.deleteEmptyProperty(value);
             } else {
+                console.log('---')
+                console.log(value)
                 if (value === '' || value === null || value === undefined) {
+                    console.log(value)
                     delete object[i];
                 }
             }
@@ -271,7 +274,10 @@ class JEncryptionTool {
         params.b = md5(b);
         params.method = routerNumber.method;
         // 删除空字段
+        console.log(params)
         params = this.deleteEmptyProperty(params);
+        console.log('删除空字段')
+        console.log(params)
         // ascii排序，升序
         const ascii = this.sortAsc(params);
         // 拼接并加密
