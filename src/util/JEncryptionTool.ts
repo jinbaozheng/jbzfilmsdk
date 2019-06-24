@@ -34,6 +34,7 @@ const routerPath = [
     '/mine/cltedcinemalist',//收藏影院列表
     '/mine/cltcinema',//收藏影院
     '/mine/celcltcinema',//取消收藏影院
+    '/order/cancel',//取消订单
     '/system/encrypt',//民生加密
     '/system/decrypt',//民生解密
     '/cmbc/login',//民生登录
@@ -67,6 +68,7 @@ const routerName = [
     'M10062',//收藏影院列表
     'M10063',//收藏影院
     'M10064',//取消收藏影院
+    'M10065',//取消订单
     'M10080',//民生加密
     'M10081',//民生解密
     'M10082',//民生登录

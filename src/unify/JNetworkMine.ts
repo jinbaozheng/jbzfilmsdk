@@ -74,6 +74,17 @@ const JNetworkMine = {
             'orderId',
             'openId'
         ]
+    },
+    orderCancel: {
+        url: '/order/cancel',
+        params: {
+            orderId: true,
+            openId: true
+        },
+        book: [
+            'orderId',
+            'openId'
+        ]
     }
 };
 
