@@ -35,9 +35,10 @@ const routerPath = [
     '/mine/cltcinema',//收藏影院
     '/mine/celcltcinema',//取消收藏影院
     '/order/cancel',//取消订单
-    '/system/encrypt',//民生加密
-    '/system/decrypt',//民生解密
+    '/cmbc/encrypt',//民生加密
+    '/cmbc/decrypt',//民生解密
     '/cmbc/login',//民生登录
+    '/cmbc/status',//民生支付状态查询
 ];
 const routerName = [
     'M10001',// 广告
@@ -72,6 +73,7 @@ const routerName = [
     'M10080',//民生加密
     'M10081',//民生解密
     'M10082',//民生登录
+    'M10083',//民生支付状态查询
 ];
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {

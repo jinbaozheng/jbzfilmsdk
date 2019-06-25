@@ -57,7 +57,7 @@ const JNetworkAccount = {
         ]
     },
     SystemEncrypt: {
-        url: '/system/encrypt',
+        url: '/cmbc/encrypt',
         params: {
             key:true
         },
@@ -66,7 +66,7 @@ const JNetworkAccount = {
         ]
     },
     SystemDecrypt: {
-        url: '/system/decrypt',
+        url: '/cmbc/decrypt',
         params: {
             key:true
         },
@@ -81,6 +81,15 @@ const JNetworkAccount = {
         },
         book: [
             'key'
+        ]
+    },
+    getOrderResult: {
+        url: '/cmbc/status',
+        params: {
+            orderId:true
+        },
+        book: [
+            'orderId'
         ]
     }
 };
