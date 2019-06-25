@@ -82,15 +82,6 @@ const JNetworkAccount = {
         book: [
             'key'
         ]
-    },
-    getOrderResult: {
-        url: '/cmbc/status',
-        params: {
-            orderId:true
-        },
-        book: [
-            'orderId'
-        ]
     }
 };
 

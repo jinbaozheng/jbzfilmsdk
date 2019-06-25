@@ -28,6 +28,15 @@ const JNetworkTrade = {
             'requestId',
             'openId'
         ]
+    },
+    getOrderResult: {
+        url: '/cmbc/status',
+        params: {
+            orderId:true
+        },
+        book: [
+            'orderId'
+        ]
     }
 }
 
