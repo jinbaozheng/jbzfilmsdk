@@ -41,11 +41,10 @@ const JNetworkTrade = {
     cmbcConfirmPay: {
         url: '/cmbc/confirm/pay',
         params: {
-            key:true
-        },
-        book: [
-            'key'
-        ]
+            _CallBackUrl:true,
+            orderId:true,
+            token:true
+        }
     }
 }
 
