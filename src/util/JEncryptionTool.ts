@@ -286,19 +286,19 @@ class JEncryptionTool {
         params.signCode = signCode;
         //转换成字符串json
         let jsonString = JSON.stringify(params);
-        const encryption = encryptPublicLong(jsonString, GONG_YAO);
+        // const encryption = encryptPublicLong(jsonString, GONG_YAO);
         console.log('---------加密')
-        console.log(encryption)
+        // console.log(encryption)
         console.log('*****************解密')
-        console.log(decryptPrivateLong(encryption, SI_YAO))
+        // console.log(decryptPrivateLong(encryption, SI_YAO))
         // 简单处理座位图
         if (url === '/cinema/realtimeseats' || url === '/cinema/realtimeseatsinfo'){
             return {
-                cipher: encryption,
+                cipher: jsonString,
                 type: obj.type
             };
         }
-        return {cipher: encryption};
+        return {cipher: jsonString};
     }
     static router(url){
         for (let i = 0; i < routerPath.length; i++) {
