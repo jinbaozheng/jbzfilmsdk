@@ -37,6 +37,19 @@ const JNetworkTrade = {
         book: [
             'orderId'
         ]
+    },
+    cmbcConfirmPay: {
+        url: '/cmbc/confirm/pay',
+        params: {
+            _CallBackUrl:true,
+            orderId:true,
+            token:true
+        },
+        book: [
+            '_CallBackUrl',
+            'orderId',
+            'token'
+        ]
     }
 }
 

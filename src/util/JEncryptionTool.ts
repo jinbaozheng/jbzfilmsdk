@@ -39,6 +39,7 @@ const routerPath = [
     '/cmbc/decrypt',//民生解密
     '/cmbc/login',//民生登录
     '/cmbc/status',//民生支付状态查询
+    '/cmbc/confirm/pay',//民生确认支付
 ];
 const routerName = [
     'M10001',// 广告
@@ -74,6 +75,7 @@ const routerName = [
     'M10081',//民生解密
     'M10082',//民生登录
     'M10083',//民生支付状态查询
+    'M10084',//民生确认支付
 ];
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {
