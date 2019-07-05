@@ -135,12 +135,12 @@ class TradeManager {
 
         // 淘票票
         if (type === 'taobao') {
-            let seatsName = [];
+            let seatNames = [];
             let areaInfo = [];
             let seatIds = [];
             let seatNumberInfos = [];
             for (let seat of seatList) {
-                seatsName.push(seat.seatModel.name);
+                seatNames.push(seat.seatModel.name);
                 areaInfo.push(seat.seatModel.name);
                 seatNumberInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatIds.push(seat.seatModel.seatId);
@@ -148,7 +148,7 @@ class TradeManager {
             return {
                 count: seatList.length,
                 areaInfo: areaInfo.join('|'),
-                seatsName: seatsName.join('|'),
+                seatNames: seatNames.join('|'),
                 seatNumberInfos: seatNumberInfos.join('|'),
                 seatIds: seatIds.join('|')
             }
