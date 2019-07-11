@@ -5,78 +5,42 @@ const JBZ_KEY = '&jbzkey=filmjbz2016';
 let jsencrypt_1 = require('jsencrypt');
 const b64map = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const b64pad = '=';
-const routerPath = [
-    '/banner/banners', // 广告
-    '/cinema/realtimeseats', // 请求获取实时座位图
-    '/cinema/realtimeseatsinfo', //实时座位图详情
-    '/cinema/cinemadetail', //影院详情
-    '/cinema/films', //影院下某电影排片日期
-    '/cinema/filmshowdates', //影院下某电影排片日期
-    '/cinema/filmshows',//影院下某电影某天的排片列表
-    '/cinema/cinemasbycityordertype',//某城市下影院列表_多条件
-    '/film/film',//电影详情
-    '/film/hotcomments',//热门评论
-    '/film/hotfilms',//热门电影
-    '/film/hotfilmspage',//分页热门电影
-    '/film/soonfilms',//待映电影
-    '/film/soonfilmspage',//分页待映电影
-    '/location/cities',//城市列表
-    '/location/hotcities',//热门城市
-    '/location/city',//请求经纬度获取城市
-    '/location/cityinfo',//获取经纬度定位结果
-    '/location/citybyid',//根据城市ID获取城市
-    '/location/districts',//根据城市Id获取区域
-    '/search/searchall',//搜索电影和影院
-    '/order/lockseat',//请求锁座
-    '/order/lockstatus',//锁座结果
-    '/mine/orderlist',//订单列表
-    '/mine/orderdetail',//订单详情
-    '/mine/cltedcinemalist',//收藏影院列表
-    '/mine/cltcinema',//收藏影院
-    '/mine/celcltcinema',//取消收藏影院
-    '/order/cancel',//取消订单
-    '/cmbc/encrypt',//民生加密
-    '/cmbc/decrypt',//民生解密
-    '/cmbc/login',//民生登录
-    '/cmbc/status',//民生支付状态查询
-    '/cmbc/confirm/pay',//民生确认支付
-];
-const routerName = [
-    'M10001',// 广告
-    'M10010',// 请求获取实时座位图
-    'M10011',//实时座位图详情
-    'M10012', //影院详情
-    'M10013', //影院下某电影排片日期
-    'M10014', //影院下某电影排片日期
-    'M10015',//影院下某电影某天的排片列表
-    'M10016',//某城市下影院列表_多条件
-    'M10020',//电影详情
-    'M10021',//热门评论
-    'M10022',//热门电影
-    'M10023',//分页热门电影
-    'M10024',//待映电影
-    'M10025',//分页待映电影,
-    'M10030',//城市列表
-    'M10031',//热门城市
-    'M10032',//请求经纬度获取城市
-    'M10033',//获取经纬度定位结果
-    'M10034',//根据城市ID获取城市
-    'M10035',//根据城市Id获取区域
-    'M10040',//搜索电影和影院
-    'M10050',//请求锁座
-    'M10051',//锁座结果
-    'M10060',//订单列表
-    'M10061',//订单详情
-    'M10062',//收藏影院列表
-    'M10063',//收藏影院
-    'M10064',//取消收藏影院
-    'M10065',//取消订单
-    'M10080',//民生加密
-    'M10081',//民生解密
-    'M10082',//民生登录
-    'M10083',//民生支付状态查询
-    'M10084',//民生确认支付
-];
+const routerPath = {
+    '/banner/banners': 'M10001', // 广告
+    '/cinema/realtimeseats': 'M10010', // 请求获取实时座位图
+    '/cinema/realtimeseatsinfo': 'M10011', //实时座位图详情
+    '/cinema/cinemadetail': 'M10012', //影院详情
+    '/cinema/films': 'M10013', //影院下某电影排片日期
+    '/cinema/filmshowdates': 'M10014', //影院下某电影排片日期
+    '/cinema/filmshows': 'M10015',//影院下某电影某天的排片列表
+    '/cinema/cinemasbycityordertype': 'M10016',//某城市下影院列表_多条件
+    '/film/film': 'M10020',//电影详情
+    '/film/hotcomments': 'M10021',//热门评论
+    '/film/hotfilms': 'M10022',//热门电影
+    '/film/hotfilmspage': 'M10023',//分页热门电影
+    '/film/soonfilms': 'M10024',//待映电影
+    '/film/soonfilmspage': 'M10022',//分页待映电影
+    '/location/cities': 'M10030',//城市列表
+    '/location/hotcities': 'M10031',//热门城市
+    '/location/city': 'M10032',//请求经纬度获取城市
+    '/location/cityinfo': 'M10033',//获取经纬度定位结果
+    '/location/citybyid': 'M10034',//根据城市ID获取城市
+    '/location/districts': 'M10035',//根据城市Id获取区域
+    '/search/searchall': 'M10040',//搜索电影和影院
+    '/order/lockseat': 'M10050',//请求锁座
+    '/order/lockstatus': 'M10051',//锁座结果
+    '/mine/orderlist': 'M10060',//订单列表
+    '/mine/orderdetail': 'M10061',//订单详情
+    '/mine/cltedcinemalist': 'M10062',//收藏影院列表
+    '/mine/cltcinema': 'M10063',//收藏影院
+    '/mine/celcltcinema': 'M10064',//取消收藏影院
+    '/order/cancel': 'M10065',//取消订单
+    '/cmbc/encrypt': 'M10080',//民生加密
+    '/cmbc/decrypt': 'M10081',//民生解密
+    '/cmbc/login': 'M10082',//民生登录
+    '/cmbc/status': 'M10083',//民生支付状态查询
+    '/cmbc/confirm/pay': 'M10084',//民生确认支付
+};
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {
     return BI_RM.charAt(n);
@@ -266,9 +230,9 @@ class JEncryptionTool {
         return object;
     }
     static encryption(url, obj, b){
-        console.log('url:' + url);
-        console.log('obj:' + JSON.stringify(obj));
-        console.log('b:' + b);
+        // console.log('url:' + url);
+        // console.log('obj:' + JSON.stringify(obj));
+        // console.log('b:' + b);
         let routerNumber = this.router(url);
         if (!routerNumber) {
             return false;
@@ -287,9 +251,9 @@ class JEncryptionTool {
         //转换成字符串json
         let jsonString = JSON.stringify(params);
         // const encryption = encryptPublicLong(jsonString, GONG_YAO);
-        console.log('---------加密')
+        // console.log('---------加密')
         // console.log(encryption)
-        console.log('*****************解密')
+        // console.log('*****************解密')
         // console.log(decryptPrivateLong(encryption, SI_YAO))
         // 简单处理座位图
         if (url === '/cinema/realtimeseats' || url === '/cinema/realtimeseatsinfo'){
@@ -301,10 +265,8 @@ class JEncryptionTool {
         return {cipher: jsonString};
     }
     static router(url){
-        for (let i = 0; i < routerPath.length; i++) {
-            if (routerPath[i] === url){
-                return {method: routerName[i]}
-            }
+        if (routerPath[url]) {
+            return {method: routerPath[url]}
         }
         return false;
     }
