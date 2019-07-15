@@ -162,6 +162,14 @@ const JNetworkCinema = {
             if (_.requestId) {
                 return _;
             } else if (_){
+                if (params.type === 'ytb'){
+                    const {seatMap} = _;
+                    for(let seatKey in seatMap){
+                        const seat = seatMap[seatKey];
+                        seat.seatCol = seat.seatCol || '1';
+                        seat.seatRow = seat.seatRow || '1';
+                    }
+                }
                 return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
             }
             return _;
@@ -183,6 +191,14 @@ const JNetworkCinema = {
         ],
         cook: (_, {params}) => {
             if (_) {
+                if (params.type === 'ytb'){
+                    const {seatMap} = _;
+                    for(let seatKey in seatMap){
+                        const seat = seatMap[seatKey];
+                        seat.seatCol = seat.seatCol || '1';
+                        seat.seatRow = seat.seatRow || '1';
+                    }
+                }
                 return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
             }
             return _;
