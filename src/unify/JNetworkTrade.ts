@@ -32,10 +32,10 @@ const JNetworkTrade = {
     getOrderResult: {
         url: '/cmbc/status',
         params: {
-            orderId:true
+            payNo:true
         },
         book: [
-            'orderId'
+            'payNo'
         ]
     },
     cmbcConfirmPay: {
