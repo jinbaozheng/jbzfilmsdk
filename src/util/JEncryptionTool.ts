@@ -19,7 +19,7 @@ const routerPath = {
     '/film/hotfilms': 'M10022',//热门电影
     '/film/hotfilmspage': 'M10023',//分页热门电影
     '/film/soonfilms': 'M10024',//待映电影
-    '/film/soonfilmspage': 'M10022',//分页待映电影
+    '/film/soonfilmspage': 'M10025',//分页待映电影
     '/location/cities': 'M10030',//城市列表
     '/location/hotcities': 'M10031',//热门城市
     '/location/city': 'M10032',//请求经纬度获取城市
