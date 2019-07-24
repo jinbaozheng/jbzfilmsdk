@@ -196,7 +196,6 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         paramsValue = {
                             ...paramsObj,
                         };
-                        console.log(paramsValue)
                     }
                     let pizza = {
                         params: paramsValue,
