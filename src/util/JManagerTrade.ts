@@ -4,6 +4,7 @@
  */
 'use strict'
 let instance = null;
+import JManagerSeat from "./JManagerSeat";
 class TradeManager {
     constructor() {
         if (!instance) {
@@ -19,7 +20,21 @@ class TradeManager {
     static defaultManager() {
         return new TradeManager();
     }
-
+    /**
+     * 获取交易商务参数（与座位无关的）
+     * @param platform 平台类型
+     * @param jbzFilmId 公表电影Id
+     * @param jbzCinemaId 公表影院Id
+     * @returns {*} 商务参数
+     */
+    static tradeParasFromPlatform(platform, jbzFilmId, jbzCinemaId) {
+        console.log(platform)
+        console.log('----------')
+        let {type, hasDiscount} = platform;
+        let showId = JManagerSeat.formatSeatParams(platform).showId;
+        // 这里标注下：配合后端所以只能这么写
+        return {type, imax: window.sessionStorage.imax === 'true' ? 1 : 0, showId, isLoweastForetell: hasDiscount, jbzCinemaId, jbzFilmId, filmId: jbzFilmId};
+    }
     /**
      * 获取锁座时需要的座位参数
      * @param type 平台类型

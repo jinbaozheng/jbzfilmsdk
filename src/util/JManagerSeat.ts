@@ -36,7 +36,39 @@ class SeatManager {
   static defaultManager() {
     return new SeatManager();
   }
-
+  static formatSeatParams(params) {
+    let showId;
+    switch (params.type) {
+      case 'meituan':
+        showId = params.showId;
+        break;
+      case 'dazhong':
+        showId = params.showId;
+        break;
+      case 'maoyan':
+        showId = params.showId;
+        break;
+      case 'taobao':
+        showId = params.showId;
+        break;
+      case 'spider':
+        showId = params.showId;
+        break;
+      case 'baidu' :
+        showId = params.showId;
+        break;
+      case 'wangpiao' :
+        showId = params.showId;
+        break;
+      case 'maizuo' :
+        showId = params.foretellId;
+        break;
+      case 'ytb' :
+        showId = params.showId;
+        break;
+    }
+    return {showId: showId, cinemaId: params.cinemaId, hallId: params.hallId || '', sectionId: params.sectionId || ''}
+  }
   /**
    * 智能选座
    * @param smartSeats
@@ -115,6 +147,14 @@ class SeatManager {
    * @returns {Array} 智能座位图列表
    */
   smartSeatsFromSeats(type, seatData){
+    if (type === 'ytb'){
+      const {seatMap} = seatData;
+      for(let seatKey in seatMap){
+        const seat = seatMap[seatKey];
+        seat.seatCol = seat.seatCol || '1';
+        seat.seatRow = seat.seatRow || '1';
+      }
+    }
     let seatList = this.unitySeatWithSeatData(type, seatData);
     // 获取智能座位图
     return this.smartSeatsWithSeats(type, seatList);
