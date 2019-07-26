@@ -1,5 +1,4 @@
 import {JToolDate} from 'icemilk'
-import JManagerSeat from './../util/JManagerSeat';
 
 function _netcinema(cinema) {
     return {
