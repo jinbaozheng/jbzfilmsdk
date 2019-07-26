@@ -36,39 +36,6 @@ class SeatManager {
   static defaultManager() {
     return new SeatManager();
   }
-  static formatSeatParams(params) {
-    let showId;
-    switch (params.type) {
-      case 'meituan':
-        showId = params.showId;
-        break;
-      case 'dazhong':
-        showId = params.showId;
-        break;
-      case 'maoyan':
-        showId = params.showId;
-        break;
-      case 'taobao':
-        showId = params.showId;
-        break;
-      case 'spider':
-        showId = params.showId;
-        break;
-      case 'baidu' :
-        showId = params.showId;
-        break;
-      case 'wangpiao' :
-        showId = params.showId;
-        break;
-      case 'maizuo' :
-        showId = params.foretellId;
-        break;
-      case 'ytb' :
-        showId = params.showId;
-        break;
-    }
-    return {showId: showId, cinemaId: params.cinemaId, hallId: params.hallId || '', sectionId: params.sectionId || ''}
-  }
   /**
    * 智能选座
    * @param smartSeats
