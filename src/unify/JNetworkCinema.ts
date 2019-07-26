@@ -162,14 +162,6 @@ const JNetworkCinema = {
             if (_.requestId) {
                 return _;
             } else if (_){
-                if (params.type === 'ytb'){
-                    const {seatMap} = _;
-                    for(let seatKey in seatMap){
-                        const seat = seatMap[seatKey];
-                        seat.seatCol = seat.seatCol || '1';
-                        seat.seatRow = seat.seatRow || '1';
-                    }
-                }
                 return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
             }
             return _;
@@ -179,28 +171,13 @@ const JNetworkCinema = {
     realTimeSeatsInfo: {
         url: '/cinema/realtimeseatsinfo',
         params: {
-            type: {
-                require: true,
-                cook: _ => ((_ === 'meituan' || _ === 'dazhong') ? 'maoyan' : _)
-            },
             requestId: true
         },
         book: [
             'requestId',
             'type'
         ],
-        cook: (_, {params}) => {
-            if (_) {
-                if (params.type === 'ytb'){
-                    const {seatMap} = _;
-                    for(let seatKey in seatMap){
-                        const seat = seatMap[seatKey];
-                        seat.seatCol = seat.seatCol || '1';
-                        seat.seatRow = seat.seatRow || '1';
-                    }
-                }
-                return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
-            }
+        cook: (_) => {
             return _;
         }
     }
