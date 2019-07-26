@@ -158,12 +158,7 @@ const JNetworkCinema = {
             showId: true,
             sectionId: false
         },
-        cook: (_, {params}) => {
-            if (_.requestId) {
-                return _;
-            } else if (_){
-                return JManagerSeat.defaultManager().smartSeatsFromSeats(params.type, _);
-            }
+        cook: (_) => {
             return _;
         }
     },
