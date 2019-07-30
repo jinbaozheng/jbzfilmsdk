@@ -6,9 +6,9 @@ function _netcinema(cinema) {
         id: cinema.cinemaId,
         name: cinema.cinemaName,
         distance: cinema.distance,
-        comparecount: cinema.maxCompareCount,
+        compareCount: cinema.maxCompareCount,
         comparedNames: JSON.parse(cinema.maxCompareNames),
-        minprice: cinema.minPrice
+        minPrice: cinema.minPrice
     }
 }
 
@@ -20,59 +20,18 @@ function _cinemaScreeningItems(data) {
             ...data
         }))
     }
-    // let showItems = data.showItems;
-    // let showItemsObj = {
-    //     cinemaId: data.cinemaId,
-    //     cityId: data.cityId,
-    //     cityName: data.cityName,
-    //     compareCount: data.compareCount,
-    //     compareNames: data.compareNames,
-    //     dimensional: data.dimensional,
-    //     duration: data.duration,
-    //     filmId: data.filmId,
-    //     filmName: data.filmName,
-    //     hallName: data.hallName,
-    //     jbzEndTime: data.jbzEndTime,
-    //     jbzShowTime: data.jbzShowTime,
-    //     language: data.language,
-    //     minPrice: data.minPrice,
-    //     showDate: data.showDate,
-    //     showTime: data.showTime,
-    // };
-    // for (let i = 0; i < data.showItems.length; i++) {
-    //     showItems[i] = Object.assign({}, showItems[i], showItemsObj);
-    // }
-    // return {
-    //     cinemaId: data.cinemaId,
-    //     cityId: data.cityId,
-    //     cityName: data.cityName,
-    //     compareCount: data.compareCount,
-    //     compareNames: data.compareNames,
-    //     dimensional: data.dimensional,
-    //     duration: data.duration,
-    //     filmId: data.filmId,
-    //     filmName: data.filmName,
-    //     hallName: data.hallName,
-    //     jbzEndTime: data.jbzEndTime,
-    //     jbzShowTime: data.jbzShowTime,
-    //     language: data.language,
-    //     minPrice: data.minPrice,
-    //     showDate: data.showDate,
-    //     showTime: data.showTime,
-    //     showItems: showItems
-    // }
 }
 
 const JNetworkCinema = {
     cinemaDetail: {
         url: '/cinema/cinemadetail',
         params: {
-            cinemaId: true,
-            openId: false
+            openId: false,
+            cinemaId: true
         },
         book: [
-            'cinemaId',
-            'openId'
+            'openId',
+            'cinemaId'
         ]
     },
     cinemasList: {
