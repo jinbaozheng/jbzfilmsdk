@@ -41,49 +41,51 @@ const JNetworkMine = {
     orderList: {
         url: '/mine/orderlist',
         params: {
+            openId: true,
             page: true,
             size: true,
-            openId: true,
+
             type: false
         },
         book: [
+            'openId',
             'page',
             'size',
-            'openId',
             'type'
         ]
     },
     orderDelete: {
         url: '/mine/cancelorder',
         params: {
-            orderId: true,
-            openId: true
+            openId: true,
+            orderId: true
         },
         book: [
+            'openId',
             'orderId',
-            'openId'
         ]
     },
     orderDetail: {
         url: '/mine/orderdetail',
         params: {
+            openId: true,
             orderId: true,
-            openId: true
+
         },
         book: [
+            'openId',
             'orderId',
-            'openId'
         ]
     },
     orderCancel: {
         url: '/order/cancel',
         params: {
-            orderId: true,
-            openId: true
+            openId: true,
+            orderId: true
         },
         book: [
-            'orderId',
-            'openId'
+            'openId',
+            'orderId'
         ]
     }
 };
