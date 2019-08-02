@@ -154,12 +154,12 @@ class TradeManager {
         }
         // 影托帮
         if (type === 'ytb') {
-            let seatsName = [];
+            let seatNames = [];
             let areaInfo = [];
             let seatIds = [];
             let seatInfos = [];
             for (let seat of seatList) {
-                seatsName.push(seat.seatModel.seatPieceName);
+                seatNames.push(seat.seatModel.seatPieceName);
                 areaInfo.push(seat.seatModel.seatPieceName);
                 seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatIds.push(seat.seatModel.seatNo);
@@ -167,7 +167,7 @@ class TradeManager {
             return {
                 count: seatList.length,
                 areaInfo: areaInfo.join('|'),
-                seatsName: seatsName.join('|'),
+                seatNames: seatNames.join('|'),
                 seatInfos: seatInfos.join('|'),
                 seatIds: seatIds.join('|')
             }
