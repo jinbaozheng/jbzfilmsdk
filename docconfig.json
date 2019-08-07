@@ -3,8 +3,7 @@
     "name": "jbzfilmsdk doc",
     "out": "docs",
     "module": "commonjs",
-    "target": "es2017",
-    "includeDeclarations": true
+    "target": "es2017"
   },
   "exclude": [
     "node_modules",
