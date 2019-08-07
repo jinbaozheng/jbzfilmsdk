@@ -1,19 +1,10 @@
 {
   "compilerOptions": {
-    "allowJs": true,
+    "name": "jbzfilmsdk doc",
+    "out": "docs",
     "module": "commonjs",
     "target": "es2017",
-    "sourceMap": true,
-    "lib": [
-      "dom",
-      "es6",
-      "dom.iterable",
-      "scripthost",
-      "es2017"
-    ],
-    // 解决类似 import leftPad from "left-pad"; 的问题
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
+    "includeDeclarations": true
   },
   "exclude": [
     "node_modules",
