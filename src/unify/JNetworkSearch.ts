@@ -5,20 +5,17 @@ const JNetworkSearch = {
     searchAll: {
         url: '/search/searchall',
         params: {
-          cityId: true,
-          key: true,
-          longitude: true,
-          latitude: true,
-          page: true,
-          size: false
+            cityId: true,
+            longitude: true,
+            latitude: true,
+            key: true,
+            page: true,
+            size: false
         },
         book: [
-          'cityId',
-          'key',
-          'longitude',
-          'latitude',
-          'page',
-          'size'
+            'key',
+            'page',
+            'size?'
         ],
         description: 'cinema 无数据'
     }

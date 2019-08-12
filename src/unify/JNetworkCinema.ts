@@ -26,12 +26,11 @@ const JNetworkCinema = {
     cinemaDetail: {
         url: '/cinema/cinemadetail',
         params: {
+            cinemaId: true,
             openId: false,
-            cinemaId: true
         },
         book: [
-            'openId',
-            'cinemaId'
+            'cinemaId',
         ]
     },
     cinemasList: {
@@ -48,25 +47,12 @@ const JNetworkCinema = {
             size: false,
             date: false,
         },
-        book: [
-            'cityId',
-            'longitude',
-            'latitude',
-            'orderType',
-            'regionName',
-            'filmId',
-            'feature',
-            'page',
-            'size',
-            'date'
-        ],
         cook: _ => _.map(_netcinema)
     },
     cinemaScreeningFilmList: {
         url: '/cinema/films',
         params: {
             cinemaId: true
-
         },
         book: [
             'cinemaId'
@@ -127,8 +113,7 @@ const JNetworkCinema = {
             requestId: true
         },
         book: [
-            'requestId',
-            'type'
+            'requestId'
         ],
         cook: (_) => {
             return _;

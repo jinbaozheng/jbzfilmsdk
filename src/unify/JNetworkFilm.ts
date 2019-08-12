@@ -5,7 +5,6 @@ const JNetworkFilm = {
     filmHotfilms: {
         url:  '/film/hotfilms',
         cook: data => {
-            console.log(data)
             let films = data.films.map(_ => FilmModel.create(_))
             return {count: data.count, films};
         }
@@ -25,7 +24,6 @@ const JNetworkFilm = {
     filmWaitfilms: {
         url:  '/film/soonfilms',
         cook: data => {
-            console.log(data)
             let films = data.films.map(_ => FilmModel.create(_))
             return {count: data.count, films};
         }
