@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "name": "jbzfilmsdk doc",
-    "out": "docs",
     "module": "commonjs",
     "target": "es2017"
+  },
+  "typedocOptions": {
+    "name": "jbzfilmsdk doc",
+    "out": "docs",
+    "includeDeclarations": true,
+    "excludeExternals": true
   },
   "exclude": [
     "node_modules",
