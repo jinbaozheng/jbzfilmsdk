@@ -26,7 +26,8 @@
     "axios": "^0.18.1",
     "icemilk": "1.0.9-beta11",
     "jsencrypt": "^3.0.0-rc.1",
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "typedoc": "^0.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
