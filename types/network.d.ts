@@ -292,9 +292,6 @@ export declare class JNetworkTrade extends JNetworkWorker {
 
     /**
      * 收银台返回的支付结果
-     * @param _CallBackUrl 订单id
-     * @param orderId 订单id
-     * @param token 加密参数
      * @returns {*} 返回请求promise
      */
     cmbcConfirmPay(_CallBackUrl, orderId, token): Promise<any>
