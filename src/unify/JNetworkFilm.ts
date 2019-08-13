@@ -2,7 +2,7 @@ import FilmModel from '../model/FilmModel';
 import FilmSimpleModel from '../model/FilmSimpleModel';
 
 const JNetworkFilm = {
-    filmHotfilms: {
+    filmHotFilms: {
         url:  '/film/hotfilms',
         cook: data => {
             let films = data.films.map(_ => FilmModel.create(_))
@@ -21,7 +21,7 @@ const JNetworkFilm = {
         ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
-    filmWaitfilms: {
+    filmWaitFilms: {
         url:  '/film/soonfilms',
         cook: data => {
             let films = data.films.map(_ => FilmModel.create(_))

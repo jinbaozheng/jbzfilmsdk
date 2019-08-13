@@ -7,7 +7,7 @@ export declare class JNetworkAccount extends JNetworkWorker{
     accountLogout(sessionId): Promise<any>
     accountVerifyCode(mobile, type): Promise<any>
     accountRegister(mobile, verifyCode, password): Promise<any>
-    accountUpdatepass(mobile, verfyCode, password): Promise<any>
+    accountUpdatePassword(mobile, verifyCode, password): Promise<any>
 }
 
 export declare class JNetworkCity extends JNetworkWorker{
@@ -20,9 +20,9 @@ export declare class JNetworkCity extends JNetworkWorker{
 }
 
 export declare class JNetworkFilm extends JNetworkWorker{
-    filmHotfilms(page: PageModel): Promise<any>
-    filmHotfilmsSimple(): Promise<any>
-    filmWaitfilms(page): Promise<any>
+    filmHotFilms(page: PageModel): Promise<any>
+    filmHotFilmsSimple(): Promise<any>
+    filmWaitFilms(page): Promise<any>
     filmDetail(filmId, platform?): Promise<any>
     filmDateList(filmId): Promise<any>
 }

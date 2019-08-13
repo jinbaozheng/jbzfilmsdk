@@ -43,7 +43,7 @@ const JNetworkAccount = {
             'password'
         ]
     },
-    accountUpdatepass: {
+    accountUpdatePassword: {
         url: '/account/updatepass',
         params: {
             mobile: true,
