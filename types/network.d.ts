@@ -257,11 +257,11 @@ export declare class JNetworkSearch extends JNetworkWorker {
      * 影片、影院搜索
      * @param cityId 城市id
      * @param key 搜索关键字
-     * @param page 分页信息
      * @param coordinate 经纬度
+     * @param page 分页信息
      * @returns {*} 返回请求promise
      */
-    searchAll(cityId, key, page: PageParas, coordinate: CoordinateParas): Promise<any>
+    searchAll(cityId, key, coordinate: CoordinateParas, page: PageParas): Promise<any>
 
     /**
      * 影片热门搜索列表
