@@ -98,13 +98,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkother.html#banners" class="tsd-kind-icon">banners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkother.html#clearextradata" class="tsd-kind-icon">clear<wbr>Extra<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkother.html#fetchrequest" class="tsd-kind-icon">fetch<wbr>Request</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkother.html#hotsearchkeyword" class="tsd-kind-icon">hot<wbr>Search<wbr>Keyword</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkother.html#otherbanners" class="tsd-kind-icon">other<wbr>Banners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkother.html#search" class="tsd-kind-icon">search</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkother.html#hotquery" class="tsd-kind-icon">hot<wbr>Query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkother.html#searchall" class="tsd-kind-icon">search<wbr>All</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkother.html#usebodydata" class="tsd-kind-icon">use<wbr>Body<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkother.html#useheaders" class="tsd-kind-icon">use<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkother.html#useparams" class="tsd-kind-icon">use<wbr>Params</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_network_d_.jnetworkother.html#search-1" class="tsd-kind-icon">search</a></li>
 							</ul>
 						</section>
 					</div>
@@ -152,25 +150,37 @@
 					<a name="banners" class="tsd-anchor"></a>
 					<h3>banners</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">banners<span class="tsd-signature-symbol">(</span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">banners<span class="tsd-signature-symbol">(</span>location<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L184">network.d.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L203">network.d.ts:203</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Banners广告图</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>position: <span class="tsd-signature-type">any</span></h5>
+									<h5>location: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>banner的位置</p>
+									</div>
 								</li>
 								<li>
 									<h5>cityId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>城市id</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
 						</li>
 					</ul>
 				</section>
@@ -203,7 +213,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_network_d_.jnetworkworker.html">JNetworkWorker</a>.<a href="_network_d_.jnetworkworker.html#fetchrequest">fetchRequest</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L214">network.d.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L270">network.d.ts:270</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -217,21 +227,21 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="hotsearchkeyword" class="tsd-anchor"></a>
-					<h3>hot<wbr>Search<wbr>Keyword</h3>
+					<a name="hotquery" class="tsd-anchor"></a>
+					<h3>hot<wbr>Query</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">hot<wbr>Search<wbr>Keyword<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">hot<wbr>Query<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L174">network.d.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L194">network.d.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>热门影片搜索列表</p>
+									<p>影片热门搜索列表</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -240,54 +250,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="otherbanners" class="tsd-anchor"></a>
-					<h3>other<wbr>Banners</h3>
+					<a name="searchall" class="tsd-anchor"></a>
+					<h3>search<wbr>All</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">other<wbr>Banners<span class="tsd-signature-symbol">(</span>location<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">search<wbr>All<span class="tsd-signature-symbol">(</span>cityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, page<span class="tsd-signature-symbol">: </span><a href="../interfaces/_paras_d_.pageparas.html" class="tsd-signature-type">PageParas</a>, coordinate<span class="tsd-signature-symbol">: </span><a href="../interfaces/_paras_d_.coordinateparas.html" class="tsd-signature-type">CoordinateParas</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L182">network.d.ts:182</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Banners广告图</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>location: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>banner的位置</p>
-									</div>
-								</li>
-								<li>
-									<h5>cityId: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>城市id</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>返回请求promise</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="search" class="tsd-anchor"></a>
-					<h3>search</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">(</span>cityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, searchKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, nextPageFirstKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L168">network.d.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L188">network.d.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -304,15 +276,21 @@
 									</div>
 								</li>
 								<li>
-									<h5>searchKey: <span class="tsd-signature-type">any</span></h5>
+									<h5>key: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>搜索内容</p>
+										<p>搜索关键字</p>
 									</div>
 								</li>
 								<li>
-									<h5>nextPageFirstKey: <span class="tsd-signature-type">any</span></h5>
+									<h5>page: <a href="../interfaces/_paras_d_.pageparas.html" class="tsd-signature-type">PageParas</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>页码</p>
+										<p>分页</p>
+									</div>
+								</li>
+								<li>
+									<h5>coordinate: <a href="../interfaces/_paras_d_.coordinateparas.html" class="tsd-signature-type">CoordinateParas</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>经纬度</p>
 									</div>
 								</li>
 							</ul>
@@ -393,35 +371,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="search-1" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> search</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">(</span>cityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, searchKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, nextPageFirstKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L186">network.d.ts:186</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>cityId: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>searchKey: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>nextPageFirstKey: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -491,13 +440,10 @@
 								<a href="_network_d_.jnetworkother.html#fetchrequest" class="tsd-kind-icon">fetch<wbr>Request</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_network_d_.jnetworkother.html#hotsearchkeyword" class="tsd-kind-icon">hot<wbr>Search<wbr>Keyword</a>
+								<a href="_network_d_.jnetworkother.html#hotquery" class="tsd-kind-icon">hot<wbr>Query</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_network_d_.jnetworkother.html#otherbanners" class="tsd-kind-icon">other<wbr>Banners</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_network_d_.jnetworkother.html#search" class="tsd-kind-icon">search</a>
+								<a href="_network_d_.jnetworkother.html#searchall" class="tsd-kind-icon">search<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkother.html#usebodydata" class="tsd-kind-icon">use<wbr>Body<wbr>Data</a>
@@ -507,9 +453,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkother.html#useparams" class="tsd-kind-icon">use<wbr>Params</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_network_d_.jnetworkother.html#search-1" class="tsd-kind-icon">search</a>
 							</li>
 						</ul>
 					</li>

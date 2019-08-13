@@ -1,4 +1,6 @@
 import {JToolObject as ObjectTool} from "icemilk";
+import CityModel from "../model/CityModel";
+import DistrictModel from "../model/DistrictModel";
 
 function _netCityToCity(city) {
     return {id: city.id, name: city.cityName, latin: city.cityEn, provinceId: city.provinceId};

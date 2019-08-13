@@ -100,9 +100,10 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkcity.html#citydistrictlist" class="tsd-kind-icon">city<wbr>District<wbr>List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkcity.html#cityhotlist" class="tsd-kind-icon">city<wbr>Hot<wbr>List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkcity.html#citylist" class="tsd-kind-icon">city<wbr>List</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkcity.html#cityneedcoordinate" class="tsd-kind-icon">city<wbr>Need<wbr>Coordinate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkcity.html#clearextradata" class="tsd-kind-icon">clear<wbr>Extra<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkcity.html#districts" class="tsd-kind-icon">districts</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkcity.html#fetchrequest" class="tsd-kind-icon">fetch<wbr>Request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkcity.html#locationcityinfo" class="tsd-kind-icon">location<wbr>City<wbr>Info</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkcity.html#usebodydata" class="tsd-kind-icon">use<wbr>Body<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkcity.html#useheaders" class="tsd-kind-icon">use<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkcity.html#useparams" class="tsd-kind-icon">use<wbr>Params</a></li>
@@ -153,22 +154,31 @@
 					<a name="citybycoordinate" class="tsd-anchor"></a>
 					<h3>city<wbr>ByCoordinate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">city<wbr>ByCoordinate<span class="tsd-signature-symbol">(</span>coordinate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">city<wbr>ByCoordinate<span class="tsd-signature-symbol">(</span>coordinate<span class="tsd-signature-symbol">: </span><a href="../interfaces/_paras_d_.coordinateparas.html" class="tsd-signature-type">CoordinateParas</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L35">network.d.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L35">network.d.ts:35</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>请求城市定位</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>coordinate: <span class="tsd-signature-type">any</span></h5>
+									<h5>coordinate: <a href="../interfaces/_paras_d_.coordinateparas.html" class="tsd-signature-type">CoordinateParas</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>经纬度信息</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
 						</li>
 					</ul>
 				</section>
@@ -182,7 +192,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L44">network.d.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L61">network.d.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -214,12 +224,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L51">network.d.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L68">network.d.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>城市区域信息</p>
+									<p>根据城市id获取地区列表返回结果处理过</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -246,12 +256,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L57">network.d.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L48">network.d.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取热门城市列表信息</p>
+									<p>热门城市</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -269,33 +279,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L33">network.d.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L54">network.d.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>获取城市列表信息</p>
+									<p>城市列表</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>返回请求promise</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="cityneedcoordinate" class="tsd-anchor"></a>
-					<h3>city<wbr>Need<wbr>Coordinate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">city<wbr>Need<wbr>Coordinate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L37">network.d.ts:37</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -317,6 +310,38 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="districts" class="tsd-anchor"></a>
+					<h3>districts</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">districts<span class="tsd-signature-symbol">(</span>cityId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L75">network.d.ts:75</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>根据城市id获取地区列表</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>cityId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>城市id</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="fetchrequest" class="tsd-anchor"></a>
 					<h3>fetch<wbr>Request</h3>
@@ -328,7 +353,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_network_d_.jnetworkworker.html">JNetworkWorker</a>.<a href="_network_d_.jnetworkworker.html#fetchrequest">fetchRequest</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L214">network.d.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L270">network.d.ts:270</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -338,6 +363,38 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">INetworkStandardPromiseType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="locationcityinfo" class="tsd-anchor"></a>
+					<h3>location<wbr>City<wbr>Info</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">location<wbr>City<wbr>Info<span class="tsd-signature-symbol">(</span>requestId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L42">network.d.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>获取定位结果</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>requestId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>请求定位接口返回的requestId</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
 						</li>
 					</ul>
 				</section>
@@ -478,14 +535,17 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_network_d_.jnetworkcity.html#citylist" class="tsd-kind-icon">city<wbr>List</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_network_d_.jnetworkcity.html#cityneedcoordinate" class="tsd-kind-icon">city<wbr>Need<wbr>Coordinate</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkcity.html#clearextradata" class="tsd-kind-icon">clear<wbr>Extra<wbr>Data</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_network_d_.jnetworkcity.html#districts" class="tsd-kind-icon">districts</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkcity.html#fetchrequest" class="tsd-kind-icon">fetch<wbr>Request</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_network_d_.jnetworkcity.html#locationcityinfo" class="tsd-kind-icon">location<wbr>City<wbr>Info</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkcity.html#usebodydata" class="tsd-kind-icon">use<wbr>Body<wbr>Data</a>

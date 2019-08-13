@@ -95,11 +95,15 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#celcltcinema" class="tsd-kind-icon">cel<wbr>Clt<wbr>Cinema</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkmine.html#clearextradata" class="tsd-kind-icon">clear<wbr>Extra<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#cltcinema" class="tsd-kind-icon">clt<wbr>Cinema</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#cltedcinemalist" class="tsd-kind-icon">clt<wbr>EdCinema<wbr>List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkmine.html#fetchrequest" class="tsd-kind-icon">fetch<wbr>Request</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#minefavorite" class="tsd-kind-icon">mine<wbr>Favorite</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#minefavoritecinema" class="tsd-kind-icon">mine<wbr>Favorite<wbr>Cinema</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#mineorder" class="tsd-kind-icon">mine<wbr>Order</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#ordercancel" class="tsd-kind-icon">order<wbr>Cancel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#orderdelete" class="tsd-kind-icon">order<wbr>Delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#orderdetail" class="tsd-kind-icon">order<wbr>Detail</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_network_d_.jnetworkmine.html#orderlist" class="tsd-kind-icon">order<wbr>List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkmine.html#usebodydata" class="tsd-kind-icon">use<wbr>Body<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkmine.html#useheaders" class="tsd-kind-icon">use<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_network_d_.jnetworkmine.html#useparams" class="tsd-kind-icon">use<wbr>Params</a></li>
@@ -146,6 +150,44 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="celcltcinema" class="tsd-anchor"></a>
+					<h3>cel<wbr>Clt<wbr>Cinema</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">cel<wbr>Clt<wbr>Cinema<span class="tsd-signature-symbol">(</span>openId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cinemaId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L213">network.d.ts:213</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>取消收藏影院</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>openId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用户唯一信息</p>
+									</div>
+								</li>
+								<li>
+									<h5>cinemaId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>影院id</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="clearextradata" class="tsd-anchor"></a>
 					<h3>clear<wbr>Extra<wbr>Data</h3>
@@ -164,6 +206,94 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="cltcinema" class="tsd-anchor"></a>
+					<h3>clt<wbr>Cinema</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">clt<wbr>Cinema<span class="tsd-signature-symbol">(</span>openId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cinemaId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cinemaName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cinemaAddress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L223">network.d.ts:223</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>收藏影院</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>openId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用户唯一信息</p>
+									</div>
+								</li>
+								<li>
+									<h5>cinemaId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>影院id</p>
+									</div>
+								</li>
+								<li>
+									<h5>cinemaName: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>影院名</p>
+									</div>
+								</li>
+								<li>
+									<h5>cinemaAddress: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>影院地址</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="cltedcinemalist" class="tsd-anchor"></a>
+					<h3>clt<wbr>EdCinema<wbr>List</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">clt<wbr>EdCinema<wbr>List<span class="tsd-signature-symbol">(</span>openId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, page<span class="tsd-signature-symbol">: </span><a href="../interfaces/_paras_d_.pageparas.html" class="tsd-signature-type">PageParas</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L231">network.d.ts:231</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>收藏影院列表</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>openId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用户唯一信息</p>
+									</div>
+								</li>
+								<li>
+									<h5>page: <a href="../interfaces/_paras_d_.pageparas.html" class="tsd-signature-type">PageParas</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>分页</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="fetchrequest" class="tsd-anchor"></a>
 					<h3>fetch<wbr>Request</h3>
@@ -175,7 +305,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_network_d_.jnetworkworker.html">JNetworkWorker</a>.<a href="_network_d_.jnetworkworker.html#fetchrequest">fetchRequest</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L214">network.d.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L270">network.d.ts:270</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -189,56 +319,118 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="minefavorite" class="tsd-anchor"></a>
-					<h3>mine<wbr>Favorite</h3>
+					<a name="ordercancel" class="tsd-anchor"></a>
+					<h3>order<wbr>Cancel</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">mine<wbr>Favorite<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">order<wbr>Cancel<span class="tsd-signature-symbol">(</span>openId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, orderId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L202">network.d.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L250">network.d.ts:250</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>openId: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>orderId: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="minefavoritecinema" class="tsd-anchor"></a>
-					<h3>mine<wbr>Favorite<wbr>Cinema</h3>
+					<a name="orderdelete" class="tsd-anchor"></a>
+					<h3>order<wbr>Delete</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">mine<wbr>Favorite<wbr>Cinema<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">order<wbr>Delete<span class="tsd-signature-symbol">(</span>openId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, orderId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L200">network.d.ts:200</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L248">network.d.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>收藏的影院列表</p>
+									<p>取消订单</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>openId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用户唯一信息</p>
+									</div>
+								</li>
+								<li>
+									<h5>orderId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>订单id</p>
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>返回请求promise</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="mineorder" class="tsd-anchor"></a>
-					<h3>mine<wbr>Order</h3>
+					<a name="orderdetail" class="tsd-anchor"></a>
+					<h3>order<wbr>Detail</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">mine<wbr>Order<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">order<wbr>Detail<span class="tsd-signature-symbol">(</span>openId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, orderId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/4d6866f/types/network.d.ts#L194">network.d.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L258">network.d.ts:258</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>订单详情</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>openId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用户唯一信息</p>
+									</div>
+								</li>
+								<li>
+									<h5>orderId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>订单id</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>返回请求promise</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="orderlist" class="tsd-anchor"></a>
+					<h3>order<wbr>List</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">order<wbr>List<span class="tsd-signature-symbol">(</span>openId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, page<span class="tsd-signature-symbol">: </span><a href="../interfaces/_paras_d_.pageparas.html" class="tsd-signature-type">PageParas</a>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jinbaozheng/jbzfilmsdk/blob/1affb58/types/network.d.ts#L240">network.d.ts:240</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -246,6 +438,27 @@
 									<p>订单列表</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>openId: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>用户唯一信息</p>
+									</div>
+								</li>
+								<li>
+									<h5>page: <a href="../interfaces/_paras_d_.pageparas.html" class="tsd-signature-type">PageParas</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>分页</p>
+									</div>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>订单类型（01:待支付/02:已支付/03:退款/不传:全部）</p>
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>返回请求promise</p>
 						</li>
@@ -379,20 +592,32 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkmine.html#extraparams" class="tsd-kind-icon">extra<wbr>Params</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_network_d_.jnetworkmine.html#celcltcinema" class="tsd-kind-icon">cel<wbr>Clt<wbr>Cinema</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkmine.html#clearextradata" class="tsd-kind-icon">clear<wbr>Extra<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_network_d_.jnetworkmine.html#cltcinema" class="tsd-kind-icon">clt<wbr>Cinema</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_network_d_.jnetworkmine.html#cltedcinemalist" class="tsd-kind-icon">clt<wbr>EdCinema<wbr>List</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkmine.html#fetchrequest" class="tsd-kind-icon">fetch<wbr>Request</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_network_d_.jnetworkmine.html#minefavorite" class="tsd-kind-icon">mine<wbr>Favorite</a>
+								<a href="_network_d_.jnetworkmine.html#ordercancel" class="tsd-kind-icon">order<wbr>Cancel</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_network_d_.jnetworkmine.html#minefavoritecinema" class="tsd-kind-icon">mine<wbr>Favorite<wbr>Cinema</a>
+								<a href="_network_d_.jnetworkmine.html#orderdelete" class="tsd-kind-icon">order<wbr>Delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_network_d_.jnetworkmine.html#mineorder" class="tsd-kind-icon">mine<wbr>Order</a>
+								<a href="_network_d_.jnetworkmine.html#orderdetail" class="tsd-kind-icon">order<wbr>Detail</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_network_d_.jnetworkmine.html#orderlist" class="tsd-kind-icon">order<wbr>List</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_network_d_.jnetworkmine.html#usebodydata" class="tsd-kind-icon">use<wbr>Body<wbr>Data</a>

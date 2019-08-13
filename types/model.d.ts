@@ -1,5 +1,5 @@
 /**
- * 城市参数声明
+ * 城市返回参数声明
  */
 export declare interface CityModel {
     /**
@@ -17,39 +17,7 @@ export declare interface CityModel {
 }
 
 /**
- * 分页参数声
- */
-export declare interface PageModel {
-    /**
-     * 页码
-     */
-    index: number;
-    /**
-     * 每页条数
-     */
-    size: number;
-}
-
-/**
- * 座位图参数声明
- */
-export declare interface SeatParasModel {
-    /**
-     * 影院id
-     */
-    cinemaId: string;
-    /**
-     * 排片id
-     */
-    showId: string;
-    /**
-     * 影厅id
-     */
-    hallId: string;
-}
-
-/**
- * 画座位图参数声明
+ * 画座位图处理返回参数声明
  */
 export declare interface SmartSeatModel {
     /**

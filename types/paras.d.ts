@@ -3,6 +3,14 @@
  */
 export declare interface CinemaFilterParas {
     /**
+     * 排序
+     */
+    orderType: string;
+    /**
+     * 区域
+     */
+    regionName: string;
+    /**
      * 影片id
      */
     filmId: string;
@@ -11,17 +19,31 @@ export declare interface CinemaFilterParas {
      */
     feature: string;
     /**
-     * 区域
+     * 页码
      */
-    region: string;
+    page: number;
     /**
-     * 排序
+     * 每页显示条数
      */
-    sort: string;
+    size: number;
     /**
-     * 分页
+     * 日期
      */
-    limit: string;
+    date: string;
+}
+
+/**
+ * 分页参数声明
+ */
+export declare interface PageParas {
+    /**
+     * 页码
+     */
+    page: number;
+    /**
+     * 每页条数
+     */
+    size: number;
 }
 
 export declare interface CityParas {
@@ -57,4 +79,22 @@ export declare interface LocationParas {
      * 纬度
      */
     latitude: number
+}
+
+/**
+ * 座位图参数声明
+ */
+export declare interface SeatParas {
+    /**
+     * 影院id
+     */
+    cinemaId: string;
+    /**
+     * 场次id
+     */
+    showId: string;
+    /**
+     * 区域id，淘宝独有
+     */
+    sectionId: string;
 }
