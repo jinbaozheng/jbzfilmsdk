@@ -2,14 +2,14 @@ import FilmModel from '../model/FilmModel';
 import FilmSimpleModel from '../model/FilmSimpleModel';
 
 const JNetworkFilm = {
-    filmHotFilms: {
+    hotFilms: {
         url:  '/film/hotfilms',
         cook: data => {
             let films = data.films.map(_ => FilmModel.create(_))
             return {count: data.count, films};
         }
     },
-    hotFilmsPage: {
+    hotFilmsByPage: {
         url:  '/film/hotfilmspage',
         params: {
             page: true,
@@ -21,14 +21,14 @@ const JNetworkFilm = {
         ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
-    filmWaitFilms: {
+    waitFilms: {
         url:  '/film/soonfilms',
         cook: data => {
             let films = data.films.map(_ => FilmModel.create(_))
             return {count: data.count, films};
         }
     },
-    soonFilmsPage: {
+    waitFilmsByPage: {
         url:  '/film/soonfilmspage',
         params: {
             page: true,
@@ -40,7 +40,7 @@ const JNetworkFilm = {
         ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
-    filmFilm: {
+    filmDetail: {
         url:  '/film/film',
         params: {
             filmId: true

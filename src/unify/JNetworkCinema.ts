@@ -39,7 +39,10 @@ const JNetworkCinema = {
             cityId: true,
             longitude: true,
             latitude: true,
-            orderType: true,
+            orderType: {
+                required: false,
+                default: 2
+            },
             regionName: false,
             filmId: false,
             feature: false,

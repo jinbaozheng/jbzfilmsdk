@@ -1,92 +1,87 @@
 import {INetworkStandardPromiseType, JNetworkRoot, JToolDate, JToolObject as ObjectTool} from 'icemilk';
 import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParas} from "./paras"
-import FilmModel from "../src/model/FilmModel";
 
+/**
+ * @hidden
+ */
 export declare class JNetworkAccount extends JNetworkWorker {
     /**
-     * 用户登录信息
-     * @param mobile 用户账号
-     * @param password 用户密码
+     * 用户登录
+     * @param key 用户加密信息
      * @returns {*} 返回请求promise
      */
-    accountLogin(mobile, password): Promise<any>
-
-    /**
-     * 用户注销信息
-     * @param sessionId 用户信息
-     * @returns {*} 返回请求promise
-     */
-    accountLogout(sessionId): Promise<any>
-
-    accountVerifyCode(mobile, type): Promise<any>
-
-    accountRegister(mobile, verifyCode, password): Promise<any>
-
-    accountUpdatepass(mobile, verfyCode, password): Promise<any>
+    systemLogin(key: string): Promise<any>
 }
 
+/**
+ * 推广Banner相关网络请求类
+ */
 export declare class JNetworkBanner extends JNetworkWorker {
-
     /**
-     * Banners广告图
+     * 推广Banner广告列表
      * @param location banner的位置
      * @param cityId 城市id
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回Banner列表
      */
-
-    bannerList(location, cityId): Promise<any>
+    bannerList(location: string, cityId?: string | number): Promise<any>
 }
 
+/**
+ * 影院相关网络请求类
+ */
 export declare class JNetworkCinema extends JNetworkWorker {
     /**
-     * 影院详情
+     * 获取影院详情
      * @param cinemaId 影院id
-     * @param openId 用户唯一标识
-     * @returns {*} 返回请求promise
+     * @description openId 用户唯一标识可选传入
+     * @returns {*} 返回影院详情
      */
-    cinemaDetail(cinemaId, openId?): Promise<any>
+    cinemaDetail(cinemaId): Promise<any>
 
     /**
-     * 影院列表
-     * @param location 城市信息
-     * @param cinemaFilter 影院筛选信息，
-     * @returns {*} 返回请求promise
+     * 获取影院列表
+     * @param filterParams 影院筛选条件
+     * @see LocationParas
+     * @see CinemaFilterParas
+     * @description LocationParas 所有属性必须不为空 CinemaFilterParas 所有属性都可为空
+     * @returns {*} 返回影院列表
      */
-    cinemasList(location: LocationParas, cinemaFilter: CinemaFilterParas): Promise<any>
+    cinemasList(filterParams: LocationParas & CinemaFilterParas): Promise<any>
 
     /**
-     * 影院的电影列表
+     * 获取影院拍片的电影列表
      * @param cinemaId 影院id
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回电影列表
      */
-    cinemaScreeningFilmList(cinemaId): Promise<any>
+    cinemaScreeningFilmList(cinemaId: string): Promise<any>
 
     /**
-     * 影院影片排片日期
+     * 获取影院拍片的日期列表
      * @param cinemaId 影院id
      * @param filmId 影片id
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回时间戳格式的日期列表
      */
-    cinemaScreeningDateList(cinemaId, filmId): Promise<any>
+    cinemaScreeningDateList(cinemaId: string, filmId: string): Promise<any>
 
     /**
-     * 影院影片排片
+     * 获取影院排片的场次列表
      * @param cinemaId 影院id
      * @param filmId 影片id
      * @param date 日期
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回场次列表
      */
-    cinemaScreeningItems(cinemaId, filmId, date): Promise<any>
+    cinemaScreeningItems(cinemaId: string, filmId: string, date: string): Promise<any>
 
     /**
-     * 请求实时座位图
+     * 获取场次实时座位图
      * @param type 票务商
-     * @param paras 影院排片等信息
-     * @returns {*} 返回请求promise
+     * @param paras 影院排片参数
+     * @returns {*} 返回实时座位图
      */
-    cinemaSmartSeats(type, paras: SeatParas): Promise<any>
+    cinemaSmartSeats(type: string, paras: SeatParas): Promise<any>
 
     /**
+     * @hidden
      * 实时座位图结果 (异步处理)
      * @param requestId 请求Id，该值为申请实时座位图接口返回的requestId
      * @returns {*} 返回请求promise
@@ -94,16 +89,20 @@ export declare class JNetworkCinema extends JNetworkWorker {
     realTimeSeatsInfo(requestId): Promise<any>
 }
 
+/**
+ * 城市相关网络请求类
+ */
 export declare class JNetworkCity extends JNetworkWorker {
 
     /**
-     * 请求城市定位
+     * 获取当前城市信息
      * @param coordinate 经纬度信息
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回城市信息
      */
     cityByCoordinate(coordinate: CoordinateParas): Promise<any>
 
     /**
+     * @hidden
      * 获取定位结果
      * @param requestId 请求定位接口返回的requestId
      * @returns {*} 返回请求promise
@@ -111,203 +110,257 @@ export declare class JNetworkCity extends JNetworkWorker {
     locationCityInfo(requestId): Promise<any>
 
     /**
-     * 热门城市
-     * @returns {*} 返回请求promise
+     * 获取热门城市列表
+     * @returns {*} 返回城市列表
      */
     cityHotList(): Promise<any>
 
     /**
-     * 城市列表
-     * @returns {*} 返回请求promise
+     * 获取所有城市列表
+     * @returns {*} 返回城市列表
      */
     cityList(): Promise<any>
 
     /**
-     * 根据id查城市信息
+     * 根据城市id获取城市信息
      * @param cityId 城市id
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回城市信息
      */
-    cityById(cityId): Promise<any>
-
-    /**
-     * 根据城市id获取地区列表返回结果处理过
-     * @param cityId 城市id
-     * @returns {*} 返回请求promise
-     */
-    cityDistrictList(cityId): Promise<any>
+    cityById(cityId: string): Promise<any>
 
     /**
      * 根据城市id获取地区列表
      * @param cityId 城市id
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回地区列表
+     */
+    cityDistrictList(cityId): Promise<any>
+
+    /**
+     * @ignore
+     * 根据城市id获取地区列表
+     * @param cityId 城市id
+     * @description 原始返回数据
+     * @returns {*} 返回地区列表
      */
     districts(cityId): Promise<any>
-
-
 }
 
+/**
+ * 影片相关网络请求类
+ */
 export declare class JNetworkFilm extends JNetworkWorker {
     /**
-     * 热门影片(Top10及总数)
-     * @returns {*} 返回请求promise
+     * 获取前十热门影片列表
+     * @description Top10及总数
+     * @returns {*} 返回影片列表
      */
-    filmHotfilms(): Promise<any>
+    hotFilms(): Promise<any>
 
     /**
-     * 热门影片部份信息
+     * 获取热门影片列表
      * @param page 分页信息(页码、条数)
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回影片列表
      */
-    hotFilmsPage(page: PageParas): Promise<any>
+    hotFilmsByPage(page: PageParas): Promise<any>
 
     /**
-     * 待映影片(Top10及总数)
-     * @returns {*} 返回请求promise
+     * 获取前十待映影片列表
+     * @description Top10及总数
+     * @returns {*} 返回影片列表
      */
-    filmWaitfilms(): Promise<any>
+    waitFilms(): Promise<any>
 
     /**
-     * 待映影片(Top10及总数)
+     * 获取待映影片列表
      * @param page 分页信息(页码、条数)
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回影片列表
      */
-    soonFilmsPage(page: PageParas): Promise<any>
+    waitFilmsByPage(page: PageParas): Promise<any>
 
     /**
-     * 影片详情
+     * 获取影片信息
      * @param filmId 影片id
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回影片信息
      */
-    filmFilm(filmId): Promise<any>
+    filmDetail(filmId: string): Promise<any>
 
     /**
-     * 影片评论
+     * 获取影片热门评论列表
      * @param filmId 影片id
-     * @returns {*} 返回请求promise
+     * @returns {*} 返回影片评论列表
      */
-    filmHotComments(filmId): Promise<any>
+    filmHotComments(filmId: string): Promise<any>
 }
 
+/**
+ * 个人信息相关网络请求类
+ */
 export declare class JNetworkMine extends JNetworkWorker {
     /**
-     * 取消收藏影院
-     * @param openId 用户唯一信息
+     * 取消收藏的影院
      * @param cinemaId 影院id
-     * @returns {*} 返回请求promise
+     * @description openId 用户唯一标识必须传入
+     * @returns {*} 返回是否取消成功
      */
-    celCltCinema(openId, cinemaId): Promise<any>
+    cancelCollectCinema(cinemaId: string): Promise<any>
 
     /**
      * 收藏影院
-     * @param openId 用户唯一信息
      * @param cinemaId 影院id
-     * @param cinemaName 影院名
+     * @param cinemaName 影院名称
      * @param cinemaAddress 影院地址
-     * @returns {*} 返回请求promise
+     * @description openId 用户唯一标识必须传入
+     * @returns {*} 返回是否收藏成功
      */
-    cltCinema(openId, cinemaId, cinemaName, cinemaAddress): Promise<any>
+    collectCinema(cinemaId: string, cinemaName: string, cinemaAddress: string): Promise<any>
 
     /**
-     * 收藏影院列表
-     * @param openId 用户唯一信息
-     * @param page 分页
-     * @returns {*} 返回请求promise
+     * 获取已经收藏的影院列表
+     * @param page 分页信息
+     * @description openId 用户唯一标识必须传入
+     * @returns {*} 返回影院列表
      */
-    cltEdCinemaList(openId, page: PageParas): Promise<any>
+    collectedCinemaList(page: PageParas): Promise<any>
 
     /**
-     * 订单列表
-     * @param openId 用户唯一信息
+     * 获取订单列表
      * @param page 分页
      * @param type 订单类型（01:待支付/02:已支付/03:退款/不传:全部）
-     * @returns {*} 返回请求promise
+     * @description openId 用户唯一标识必须传入
+     * @returns {*} 返回订单列表
      */
-    orderList(openId, page: PageParas, type): Promise<any>
+    orderList(page: PageParas & {type: string}): Promise<any>
 
     /**
-     * 删除订单
-     * @param openId 用户唯一信息
+     * 获取订单详情
      * @param orderId 订单id
-     * @returns {*} 返回请求promise
+     * @description openId 用户唯一标识必须传入
+     * @returns {*} 返回订单详情
      */
-    orderDelete(openId, orderId): Promise<any>
+    orderDetail(orderId): Promise<any>
 
     /**
      * 取消订单
-     * @param openId 用户唯一信息
      * @param orderId 订单id
-     * @returns {*} 返回请求promise
+     * @description openId 用户唯一标识必须传入
+     * @returns {*} 返回是否取消成功
      */
-    orderCancel(openId, orderId): Promise<any>
-
-    /**
-     * 订单详情
-     * @param openId 用户唯一信息
-     * @param orderId 订单id
-     * @returns {*} 返回请求promise
-     */
-    orderDetail(openId, orderId): Promise<any>
+    orderCancel(orderId): Promise<any>
 }
 
+/**
+ * 其他相关网络请求类
+ */
 export declare class JNetworkOther extends JNetworkWorker {
+    /**
+     * 加密
+     * @param key 待加密信息
+     * @returns {*} 返回加密后的信息
+     */
+    systemEncrypt(key): Promise<string>
+    /**
+     * 解密
+     * @param key 待解密信息
+     * @returns {*} 返回解密后的信息
+     */
+    systemDecrypt(key): Promise<string>
 }
 
+/**
+ * 搜索相关网络信息类
+ */
 export declare class JNetworkSearch extends JNetworkWorker {
     /**
-     * 影片、影院搜索
-     * @param cityId 城市id
+     * 根据关键字搜索影片、影院列表
      * @param key 搜索关键字
      * @param page 分页信息
-     * @param coordinate 经纬度
-     * @returns {*} 返回请求promise
+     * @description location LocationParas 定位信息必传
+     * @returns {*} 返回搜索结果
      */
-    searchAll(cityId, key, page: PageParas, coordinate: CoordinateParas): Promise<any>
+    search(key, page: PageParas): Promise<any>
 
     /**
-     * 影片热门搜索列表
-     * @returns {*} 返回请求promise
+     * 获取热门搜索列表
+     * @returns {*} 返回热门搜索
      */
-    hotQuery(): Promise<any>
+    hotSearchList(): Promise<any>
 }
 
+export declare type LockSeatParams = {
+    openId: true,
+    mobile: true,
+    showId: true,
+    type: true,
+    cinemaId: true,
+    filmId: true,
+    seatIds: true,
+    count: true,
+    cityId: true,
+    seatInfos: false,
+    hallId: false,
+    areaInfo: false,
+    applyKey: false,
+    seatNames: false,
+}
+
+/**
+ * 商务相关接口
+ */
 export declare class JNetworkTrade extends JNetworkWorker {
     /**
      * 锁座
-     * @returns {*} 返回请求promise
+     * @param lockSeatParams 锁座需要的参数
+     * @returns {*} 返回锁座是否成功
      */
-    lockSeat(openId, mobile, showId, type, cinemaId, filmId, seatIds, count, cityId, seatInfos, hallId, areaInfo, applyKey, seatNames): Promise<any>
+    lockSeat(lockSeatParams: LockSeatParams): Promise<any>
 
     /**
+     * @hidden
      * 锁座
      * @returns {*} 返回请求promise
      */
     lockStatus(requestId): Promise<any>
 
     /**
-     * 订单详情
-     * @param payNo 订单id
-     * @returns {*} 返回请求promise
+     * 获取订单状态
+     * @param orderId 订单id
+     * @returns {*} 返回订单状态
      */
-    getOrderResult(payNo): Promise<any>
+    orderStatus(orderId): Promise<any>
 
     /**
+     * @hidden
      * 收银台返回的支付结果
      * @param _CallBackUrl 订单id
      * @param orderId 订单id
      * @param token 加密参数
      * @returns {*} 返回请求promise
      */
-    cmbcConfirmPay(_CallBackUrl, orderId, token): Promise<any>
+    confirmPay(_CallBackUrl, orderId, token): Promise<any>
 }
 
+/**
+ * 暴露继承JNetworkWorker类的一个类，使其拥有配置接口的能力。
+ * @typeparam  T 继承JNetworkWorker的类
+ * @param networkClass 需要暴露的类.
+ * @param networkName  类名称.
+ * @param config  类配置.
+ */
 export declare function revealNetwork<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T,
                                                                                        networkName?: string,
                                                                                        config?: object): T;
-
+/**
+ * @hidden
+ */
 export declare function configPicker(picker: any | object | (() => object)): void;
-
+/**
+ * @hidden
+ */
 export type PromiseData = Promise<any>;
 
+/**
+ * 具备配置接口能力的网络请求基类
+ */
 export declare class JNetworkWorker extends JNetworkRoot {
     fetchRequest(...args): INetworkStandardPromiseType<any>;
 }

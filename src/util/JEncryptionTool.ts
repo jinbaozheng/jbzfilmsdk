@@ -35,11 +35,11 @@ const routerPath = {
     '/mine/cltcinema': 'M10063',//收藏影院
     '/mine/celcltcinema': 'M10064',//取消收藏影院
     '/order/cancel': 'M10065',//取消订单
-    '/cmbc/encrypt': 'M10080',//民生加密
-    '/cmbc/decrypt': 'M10081',//民生解密
-    '/cmbc/login': 'M10082',//民生登录
-    '/cmbc/status': 'M10083',//民生支付状态查询
-    '/cmbc/confirm/pay': 'M10084',//民生确认支付
+    '/system/encrypt': 'M10080',//民生加密
+    '/system/decrypt': 'M10081',//民生解密
+    '/system/login': 'M10082',//民生登录
+    '/system/status': 'M10083',//民生支付状态查询
+    '/system/confirm/pay': 'M10084',//民生确认支付
 };
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {

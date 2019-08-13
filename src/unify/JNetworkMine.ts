@@ -23,7 +23,7 @@ const JNetworkMine = {
             'cinemaAddress',
         ]
     },
-    cltEdCinemaList: {
+    collectedCinemaList: {
         url: '/mine/cltedcinemalist',
         params: {
             openId: true,
@@ -49,22 +49,11 @@ const JNetworkMine = {
             'type?',
         ]
     },
-    orderDelete: {
-        url: '/mine/cancelorder',
-        params: {
-            openId: true,
-            orderId: true
-        },
-        book: [
-            'orderId',
-        ]
-    },
     orderDetail: {
         url: '/mine/orderdetail',
         params: {
             openId: true,
             orderId: true,
-
         },
         book: [
             'orderId',
