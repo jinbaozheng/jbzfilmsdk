@@ -1,4 +1,4 @@
-import {INetworkStandardPromiseType, JNetworkRoot, JToolDate, JToolObject as ObjectTool} from 'icemilk';
+import {INetworkStandardPromiseType, JNetwork, JToolDate, JToolObject as ObjectTool} from 'icemilk';
 import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParas} from "./paras"
 
 /**
@@ -15,6 +15,7 @@ export declare class JNetworkAccount extends JNetworkWorker {
 
 /**
  * 推广Banner相关网络请求类
+ * @noInheritDoc
  */
 export declare class JNetworkBanner extends JNetworkWorker {
     /**
@@ -28,6 +29,7 @@ export declare class JNetworkBanner extends JNetworkWorker {
 
 /**
  * 影院相关网络请求类
+ * @noInheritDoc
  */
 export declare class JNetworkCinema extends JNetworkWorker {
     /**
@@ -91,6 +93,7 @@ export declare class JNetworkCinema extends JNetworkWorker {
 
 /**
  * 城市相关网络请求类
+ * @noInheritDoc
  */
 export declare class JNetworkCity extends JNetworkWorker {
 
@@ -147,6 +150,7 @@ export declare class JNetworkCity extends JNetworkWorker {
 
 /**
  * 影片相关网络请求类
+ * @noInheritDoc
  */
 export declare class JNetworkFilm extends JNetworkWorker {
     /**
@@ -194,6 +198,7 @@ export declare class JNetworkFilm extends JNetworkWorker {
 
 /**
  * 个人信息相关网络请求类
+ * @noInheritDoc
  */
 export declare class JNetworkMine extends JNetworkWorker {
     /**
@@ -250,6 +255,7 @@ export declare class JNetworkMine extends JNetworkWorker {
 
 /**
  * 其他相关网络请求类
+ * @noInheritDoc
  */
 export declare class JNetworkOther extends JNetworkWorker {
     /**
@@ -268,6 +274,7 @@ export declare class JNetworkOther extends JNetworkWorker {
 
 /**
  * 搜索相关网络信息类
+ * @noInheritDoc
  */
 export declare class JNetworkSearch extends JNetworkWorker {
     /**
@@ -305,6 +312,7 @@ export declare type LockSeatParams = {
 
 /**
  * 商务相关接口
+ * @noInheritDoc
  */
 export declare class JNetworkTrade extends JNetworkWorker {
     /**
@@ -360,8 +368,9 @@ export type PromiseData = Promise<any>;
 
 /**
  * 具备配置接口能力的网络请求基类
+ * @noInheritDoc
  */
-export declare class JNetworkWorker extends JNetworkRoot {
+export declare class JNetworkWorker extends JNetwork {
     fetchRequest(...args): INetworkStandardPromiseType<any>;
 }
 

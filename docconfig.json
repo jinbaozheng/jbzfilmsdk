@@ -7,7 +7,9 @@
     "name": "jbzfilmsdk doc",
     "out": "docs",
     "includeDeclarations": true,
-    "excludeExternals": true
+    "excludeExternals": true,
+    "excludeNotExported": true,
+    "externalPattern": "icemilk"
   },
   "exclude": [
     "node_modules",
