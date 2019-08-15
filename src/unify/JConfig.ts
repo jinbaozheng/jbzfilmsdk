@@ -8,6 +8,7 @@ import JNetworkFilm from './JNetworkFilm';
 import JNetworkLocation from './JNetworkLocation';
 import JNetworkSearch from './JNetworkSearch';
 import JNetworkOther from './JNetworkOther';
+import JNetworkActivity from './JNetworkActivity';
 
 const DEFAULT_NETWORK_CONFIG: object = {
     precook: (_) => _.data,
@@ -36,5 +37,6 @@ export default {
     JNetworkLocation,
     JNetworkSearch,
     JNetworkOther,
+    JNetworkActivity,
     DEFAULT_NETWORK_CONFIG
 };

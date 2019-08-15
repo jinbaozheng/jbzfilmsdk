@@ -12,6 +12,7 @@ import JNetworkLocation from './network/JNetworkLocation';
 import JNetworkFilm from './network/JNetworkFilm';
 import JNetworkSearch from './network/JNetworkSearch';
 import JNetworkOther from './network/JNetworkOther';
+import JNetworkActivity from './network/JNetworkActivity';
 import JNetworkWorker from './network/JNetworkWorker';
 import {revealNetwork, configPicker} from "./network/JNetworkWorker";
 
@@ -26,6 +27,7 @@ export {
     JNetworkFilm,
     JNetworkSearch,
     JNetworkOther,
+    JNetworkActivity,
     JNetworkWorker,
     revealNetwork,
     configPicker
