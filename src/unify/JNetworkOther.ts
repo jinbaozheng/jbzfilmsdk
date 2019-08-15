@@ -1,31 +1,22 @@
 const JNetworkOther = {
-    decrypt: {
-        url: '/system/decrypt',
-        params: {
-            key: true
-        },
-        book: [
-            'key'
-        ]
-    },
-    encrypt: {
+    systemEncrypt: {
         url: '/system/encrypt',
         params: {
-            key: true
+            key:true
         },
         book: [
             'key'
         ]
     },
-    login: {
-        url: '/system/login',
+    systemDecrypt: {
+        url: '/system/decrypt',
         params: {
-            key: true
+            key:true
         },
         book: [
             'key'
         ]
-    }
+    },
 }
 
 export default JNetworkOther;

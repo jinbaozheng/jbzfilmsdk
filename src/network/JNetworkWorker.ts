@@ -75,7 +75,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
     let defaultNetworkConfig = {
         ...DEFAULT_NETWORK_CONFIG,
         ...(config ? config['DEFAULT_NETWORK_CONFIG'] : _config['DEFAULT_NETWORK_CONFIG'])
-    }
+    };
     if (!classConfig){
         if (config){
             throw new Error(`network ${networkName} not found in config ${JSON.stringify(config)}`)
@@ -92,11 +92,11 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                     const required = referObj;
                     if (required && !from.hasOwnProperty(key)){
                         let hasKey = injectFrom.some(_ => {
-                            if (typeof  _ === "string"){
+                            if (typeof _ === "string"){
                                 return _ === key;
                             }
 
-                            if (typeof  _ === "object"){
+                            if (typeof _ === "object"){
                                 return _.hasOwnProperty(key)
                             }
                         });
@@ -124,7 +124,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
             }
         }
         return r;
-    }
+    };
 
     for (let key in classConfig) {
         if (classConfig.hasOwnProperty(key)){
@@ -166,10 +166,15 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                     if (book){
                         networkArgs = [{}, {}, {}];
                         for (let i = 0; i < book.length; i++){
+                            let page = book[i];
+                            let isOptional = /^.*\?$/.test(book)
+                            if (isOptional){
+                                page = page.slice(0, -1)
+                            }
                             for (let j = 0; j < 3; j++){
-                                let valueObj: object = [params, bodyData, headers][rule[j]];
-                                if (valueObj.hasOwnProperty(book[i])){
-                                    networkArgs[j][book[i]] = args[i];
+                                const valueObj: object = [params, bodyData, headers][rule[j]];
+                                if (valueObj.hasOwnProperty(page)){
+                                    networkArgs[j][page] = args[i];
                                 }
                             }
                         }
@@ -201,14 +206,14 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         params: paramsValue,
                         bodyData: bodyDataValue,
                         headers: headersValue
-                    }
+                    };
                     return this
                         .createGroup({
                             groupClass: JNetworkWorkerGroup
                         })
-                        .useParams(...useParams)
-                        .useHeaders(...useHeaders)
-                        .useBodyData(...useBodyData)
+                        .useParams(...useParams, ...this.extraParams)
+                        .useHeaders(...useHeaders, ...this.extraHeaders)
+                        .useBodyData(...useBodyData, ...this.extraBodyData)
                         .fetchRequest(method, this.baseUrl, url, paramsValue, bodyDataValue, headersValue)
                         .then((data) => cook(precook(data, pizza), pizza));
                 } catch (e) {

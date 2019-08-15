@@ -10,7 +10,7 @@ const JNetworkBanner = {
         },
         book: [
             'location',
-            'cityId'
+            'cityId?'
         ],
         cook: _=>_.map(_netBanner)
     }

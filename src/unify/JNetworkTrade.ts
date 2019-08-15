@@ -27,8 +27,8 @@ const JNetworkTrade = {
             'requestId'
         ]
     },
-    getOrderResult: {
-        url: '/cmbc/status',
+    orderStatus: {
+        url: '/system/status',
         params: {
             payNo:true
         },
@@ -36,14 +36,14 @@ const JNetworkTrade = {
             'payNo'
         ]
     },
-    cmbcConfirmPay: {
-        url: '/cmbc/confirm/pay',
+    confirmPay: {
+        url: '/system/confirm/pay',
         params: {
             _CallBackUrl:false,
             orderId:false,
             token:false
         }
-    }
+    },
 }
 
 export default JNetworkTrade;

@@ -1,41 +1,38 @@
 const JNetworkMine = {
-    celCltCinema: {
+    cancelCollectCinema: {
         url: '/mine/celcltcinema',
         params: {
             openId: true,
             cinemaId: true
         },
         book: [
-            'openId',
             'cinemaId'
         ]
     },
-    cltCinema: {
+    collectCinema: {
         url: '/mine/cltcinema',
         params: {
             openId: true,
             cinemaId: true,
             cinemaName: true,
-            cinemaAddress: true
+            cinemaAddress: true,
         },
         book: [
-            'openId',
             'cinemaId',
             'cinemaName',
-            'cinemaAddress'
+            'cinemaAddress',
         ]
     },
-    cltEdCinemaList: {
+    collectedCinemaList: {
         url: '/mine/cltedcinemalist',
         params: {
             openId: true,
             page: true,
-            size: false
+            size: false,
         },
         book: [
-            'openId',
             'page',
-            'size'
+            'size?',
         ]
     },
     orderList: {
@@ -44,25 +41,12 @@ const JNetworkMine = {
             openId: true,
             page: true,
             size: true,
-
             type: false
         },
         book: [
-            'openId',
             'page',
             'size',
-            'type'
-        ]
-    },
-    orderDelete: {
-        url: '/mine/cancelorder',
-        params: {
-            openId: true,
-            orderId: true
-        },
-        book: [
-            'openId',
-            'orderId',
+            'type?',
         ]
     },
     orderDetail: {
@@ -70,10 +54,8 @@ const JNetworkMine = {
         params: {
             openId: true,
             orderId: true,
-
         },
         book: [
-            'openId',
             'orderId',
         ]
     },
@@ -84,8 +66,7 @@ const JNetworkMine = {
             orderId: true
         },
         book: [
-            'openId',
-            'orderId'
+            'orderId',
         ]
     }
 };
