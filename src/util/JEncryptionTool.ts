@@ -40,6 +40,10 @@ const routerPath = {
     '/system/login': 'M10082',//民生登录
     '/system/status': 'M10083',//民生支付状态查询
     '/system/confirm/pay': 'M10084',//民生确认支付
+    '/get/activity/quota': 'A10010',//查询活动资格
+    '/get/all/activity': 'A10013',//获取所有活动
+    '/in/activity/duration': 'A10014',//是否活动期间
+    '/redirect/find/page': 'A10015'//是否跳转发现页
 };
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {
