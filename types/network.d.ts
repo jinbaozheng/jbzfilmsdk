@@ -12,6 +12,7 @@ export declare class JNetworkAccount extends JNetworkWorker {
      */
     systemLogin(key: string): Promise<any>
 }
+
 export declare class JNetworkActivity extends JNetworkWorker {
     /**
      * 查询活动资格
@@ -48,6 +49,7 @@ export declare class JNetworkActivity extends JNetworkWorker {
      */
     redirectFindPage(): Promise<any>
 }
+
 /**
  * 推广Banner相关网络请求类
  * @noInheritDoc
@@ -269,7 +271,7 @@ export declare class JNetworkMine extends JNetworkWorker {
      * @description openId 用户唯一标识必须传入
      * @returns {*} 返回订单列表
      */
-    orderList(page: PageParas & {type: string}): Promise<any>
+    orderList(page: PageParas & { type: string }): Promise<any>
 
     /**
      * 获取订单详情
@@ -299,6 +301,7 @@ export declare class JNetworkOther extends JNetworkWorker {
      * @returns {*} 返回加密后的信息
      */
     systemEncrypt(key): Promise<string>
+
     /**
      * 解密
      * @param key 待解密信息
@@ -319,7 +322,7 @@ export declare class JNetworkSearch extends JNetworkWorker {
      * @description location LocationParas 定位信息必传
      * @returns {*} 返回搜索结果
      */
-    search(key, page: PageParas): Promise<any>
+    search(key, page: PageParas, location: LocationParas): Promise<any>
 
     /**
      * 获取热门搜索列表
@@ -400,10 +403,12 @@ export declare class JNetworkTrade extends JNetworkWorker {
 export declare function revealNetwork<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T,
                                                                                        networkName?: string,
                                                                                        config?: object): T;
+
 /**
  * @hidden
  */
 export declare function configPicker(picker: any | object | (() => object)): void;
+
 /**
  * @hidden
  */
