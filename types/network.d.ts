@@ -319,7 +319,7 @@ export declare class JNetworkSearch extends JNetworkWorker {
      * @description location LocationParas 定位信息必传
      * @returns {*} 返回搜索结果
      */
-    search(key, page: PageParas, location: LocationParas): Promise<any>
+    search(key, page: PageParas): Promise<any>
 
     /**
      * 获取热门搜索列表
