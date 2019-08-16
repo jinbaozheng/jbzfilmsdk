@@ -44,6 +44,15 @@ const JNetworkTrade = {
             token:false
         }
     },
+    confirmOrder: {
+        url: '/order/confirmorder',
+        params: {
+            jsonStr: true
+        },
+        book: [
+            'jsonStr'
+        ]
+    }
 }
 
 export default JNetworkTrade;

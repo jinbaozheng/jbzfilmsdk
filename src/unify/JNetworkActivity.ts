@@ -2,11 +2,16 @@ const JNetworkActivity = {
     getActivityQuota: {
         url: '/get/activity/quota',
         params: {
-            openId: false,
+            openId: true,
             activityId: true,
             positionCityId: true,
             selectedCityId: true
-        }
+        },
+        book:[
+            'activityId',
+            'positionCityId',
+            'selectedCityId'
+        ]
     },
     getAllActivity: {
         url: '/get/all/activity'
