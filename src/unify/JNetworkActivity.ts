@@ -9,11 +9,7 @@ const JNetworkActivity = {
         }
     },
     getAllActivity: {
-        url: '/get/all/activity',
-        params: {
-            positionCityId: true,
-            selectedCityId: true
-        }
+        url: '/get/all/activity'
     },
     inActivityDuration: {
         url: '/in/activity/duration',

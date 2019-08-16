@@ -12,7 +12,43 @@ export declare class JNetworkAccount extends JNetworkWorker {
      */
     systemLogin(key: string): Promise<any>
 }
+export declare class JNetworkActivity extends JNetworkWorker {
+    /**
+     * 查询活动资格
+     * @param openId 用户信息
+     * @param activityId 活动ip
+     * @param positionCityId 定位城市id
+     * @param selectedCityId 用户选择城市id
+     * @returns {*} 返回活动信息内容
+     */
+    getActivityQuota(
+        activityId: string | number,
+        positionCityId: string | number,
+        selectedCityId: string | number,
+        openId?: string
+    ): Promise<any>
 
+    /**
+     * 获取所有活动
+     * @returns {*} 返回全部活动列表
+     */
+    getAllActivity(): Promise<any>
+
+    /**
+     * 是否活动期间
+     * @param activityId 活动ip
+     * @returns {*} 返回活动信息内容
+     */
+    inActivityDuration(
+        activityId: string | number
+    ): Promise<any>
+
+    /**
+     * 是否跳转发现页
+     * @returns {*} 返回活动信息内容
+     */
+    redirectFindPage(): Promise<any>
+}
 /**
  * 推广Banner相关网络请求类
  * @noInheritDoc
