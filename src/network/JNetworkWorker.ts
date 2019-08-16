@@ -167,7 +167,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         networkArgs = [{}, {}, {}];
                         for (let i = 0; i < book.length; i++){
                             let page = book[i];
-                            let isOptional = /^.*\?$/.test(book)
+                            let isOptional = /^.*\?$/.test(page);
                             if (isOptional){
                                 page = page.slice(0, -1)
                             }
@@ -192,8 +192,17 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         ...(networkArgs[rule[2]] || {})
                     }, useHeaders, url);
                     if (encryption){
-                        let b = this.config.inType;
-                        let paramsObj = JEncryptionTool.encryption(url, paramsValue, b);
+                        let noUndefinedParams = {};
+                        for (const key in paramsValue){
+                            if (paramsValue.hasOwnProperty(key) && paramsValue[key] !== undefined){
+                                noUndefinedParams[key] = paramsValue[key]
+                            }
+                        }
+                        const {inType} = this.otherContent || {inType: undefined};
+                        if (!inType){
+                            throw new Error('Not found inType property, Do you forget config inType value in otherContent?');
+                        }
+                        let paramsObj = JEncryptionTool.encryption(url, noUndefinedParams, inType);
                         if (!paramsObj){
                             throw new Error(`url参数出错`);
                         }
