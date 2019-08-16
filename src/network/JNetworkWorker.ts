@@ -204,7 +204,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         }
                         let paramsObj = JEncryptionTool.encryption(url, noUndefinedParams, inType);
                         if (!paramsObj){
-                            throw new Error(`url参数出错`);
+                            throw new Error(`${config.url}的url地址出错，请检查请求地址`);
                         }
                         url = BUS_GW;
                         paramsValue = {
