@@ -1,7 +1,4 @@
 const JNetworkSearch = {
-    hotSearchList: {
-        url: '/search/hotQuery'
-    },
     search: {
         url: '/search/searchall',
         params: {
