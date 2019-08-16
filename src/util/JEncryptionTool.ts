@@ -234,25 +234,18 @@ class JEncryptionTool {
         }
         return object;
     }
-    static encryption(url, obj, b){
+    static encryption(url, obj, bank){
         let routerNumber = this.router(url);
         if (!routerNumber) {
             return false;
         }
         let params = obj;
-        params.b = md5(b);
+        params.b = md5(bank);
         params.method = routerNumber.method;
-        // 删除空字段
         params = this.deleteEmptyProperty(params);
-        // ascii排序，升序
         const ascii = this.sortAsc(params);
-        // 拼接并加密
-        const signCode = md5(ascii + JBZ_KEY);
-        // 存json中
-        params.signCode = signCode;
-        //转换成字符串json
+        params.signCode = md5(ascii + JBZ_KEY);
         let jsonString = JSON.stringify(params);
-        // 简单处理座位图
         return {cipher: jsonString};
     }
     static router(url){

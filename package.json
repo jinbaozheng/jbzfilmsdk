@@ -10,7 +10,8 @@
     "build:link": "rollup -c --watch --config config/rollup.config.link.js",
     "example": "rollup -c --watch --config example/rollup.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "make-doc": "typedoc --tsconfig docconfig.json"
+    "make-doc": "typedoc --tsconfig docconfig.json",
+    "update-docs": "node ./publish_doc.js"
   },
   "repository": {
     "type": "git",
