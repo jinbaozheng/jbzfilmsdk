@@ -1,6 +1,7 @@
-import {JNetwork, INetworkStandardPromiseType, JNetworkGroup} from 'icemilk';
+import {JNetwork, INetworkStandardPromiseType, JNetworkGroup, JToolObject} from 'icemilk';
 import JConfig from '../unify/JConfig';
 import JEncryptionTool from './../util/JEncryptionTool';
+
 const BUS_GW = '/bus/gw';
 const DEFAULT_NETWORK_CONFIG = {
     precook: (_) => _.data,
@@ -15,8 +16,8 @@ const DEFAULT_NETWORK_CONFIG = {
     useHeaders: [],
     useBodyData: [],
     rule: [0, 1, 2],
-    encryption: true
-}
+    encryption: null
+};
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
     fetchRequest(...args): INetworkStandardPromiseType<any>{
@@ -52,18 +53,6 @@ export const configPicker = (picker: any|object|(() => object)) => {
         _config = picker;
     }
 }
-
-// export const needSecret = (isNeed: boolean | (() => boolean)) => {
-//     _config['DEF...']['encryption'] = isNeed
-// }
-//
-// needSecret(function () {
-//     if (sdasdaw)
-//         return true
-//     else
-//         return false
-// })
-
 
 export const revealNetwork = function<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T, networkName: string = networkClass.name, config?: object): T{
     if (!JNetworkWorker.isPrototypeOf(networkClass)){
@@ -191,20 +180,21 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         ...(this as JNetworkWorker).pickInjectHeaders(),
                         ...(networkArgs[rule[2]] || {})
                     }, useHeaders, url);
-                    if (encryption){
+                    if (encryption && JToolObject.getObjOrFuncResult(encryption.required)){
+                        const {inType} = this.otherContent || {inType: undefined};
+                        if (!inType){
+                            throw new Error('Not found inType property, Do you forget config inType value in otherContent?');
+                        }
                         let noUndefinedParams = {};
                         for (const key in paramsValue){
                             if (paramsValue.hasOwnProperty(key) && paramsValue[key] !== undefined){
                                 noUndefinedParams[key] = paramsValue[key]
                             }
                         }
-                        const {inType} = this.otherContent || {inType: undefined};
-                        if (!inType){
-                            throw new Error('Not found inType property, Do you forget config inType value in otherContent?');
-                        }
-                        let paramsObj = JEncryptionTool.encryption(url, noUndefinedParams, inType);
+                        const {paramsInterceptor = (_) => ({location: '02'})} = encryption;
+                        let paramsObj = JEncryptionTool.encryption(url, paramsInterceptor(noUndefinedParams, this), inType);
                         if (!paramsObj){
-                            throw new Error(`${config.url}的url地址出错，请检查请求地址`);
+                            throw new Error(`地址 ${url} 加密过程异常`);
                         }
                         url = BUS_GW;
                         paramsValue = {

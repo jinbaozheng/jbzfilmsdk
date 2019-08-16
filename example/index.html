@@ -10,19 +10,24 @@
 </head>
 <body>
 <script>
-   console.log(my_network);
-   var NetworkOther = my_network.NetworkOther;
-   NetworkOther.test({
-       page: 1,
-       pageSize: 10,
-       status: 2
-   }, {}, {
-       authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTkyNTA5NTAsImlhdCI6MTU1OTIwNzc1MCwic3ViIjoiNWM5MzA2YmQ4ODU4ZTczODI4MDkxYThjIn0.-gj4nOuOsbvQs-3JveMEnNGFJoihkd0-Nl4njOO0Oxg'
-   }).then(data => {
-       console.log(data)
+   var NetworkBanner = my_network.NetworkBanner;
+   NetworkBanner.useParams({test: 'just a test'}).bannerList('01').then(data => {
+       console.log(data);
    }, error => {
        console.log(error);
    })
+   // var NetworkOther = my_network.NetworkOther;
+   // NetworkOther.test({
+   //     page: 1,
+   //     pageSize: 10,
+   //     status: 2
+   // }, {}, {
+   //     authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTkyNTA5NTAsImlhdCI6MTU1OTIwNzc1MCwic3ViIjoiNWM5MzA2YmQ4ODU4ZTczODI4MDkxYThjIn0.-gj4nOuOsbvQs-3JveMEnNGFJoihkd0-Nl4njOO0Oxg'
+   // }).then(data => {
+   //     console.log(data)
+   // }, error => {
+   //     console.log(error);
+   // })
    // NetworkOther.useParams({key: 'asda'}).encrypt({}, {
    //     key1: 123
    // }, {

@@ -1,15 +1,13 @@
 // import unify from './spd.network.unify';
 // import url from './spd.url.config'
 import config from './JConfig';
-
-// class NeworkBanner extends jbzfilmsdk.JNetworkBanner{
-//
-// }
-
 const revealNetwork = jbzfilmsdk.revealNetwork;
 
+class NetworkBanner extends jbzfilmsdk.JNetworkBanner{
+}
 
-class NeworkCinema extends jbzfilmsdk.JNetworkCinema{
+
+class NetworkCinema extends jbzfilmsdk.JNetworkCinema{
 }
 
 class NetworkFilm extends jbzfilmsdk.JNetworkFilm{
@@ -54,10 +52,13 @@ let delegate = {
 };
 
 export default {
-    // NeworkBanner: new NeworkBanner({
-    //     baseUrl: 'http://10.1.1.70:10002/cmbc/'
-    // }),
-    NetworkCinema: new NeworkCinema({
+    NetworkBanner: new NetworkBanner ({
+        baseUrl: 'https://local.idoupiao.com:4443/filmweb/',
+        otherContent: {
+            inType: 'cmbc'
+        }
+    }),
+    NetworkCinema: new NetworkCinema({
         baseUrl: 'http://10.1.1.70:10002/cmbc/',
         delegate,
         carryHeaders: function () {

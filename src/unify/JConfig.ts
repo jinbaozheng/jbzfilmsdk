@@ -9,6 +9,7 @@ import JNetworkLocation from './JNetworkLocation';
 import JNetworkSearch from './JNetworkSearch';
 import JNetworkOther from './JNetworkOther';
 import JNetworkActivity from './JNetworkActivity';
+import JNetworkWorker from "../network/JNetworkWorker";
 
 const DEFAULT_NETWORK_CONFIG: object = {
     precook: (_) => _.data,
@@ -23,7 +24,10 @@ const DEFAULT_NETWORK_CONFIG: object = {
     useHeaders: [],
     useBodyData: [],
     rule: [0, 1, 2],
-    encryption: true
+    encryption: {
+        required: () => true,
+        paramsInterceptor: (params, self: JNetworkWorker) => ({...params, ...self.pickInjectParams()})
+    }
 };
 
 export default {
