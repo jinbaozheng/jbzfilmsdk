@@ -15,17 +15,16 @@ export declare class JNetworkAccount extends JNetworkWorker {
 export declare class JNetworkActivity extends JNetworkWorker {
     /**
      * 查询活动资格
-     * @param openId 用户信息
      * @param activityId 活动ip
      * @param positionCityId 定位城市id
      * @param selectedCityId 用户选择城市id
+     * @description openId 用户唯一标识必须传入
      * @returns {*} 返回活动信息内容
      */
     getActivityQuota(
         activityId: string | number,
         positionCityId: string | number,
-        selectedCityId: string | number,
-        openId?: string
+        selectedCityId: string | number
     ): Promise<any>
 
     /**
@@ -381,6 +380,14 @@ export declare class JNetworkTrade extends JNetworkWorker {
      * @returns {*} 返回请求promise
      */
     confirmPay(_CallBackUrl, orderId, token): Promise<any>
+
+    /**
+     * @hidden
+     * 收银台返回的支付结果（统一新接口）
+     * @param jsonStr json字符串（内容为所需参数）
+     * @returns {*} 返回请求promise
+     */
+    confirmOrder(jsonStr): Promise<any>
 }
 
 /**
