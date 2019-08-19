@@ -44,7 +44,8 @@ const routerPath = {
     '/get/all/activity': 'A10013',//获取所有活动
     '/in/activity/duration': 'A10014',//是否活动期间
     '/redirect/find/page': 'A10015',//是否跳转发现页
-    '/account/login': 'C10006'//全部银行登录方法
+    '/account/login': 'C10006',//全部银行登录方法
+    '/order/confirmorder': 'M10052' // 确认支付
 };
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {

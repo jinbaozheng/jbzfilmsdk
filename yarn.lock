@@ -1314,8 +1314,8 @@ htmlparser2@^3.9.0:
 
 icemilk@1.0.10-beta0:
   version "1.0.10-beta0"
-  resolved "https://registry.yarnpkg.com/icemilk/-/icemilk-1.0.10-beta0.tgz#02b3b1951a629a1d0690061de9a5423742aa08d3"
-  integrity sha512-r2GbmH7O9pqotSpWmXQcod9Gx9OEbisSUDF65oyjmZR/BO5BMkP3OxqlTMQYKem+Pw8wSdQ6PxpRx4iR8G8Fiw==
+  resolved "http://r.cnpmjs.org/icemilk/download/icemilk-1.0.10-beta0.tgz#02b3b1951a629a1d0690061de9a5423742aa08d3"
+  integrity sha1-ArOxlRpimh0GkAYd6aVCN0KqCNM=
   dependencies:
     "@babel/runtime" "^7.1.5"
     axios "^0.18.0"

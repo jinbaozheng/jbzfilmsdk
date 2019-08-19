@@ -12,7 +12,42 @@ export declare class JNetworkAccount extends JNetworkWorker {
      */
     accountLogin(key: string): Promise<any>
 }
+export declare class JNetworkActivity extends JNetworkWorker {
+    /**
+     * 查询活动资格
+     * @param activityId 活动ip
+     * @param positionCityId 定位城市id
+     * @param selectedCityId 用户选择城市id
+     * @description openId 用户唯一标识必须传入
+     * @returns {*} 返回活动信息内容
+     */
+    getActivityQuota(
+        activityId: string | number,
+        positionCityId: string | number,
+        selectedCityId: string | number
+    ): Promise<any>
 
+    /**
+     * 获取所有活动
+     * @returns {*} 返回全部活动列表
+     */
+    getAllActivity(): Promise<any>
+
+    /**
+     * 是否活动期间
+     * @param activityId 活动ip
+     * @returns {*} 返回活动信息内容
+     */
+    inActivityDuration(
+        activityId: string | number
+    ): Promise<any>
+
+    /**
+     * 是否跳转发现页
+     * @returns {*} 返回活动信息内容
+     */
+    redirectFindPage(): Promise<any>
+}
 /**
  * 推广Banner相关网络请求类
  * @noInheritDoc
@@ -345,6 +380,14 @@ export declare class JNetworkTrade extends JNetworkWorker {
      * @returns {*} 返回请求promise
      */
     confirmPay(_CallBackUrl, orderId, token): Promise<any>
+
+    /**
+     * @hidden
+     * 收银台返回的支付结果（统一新接口）
+     * @param jsonStr json字符串（内容为所需参数）
+     * @returns {*} 返回请求promise
+     */
+    confirmOrder(jsonStr): Promise<any>
 }
 
 /**
