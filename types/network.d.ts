@@ -2,7 +2,7 @@ import {INetworkStandardPromiseType, JNetwork, JToolDate, JToolObject as ObjectT
 import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParas} from "./paras"
 
 /**
- * @hidden
+ * 账户相关网络请求类
  */
 export declare class JNetworkAccount extends JNetworkWorker {
     /**
@@ -12,6 +12,10 @@ export declare class JNetworkAccount extends JNetworkWorker {
      */
     accountLogin(key: string): Promise<any>
 }
+
+/**
+ * 活动相关网络请求类
+ */
 export declare class JNetworkActivity extends JNetworkWorker {
     /**
      * 查询活动资格
