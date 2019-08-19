@@ -3,7 +3,7 @@
  * Created by cuppi on 2017/8/29.
  */
 //测试发布
-const ClientPath = 'C:\\Users\\jinbaozheng\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\ssh2';
+const ClientPath = '/usr/local/lib/node_modules/ssh2';
 // const ClientPath = '/Users/jbz/.nvm/versions/node/v8.12.0/lib/node_modules/ssh2';
 const host = '10.1.1.61';
 const username = 'root';
