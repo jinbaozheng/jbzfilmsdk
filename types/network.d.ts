@@ -7,6 +7,7 @@ import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParas}
 export declare class JNetworkAccount extends JNetworkWorker {
     /**
      * 用户登录
+     * @method_name C10006
      * @param key 用户加密信息
      * @returns {*} 返回请求promise
      */
@@ -19,6 +20,7 @@ export declare class JNetworkAccount extends JNetworkWorker {
 export declare class JNetworkActivity extends JNetworkWorker {
     /**
      * 查询活动资格
+     * @method_name A10010
      * @param activityId 活动ip
      * @param positionCityId 定位城市id
      * @param selectedCityId 用户选择城市id
@@ -33,12 +35,14 @@ export declare class JNetworkActivity extends JNetworkWorker {
 
     /**
      * 获取所有活动
+     * @method_name A10013
      * @returns {*} 返回全部活动列表
      */
     getAllActivity(): Promise<any>
 
     /**
      * 是否活动期间
+     * @method_name A10014
      * @param activityId 活动ip
      * @returns {*} 返回活动信息内容
      */
@@ -48,6 +52,7 @@ export declare class JNetworkActivity extends JNetworkWorker {
 
     /**
      * 是否跳转发现页
+     * @method_name A10015
      * @returns {*} 返回活动信息内容
      */
     redirectFindPage(): Promise<any>
@@ -59,6 +64,7 @@ export declare class JNetworkActivity extends JNetworkWorker {
 export declare class JNetworkBanner extends JNetworkWorker {
     /**
      * 推广Banner广告列表
+     * @method_name M10001
      * @param location banner的位置
      * @param cityId 城市id
      * @returns {*} 返回Banner列表
@@ -73,6 +79,7 @@ export declare class JNetworkBanner extends JNetworkWorker {
 export declare class JNetworkCinema extends JNetworkWorker {
     /**
      * 获取影院详情
+     * @method_name M10012
      * @param cinemaId 影院id
      * @description openId 用户唯一标识可选传入
      * @returns {*} 返回影院详情
@@ -81,6 +88,7 @@ export declare class JNetworkCinema extends JNetworkWorker {
 
     /**
      * 获取影院列表
+     * @method_name M10016
      * @param filterParams 影院筛选条件
      * @see LocationParas
      * @see CinemaFilterParas
@@ -91,6 +99,7 @@ export declare class JNetworkCinema extends JNetworkWorker {
 
     /**
      * 获取影院拍片的电影列表
+     * @method_name M10013
      * @param cinemaId 影院id
      * @returns {*} 返回电影列表
      */
@@ -98,6 +107,7 @@ export declare class JNetworkCinema extends JNetworkWorker {
 
     /**
      * 获取影院拍片的日期列表
+     * @method_name M10014
      * @param cinemaId 影院id
      * @param filmId 影片id
      * @returns {*} 返回时间戳格式的日期列表
@@ -106,6 +116,7 @@ export declare class JNetworkCinema extends JNetworkWorker {
 
     /**
      * 获取影院排片的场次列表
+     * @method_name M10015
      * @param cinemaId 影院id
      * @param filmId 影片id
      * @param date 日期
@@ -115,6 +126,7 @@ export declare class JNetworkCinema extends JNetworkWorker {
 
     /**
      * 获取场次实时座位图
+     * @method_name M10010
      * @param type 票务商
      * @param paras 影院排片参数
      * @returns {*} 返回实时座位图
@@ -124,6 +136,7 @@ export declare class JNetworkCinema extends JNetworkWorker {
     /**
      * @hidden
      * 实时座位图结果 (异步处理)
+     * @method_name M10011
      * @param requestId 请求Id，该值为申请实时座位图接口返回的requestId
      * @returns {*} 返回请求promise
      */
@@ -138,6 +151,7 @@ export declare class JNetworkCity extends JNetworkWorker {
 
     /**
      * 获取当前城市信息
+     * @method_name M10032
      * @param coordinate 经纬度信息
      * @returns {*} 返回城市信息
      */
@@ -146,6 +160,7 @@ export declare class JNetworkCity extends JNetworkWorker {
     /**
      * @hidden
      * 获取定位结果
+     * @method_name M10033
      * @param requestId 请求定位接口返回的requestId
      * @returns {*} 返回请求promise
      */
@@ -153,18 +168,21 @@ export declare class JNetworkCity extends JNetworkWorker {
 
     /**
      * 获取热门城市列表
+     * @method_name M10031
      * @returns {*} 返回城市列表
      */
     cityHotList(): Promise<any>
 
     /**
      * 获取所有城市列表
+     * @method_name M10030
      * @returns {*} 返回城市列表
      */
     cityList(): Promise<any>
 
     /**
      * 根据城市id获取城市信息
+     * @method_name M10034
      * @param cityId 城市id
      * @returns {*} 返回城市信息
      */
@@ -172,6 +190,7 @@ export declare class JNetworkCity extends JNetworkWorker {
 
     /**
      * 根据城市id获取地区列表
+     * @method_name M10035
      * @param cityId 城市id
      * @returns {*} 返回地区列表
      */
@@ -180,6 +199,7 @@ export declare class JNetworkCity extends JNetworkWorker {
     /**
      * @ignore
      * 根据城市id获取地区列表
+     * @method_name M10035
      * @param cityId 城市id
      * @description 原始返回数据
      * @returns {*} 返回地区列表
@@ -194,6 +214,7 @@ export declare class JNetworkCity extends JNetworkWorker {
 export declare class JNetworkFilm extends JNetworkWorker {
     /**
      * 获取前十热门影片列表
+     * @method_name M10022
      * @description Top10及总数
      * @returns {*} 返回影片列表
      */
@@ -201,6 +222,7 @@ export declare class JNetworkFilm extends JNetworkWorker {
 
     /**
      * 获取热门影片列表
+     * @method_name M10023
      * @param page 分页信息(页码、条数)
      * @returns {*} 返回影片列表
      */
@@ -208,6 +230,7 @@ export declare class JNetworkFilm extends JNetworkWorker {
 
     /**
      * 获取前十待映影片列表
+     * @method_name M10024
      * @description Top10及总数
      * @returns {*} 返回影片列表
      */
@@ -215,6 +238,7 @@ export declare class JNetworkFilm extends JNetworkWorker {
 
     /**
      * 获取待映影片列表
+     * @method_name M10025
      * @param page 分页信息(页码、条数)
      * @returns {*} 返回影片列表
      */
@@ -222,6 +246,7 @@ export declare class JNetworkFilm extends JNetworkWorker {
 
     /**
      * 获取影片信息
+     * @method_name M10020
      * @param filmId 影片id
      * @returns {*} 返回影片信息
      */
@@ -229,6 +254,7 @@ export declare class JNetworkFilm extends JNetworkWorker {
 
     /**
      * 获取影片热门评论列表
+     * @method_name M10021
      * @param filmId 影片id
      * @returns {*} 返回影片评论列表
      */
@@ -242,6 +268,7 @@ export declare class JNetworkFilm extends JNetworkWorker {
 export declare class JNetworkMine extends JNetworkWorker {
     /**
      * 取消收藏的影院
+     * @method_name M10064
      * @param cinemaId 影院id
      * @description openId 用户唯一标识必须传入
      * @returns {*} 返回是否取消成功
@@ -250,6 +277,7 @@ export declare class JNetworkMine extends JNetworkWorker {
 
     /**
      * 收藏影院
+     * @method_name M10063
      * @param cinemaId 影院id
      * @param cinemaName 影院名称
      * @param cinemaAddress 影院地址
@@ -260,6 +288,7 @@ export declare class JNetworkMine extends JNetworkWorker {
 
     /**
      * 获取已经收藏的影院列表
+     * @method_name M10062
      * @param page 分页信息
      * @description openId 用户唯一标识必须传入
      * @returns {*} 返回影院列表
@@ -268,6 +297,7 @@ export declare class JNetworkMine extends JNetworkWorker {
 
     /**
      * 获取订单列表
+     * @method_name M10060
      * @param page 分页
      * @param type 订单类型（01:待支付/02:已支付/03:退款/不传:全部）
      * @description openId 用户唯一标识必须传入
@@ -277,6 +307,7 @@ export declare class JNetworkMine extends JNetworkWorker {
 
     /**
      * 获取订单详情
+     * @method_name M10061
      * @param orderId 订单id
      * @description openId 用户唯一标识必须传入
      * @returns {*} 返回订单详情
@@ -285,6 +316,7 @@ export declare class JNetworkMine extends JNetworkWorker {
 
     /**
      * 取消订单
+     * @method_name M10065
      * @param orderId 订单id
      * @description openId 用户唯一标识必须传入
      * @returns {*} 返回是否取消成功
@@ -299,12 +331,14 @@ export declare class JNetworkMine extends JNetworkWorker {
 export declare class JNetworkOther extends JNetworkWorker {
     /**
      * 加密
+     * @method_name M10080
      * @param key 待加密信息
      * @returns {*} 返回加密后的信息
      */
     systemEncrypt(key): Promise<string>
     /**
      * 解密
+     * @method_name M10081
      * @param key 待解密信息
      * @returns {*} 返回解密后的信息
      */
@@ -318,6 +352,7 @@ export declare class JNetworkOther extends JNetworkWorker {
 export declare class JNetworkSearch extends JNetworkWorker {
     /**
      * 根据关键字搜索影片、影院列表
+     * @method_name M10040
      * @param key 搜索关键字
      * @param page 分页信息
      * @description location LocationParas 定位信息必传
@@ -326,6 +361,7 @@ export declare class JNetworkSearch extends JNetworkWorker {
     search(key, page: PageParas): Promise<any>
 
     /**
+     * @ignore
      * 获取热门搜索列表
      * @returns {*} 返回热门搜索
      */
@@ -356,6 +392,7 @@ export declare type LockSeatParams = {
 export declare class JNetworkTrade extends JNetworkWorker {
     /**
      * 锁座
+     * @method_name M10050
      * @param lockSeatParams 锁座需要的参数
      * @returns {*} 返回锁座是否成功
      */
@@ -364,12 +401,14 @@ export declare class JNetworkTrade extends JNetworkWorker {
     /**
      * @hidden
      * 锁座
+     * @method_name M10051
      * @returns {*} 返回请求promise
      */
     lockStatus(requestId): Promise<any>
 
     /**
      * 获取订单状态
+     * @method_name M10083
      * @param orderId 订单id
      * @returns {*} 返回订单状态
      */
@@ -378,6 +417,7 @@ export declare class JNetworkTrade extends JNetworkWorker {
     /**
      * @hidden
      * 收银台返回的支付结果
+     * @method_name M10084
      * @param _CallBackUrl 订单id
      * @param orderId 订单id
      * @param token 加密参数
@@ -388,6 +428,7 @@ export declare class JNetworkTrade extends JNetworkWorker {
     /**
      * @hidden
      * 收银台返回的支付结果（统一新接口）
+     * @method_name M10052
      * @param jsonStr json字符串（内容为所需参数）
      * @returns {*} 返回请求promise
      */
