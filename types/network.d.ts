@@ -10,7 +10,7 @@ export declare class JNetworkAccount extends JNetworkWorker {
      * @param key 用户加密信息
      * @returns {*} 返回请求promise
      */
-    systemLogin(key: string): Promise<any>
+    accountLogin(key: string): Promise<any>
 }
 
 /**

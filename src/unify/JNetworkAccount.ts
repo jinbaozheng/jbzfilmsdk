@@ -7,6 +7,15 @@ const JNetworkAccount = {
         book: [
             'key'
         ]
+    },
+    accountLogin: {
+        url: '/account/login',
+        params: {
+            key: true
+        },
+        book: [
+            'key'
+        ]
     }
 };
 
