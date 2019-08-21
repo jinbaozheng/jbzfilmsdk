@@ -11,7 +11,8 @@
 <body>
 <script>
    var NetworkBanner = my_network.NetworkBanner;
-   NetworkBanner.useParams({test: 'just a test'}).bannerList('01').then(data => {
+   var NetworkAccount = my_network.NetworkAccount;
+   NetworkAccount.useParams({test: 'just a test'}).accountLogin('test').then(data => {
        console.log(data);
    }, error => {
        console.log(error);

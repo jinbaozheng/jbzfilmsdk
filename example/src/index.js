@@ -20,6 +20,9 @@ class NetworkLocation extends jbzfilmsdk.JNetworkLocation{
 class NetworkSearch extends jbzfilmsdk.JNetworkSearch{
 }
 
+class NetworkAccount extends jbzfilmsdk.JNetworkAccount{
+}
+
 
 class _NetworkOther extends jbzfilmsdk.JNetworkOther{
 }
@@ -52,6 +55,12 @@ let delegate = {
 };
 
 export default {
+    NetworkAccount: new NetworkAccount ({
+        baseUrl: 'https://local.idoupiao.com:4443/filmweb/',
+        otherContent: {
+            inType: 'cmbc'
+        }
+    }),
     NetworkBanner: new NetworkBanner ({
         baseUrl: 'https://local.idoupiao.com:4443/filmweb/',
         otherContent: {
