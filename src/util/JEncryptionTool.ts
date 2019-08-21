@@ -235,14 +235,19 @@ class JEncryptionTool {
         }
         return object;
     }
-    static encryption(url, obj, bank){
-        let routerNumber = this.router(url);
+    static encryption(url, obj, bank, methodName){
+        let routerNumber = null;
+        if (methodName) {
+            routerNumber = methodName;
+        } else {
+            routerNumber = this.router(url);
+        }
         if (!routerNumber) {
             return false;
         }
         let params = obj;
         params.b = md5(bank);
-        params.method = routerNumber.method;
+        params.method = routerNumber;
         params = this.deleteEmptyProperty(params);
         const ascii = this.sortAsc(params);
         params.signCode = md5(ascii + JBZ_KEY);
@@ -251,7 +256,7 @@ class JEncryptionTool {
     }
     static router(url){
         if (routerPath[url]) {
-            return {method: routerPath[url]}
+            return routerPath[url];
         }
         return false;
     }

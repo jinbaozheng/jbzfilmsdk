@@ -27,7 +27,8 @@ const DEFAULT_NETWORK_CONFIG: object = {
     encryption: {
         required: () => true,
         paramsInterceptor: (params, self: JNetworkWorker) => ({...params, ...self.pickInjectParams()})
-    }
+    },
+    methodName: null
 };
 
 export default {

@@ -16,7 +16,8 @@ const DEFAULT_NETWORK_CONFIG = {
     useHeaders: [],
     useBodyData: [],
     rule: [0, 1, 2],
-    encryption: null
+    encryption: null,
+    methodName: null
 };
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
@@ -131,7 +132,8 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                 useParams,
                 useHeaders,
                 useBodyData,
-                encryption
+                encryption,
+                methodName
             } = {
                 ...defaultNetworkConfig,
                 ...config
@@ -192,7 +194,12 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                             }
                         }
                         const {paramsInterceptor = (_) => ({location: '02'})} = encryption;
-                        let paramsObj = JEncryptionTool.encryption(url, paramsInterceptor(noUndefinedParams, this), inType);
+                        let paramsObj = JEncryptionTool.encryption(
+                            url,
+                            paramsInterceptor(noUndefinedParams, this),
+                            inType,
+                            methodName
+                        );
                         if (!paramsObj){
                             throw new Error(`地址 ${url} 加密过程异常`);
                         }
