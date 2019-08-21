@@ -47,11 +47,12 @@ const JNetworkTrade = {
     confirmOrder: {
         url: '/order/confirmorder',
         params: {
-            jsonStr: true
-        },
-        book: [
-            'jsonStr'
-        ]
+            openId: true,
+            orderId: true,
+            activityId:true,
+            positionCityId:true,
+            selectedCityId: true
+        }
     }
 }
 
