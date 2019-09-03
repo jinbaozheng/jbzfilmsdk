@@ -1,5 +1,6 @@
 import {INetworkStandardPromiseType, JNetwork, JToolDate, JToolObject as ObjectTool} from 'icemilk';
 import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParas} from "./paras"
+import {REVEAL_NETWORK_CONFIG} from './interface';
 
 /**
  * 账户相关网络请求类
@@ -444,7 +445,7 @@ export declare class JNetworkTrade extends JNetworkWorker {
  */
 export declare function revealNetwork<T extends new(...args: any[]) => JNetworkWorker>(networkClass: T,
                                                                                        networkName?: string,
-                                                                                       config?: object): T;
+                                                                                       config?: REVEAL_NETWORK_CONFIG): T;
 /**
  * @hidden
  */
