@@ -26,7 +26,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "axios": "^0.18.1",
-    "icemilk": "^1.0.10-beta0",
+    "icemilk": "^1.0.10-beta1",
     "jsencrypt": "^3.0.0-rc.1",
     "md5": "^2.2.1"
   },
