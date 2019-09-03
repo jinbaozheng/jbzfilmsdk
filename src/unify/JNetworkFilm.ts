@@ -4,9 +4,8 @@ import FilmSimpleModel from '../model/FilmSimpleModel';
 const JNetworkFilm = {
     hotFilms: {
         url:  '/film/hotfilms',
-        cook: data => {
-            let films = data.films.map(_ => FilmModel.create(_))
-            return {count: data.count, films};
+        cook: ({count, films}) => {
+            return {count, films: films.map(_ => FilmModel.create(_))};
         }
     },
     hotFilmsByPage: {
@@ -23,9 +22,8 @@ const JNetworkFilm = {
     },
     waitFilms: {
         url:  '/film/soonfilms',
-        cook: data => {
-            let films = data.films.map(_ => FilmModel.create(_))
-            return {count: data.count, films};
+        cook: ({count, films}) => {
+            return {count, films: films.map(_ => FilmModel.create(_))};
         }
     },
     waitFilmsByPage: {
@@ -48,9 +46,7 @@ const JNetworkFilm = {
         book:[
             'filmId'
         ],
-        cook: (data) => ({
-            film: FilmModel.create(data)
-        })
+        cook: (data) => FilmModel.create(data)
     },
     filmHotComments: {
         url:  '/film/hotcomments',
