@@ -6,8 +6,8 @@ import sourcemaps from 'rollup-plugin-sourcemaps';
 module.exports = () => {
     return {
         input: './src/index.ts',
-        sourceMap: true,
         output: {
+            sourceMap: true,
             name: 'jbzfilmsdk',
             globals: {
                 moment: 'moment',
