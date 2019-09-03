@@ -14,10 +14,6 @@ const JNetworkFilm = {
             page: true,
             size: true
         },
-        book: [
-            'page',
-            'size'
-        ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
     waitFilms: {
@@ -32,10 +28,6 @@ const JNetworkFilm = {
             page: true,
             size: true
         },
-        book: [
-            'page',
-            'size'
-        ],
         cook: (data) => data.map(_ => FilmModel.create(_))
     },
     filmDetail: {
