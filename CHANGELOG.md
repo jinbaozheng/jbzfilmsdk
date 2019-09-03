@@ -10,3 +10,9 @@
 ## 1.1.1
   * 配合服务器更新接口
   * 重构实现
+  
+## 1.1.1-beta0 ~ 1.1.2-beta2
+  * 优化代码
+  
+## 1.1.2-beta3
+  * 更新 hotFilmsByPage 及 waitFilmsByPage 参数形式
