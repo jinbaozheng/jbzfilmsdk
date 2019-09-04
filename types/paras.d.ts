@@ -84,7 +84,11 @@ export declare interface LocationParas {
 /**
  * 座位图参数声明
  */
-export declare interface SeatParas {
+export declare interface SeatParams {
+    /**
+     * 影院平台
+     */
+    type: string;
     /**
      * 影院id
      */

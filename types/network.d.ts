@@ -1,5 +1,5 @@
-import {INetworkStandardPromiseType, JNetwork, JToolDate, JToolObject as ObjectTool} from 'icemilk';
-import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParas} from "./paras"
+import {INetworkStandardPromiseType, JNetwork} from 'icemilk';
+import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParams} from "./paras"
 import {REVEAL_NETWORK_CONFIG} from './interface';
 
 /**
@@ -128,11 +128,10 @@ export declare class JNetworkCinema extends JNetworkWorker {
     /**
      * 获取场次实时座位图
      * @method_name M10010
-     * @param type 票务商
-     * @param paras 影院排片参数
+     * @param params 影院排片参数
      * @returns {*} 返回实时座位图
      */
-    cinemaSmartSeats(type: string, paras: SeatParas): Promise<any>
+    cinemaSmartSeats(params: SeatParams): Promise<any>
 
     /**
      * @hidden
