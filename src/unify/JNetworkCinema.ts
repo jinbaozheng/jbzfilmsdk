@@ -1,4 +1,6 @@
 import {JToolDate} from 'icemilk'
+import SeatManager from '../util/JManagerSeat'
+import JNetworkCienema from '../network/JNetworkCinema'
 
 function _netcinema(cinema) {
     return {
@@ -94,7 +96,7 @@ const JNetworkCinema = {
         ],
         cook: _ => _.map(_cinemaScreeningItems)
     },
-    cinemaSmartSeats: {
+    cinemaSeats: {
         url: '/cinema/realtimeseats',
         params: {
             type: {
@@ -109,8 +111,26 @@ const JNetworkCinema = {
             return _;
         }
     },
-    // 这里传type是座位图进行判断的，绝望的异步
-    realTimeSeatsInfo: {
+    cinemaSmartSeats: {
+        url: '/cinema/realtimeseats',
+        params: {
+            type: {
+                require: true,
+                cook: _ => ((_ === 'meituan' || _ === 'dazhong') ? 'maoyan' : _)
+            },
+            cinemaId: true,
+            showId: true,
+            sectionId: false
+        },
+        cook: (_, __) => {
+            const {platform} = _;
+            if (_.hasOwnProperty('requestId')){
+                return _.requestId
+            }
+            return SeatManager.defaultManager().smartSeatsFromSeats(platform, _);
+        }
+    },
+    cinemaSmartSeatsByRequestId: {
         url: '/cinema/realtimeseatsinfo',
         params: {
             requestId: true
@@ -118,8 +138,12 @@ const JNetworkCinema = {
         book: [
             'requestId'
         ],
-        cook: (_) => {
-            return _;
+        cook: (_, __) => {
+            if(!_){
+                return null;
+            }
+            const {platform} = _;
+            return SeatManager.defaultManager().smartSeatsFromSeats(platform, _);
         }
     }
 };
