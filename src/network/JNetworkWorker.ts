@@ -211,7 +211,8 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                     let pizza = {
                         params: paramsValue,
                         bodyData: bodyDataValue,
-                        headers: headersValue
+                        headers: headersValue,
+                        args,
                     };
                     return this
                         .createGroup({
