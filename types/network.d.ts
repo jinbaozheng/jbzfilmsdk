@@ -136,13 +136,12 @@ export declare class JNetworkCinema extends JNetworkWorker {
     cinemaSmartSeats(params: SeatParams): Promise<any>
 
     /**
-     * @hidden
      * 实时座位图结果 (异步处理)
      * @method_name M10011
      * @param requestId 请求Id，该值为申请实时座位图接口返回的requestId
      * @returns {*} 返回请求promise
      */
-    realTimeSeatsInfo(requestId): Promise<any>
+    cinemaSmartSeatsByRequestId(requestId): Promise<any>
 }
 
 /**
