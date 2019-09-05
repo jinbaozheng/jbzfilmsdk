@@ -1,6 +1,8 @@
 import {INetworkStandardPromiseType, JNetwork} from 'icemilk';
 import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParams} from "./paras"
 import {REVEAL_NETWORK_CONFIG} from './interface';
+import {LockSeatParamsModel} from "./model";
+
 
 /**
  * 账户相关网络请求类
@@ -368,23 +370,6 @@ export declare class JNetworkSearch extends JNetworkWorker {
     hotSearchList(): Promise<any>
 }
 
-export declare type LockSeatParams = {
-    openId: true,
-    mobile: true,
-    showId: true,
-    type: true,
-    cinemaId: true,
-    filmId: true,
-    seatIds: true,
-    count: true,
-    cityId: true,
-    seatInfos: false,
-    hallId: false,
-    areaInfo: false,
-    applyKey: false,
-    seatNames: false,
-}
-
 /**
  * 商务相关接口
  * @noInheritDoc
@@ -396,7 +381,7 @@ export declare class JNetworkTrade extends JNetworkWorker {
      * @param lockSeatParams 锁座需要的参数
      * @returns {*} 返回锁座是否成功
      */
-    lockSeat(lockSeatParams: LockSeatParams): Promise<any>
+    lockSeat(lockSeatParams: LockSeatParamsModel): Promise<any>
 
     /**
      * @hidden
