@@ -427,8 +427,8 @@ class SeatManager {
       return {
         ...bridgeModel,
         status: seatRowModel.isLock
-          ? 1
-          : 0,
+            ? 1
+            : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
         loveIndex: Number.parseInt(seatRowModel.loveIndex)
@@ -465,8 +465,8 @@ class SeatManager {
       return {
         ...bridgeModel,
         status: seatRowModel.isLock === '1'
-          ? 1
-          : 0,
+            ? 1
+            : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
         loveIndex: Number.parseInt(seatRowModel.loveIndex)
@@ -503,8 +503,8 @@ class SeatManager {
       return {
         ...bridgeModel,
         status: seatRowModel.isLock
-          ? 1
-          : 0,
+            ? 1
+            : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
         loveIndex: Number.parseInt(seatRowModel.loveIndex)
@@ -546,8 +546,8 @@ class SeatManager {
       return {
         ...bridgeModel,
         status: seatRowModel.status === 'LK'
-          ? 1
-          : 0,
+            ? 1
+            : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
         loveIndex: loveIndex
@@ -583,8 +583,8 @@ class SeatManager {
       return {
         ...bridgeModel,
         status: seatRowModel.status === '2'
-          ? 1
-          : 0,
+            ? 1
+            : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
         loveIndex: Number.parseInt(seatRowModel.isLove),
@@ -622,55 +622,55 @@ class SeatManager {
       return {
         ...bridgeModel,
         status: seatRowModel.status === 0
-          ? 1
-          : 0,
+            ? 1
+            : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
         loveIndex: loveIndex
       }
     });
   }
-    /**
-     * 获取影托帮智能座位图
-     * @param seatList
-     * @returns {Array}
-     */
-    smartSeatsWithYTBSeats(seatList) {
-        return seatList.map((seatModel) => {
-            let row = Number.parseInt(seatModel.graphRow);
-            let col = Number.parseInt(seatModel.graphCol);
-            let rowOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatRow);
-            let colOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatCol);
-            let rowNumber = JToolString.numberFromString(rowOriNumber, true, 1);
-            let colNumber = JToolString.numberFromString(colOriNumber, true, 1);
-            return {
-                rowOriNumber,
-                colOriNumber,
-                row,
-                col,
-                rowNumber,
-                colNumber,
-                seatModel
-            };
-        }).map(bridgeModel => {
-            let seatRowModel = bridgeModel.seatModel;
-            let loveIndex = 0;
-            if (seatRowModel.seatType === 'L') {
-                loveIndex = 1;
-            } else if (seatRowModel.seatType === 'R') {
-                loveIndex = 2;
-            }
-            return {
-                ...bridgeModel,
-                status: seatRowModel.seatState === -1
-                    ? 1
-                    : 0,
-                rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
-                colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
-                loveIndex: loveIndex
-            }
-        });
-    }
+  /**
+   * 获取影托帮智能座位图
+   * @param seatList
+   * @returns {Array}
+   */
+  smartSeatsWithYTBSeats(seatList) {
+    return seatList.map((seatModel) => {
+      let row = Number.parseInt(seatModel.graphRow);
+      let col = Number.parseInt(seatModel.graphCol);
+      let rowOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatRow);
+      let colOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatCol);
+      let rowNumber = JToolString.numberFromString(rowOriNumber, true, 1);
+      let colNumber = JToolString.numberFromString(colOriNumber, true, 1);
+      return {
+        rowOriNumber,
+        colOriNumber,
+        row,
+        col,
+        rowNumber,
+        colNumber,
+        seatModel
+      };
+    }).map(bridgeModel => {
+      let seatRowModel = bridgeModel.seatModel;
+      let loveIndex = 0;
+      if (seatRowModel.seatType === 'L') {
+        loveIndex = 1;
+      } else if (seatRowModel.seatType === 'R') {
+        loveIndex = 2;
+      }
+      return {
+        ...bridgeModel,
+        status: seatRowModel.seatState === -1
+            ? 1
+            : 0,
+        rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
+        colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
+        loveIndex: loveIndex
+      }
+    });
+  }
   /**
    * 获取座位图尺寸
    * @private
