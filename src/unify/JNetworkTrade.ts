@@ -18,7 +18,7 @@ const JNetworkTrade = {
             seatNames: false,
         }
     },
-    lockStatus: {
+    lockStatusByRequestId: {
         url: '/order/lockstatus',
         params: {
             requestId: true
@@ -44,14 +44,18 @@ const JNetworkTrade = {
             token:false
         }
     },
+    /**
+     *
+     */
     confirmOrder: {
         url: '/order/confirmorder',
         params: {
             openId: true,
             orderId: true,
-            activityId:true,
-            positionCityId:true,
-            selectedCityId: true
+            positionCityId: false,
+            selectedCityId: false,
+            activityId: false,
+
         }
     }
 }

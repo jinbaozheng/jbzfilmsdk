@@ -27,25 +27,25 @@ const routerPath = {
     '/location/citybyid': 'M10034',//根据城市ID获取城市
     '/location/districts': 'M10035',//根据城市Id获取区域
     '/search/searchall': 'M10040',//搜索电影和影院
-    '/order/lockseat': 'M10050',//请求锁座
-    '/order/lockstatus': 'M10051',//锁座结果
-    '/mine/orderlist': 'M10060',//订单列表
-    '/mine/orderdetail': 'M10061',//订单详情
-    '/mine/cltedcinemalist': 'M10062',//收藏影院列表
-    '/mine/cltcinema': 'M10063',//收藏影院
-    '/mine/celcltcinema': 'M10064',//取消收藏影院
-    '/order/cancel': 'M10065',//取消订单
-    '/system/encrypt': 'M10080',//民生加密
-    '/system/decrypt': 'M10081',//民生解密
-    '/system/login': 'M10082',//民生登录
-    '/system/status': 'M10083',//民生支付状态查询
-    '/system/confirm/pay': 'M10084',//民生确认支付
-    '/get/activity/quota': 'A10010',//查询活动资格
-    '/get/all/activity': 'A10013',//获取所有活动
-    '/in/activity/duration': 'A10014',//是否活动期间
-    '/redirect/find/page': 'A10015',//是否跳转发现页
-    '/account/login': 'C10006',//全部银行登录方法
-    '/order/confirmorder': 'M10053' // 确认支付
+    '/order/lockseat': 'M10050',       // 请求锁座
+    '/order/lockstatus': 'M10051',     // 锁座结果
+    '/mine/orderlist': 'M10060',       // 订单列表
+    '/mine/orderdetail': 'M10061',     // 订单详情
+    '/mine/cltedcinemalist': 'M10062', // 收藏影院列表
+    '/mine/cltcinema': 'M10063',       // 收藏影院
+    '/mine/celcltcinema': 'M10064',    // 取消收藏影院
+    '/order/cancel': 'M10065',         // 取消订单
+    '/system/encrypt': 'M10080',       // 加密接口
+    '/system/decrypt': 'M10081',       // 解密接口
+    '/system/login': 'M10082',         // 登录登录
+    '/system/status': 'M10083',        // 支付状态查询
+    '/system/confirm/pay': 'M10084',   // 确认支付
+    '/get/activity/quota': 'A10010',   // 查询活动资格
+    '/get/all/activity': 'A10013',     // 获取所有活动
+    '/in/activity/duration': 'A10014', // 是否活动期间
+    '/redirect/find/page': 'A10015',   // 是否跳转发现页
+    '/account/login': 'C10006',        // 全部银行登录方法
+    '/order/confirmorder': 'M10053'    // 确认支付
 };
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {
