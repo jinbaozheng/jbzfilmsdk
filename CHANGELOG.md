@@ -16,3 +16,11 @@
   
 ## 1.1.2-beta3
   * 更新 hotFilmsByPage 及 waitFilmsByPage 参数形式
+  
+
+## 1.1.3
+  * 更新接口名  realTimeSeatsInfo => cinemaSmartSeatsByRequestId
+  * 更新接口名  lockStatus => lockStatusByRequestId
+  * 增加 cook 回调参数 args
+  * 增加 JToolAsyncNetwork 工具类
+ 

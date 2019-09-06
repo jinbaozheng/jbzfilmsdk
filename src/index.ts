@@ -42,4 +42,9 @@ export {
     ManagerTrade as JManagerTrade
 };
 
+import JToolAsyncNetwork from './tool/JToolAsyncNetwork';
+export {
+    JToolAsyncNetwork
+}
+
 /* eslint-enable */
