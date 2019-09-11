@@ -16,8 +16,8 @@ const JNetworkSearch = {
         ],
         description: 'cinema 无数据'
     },
-    searchHotKey: {
-        url: 'M10041',
+    searchHotKeys: {
+        url: '/search/hotkey',
         params: {
             cityId: false
         }

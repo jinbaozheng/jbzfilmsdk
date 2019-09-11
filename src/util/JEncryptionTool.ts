@@ -27,6 +27,7 @@ const routerPath = {
     '/location/citybyid': 'M10034',//根据城市ID获取城市
     '/location/districts': 'M10035',//根据城市Id获取区域
     '/search/searchall': 'M10040',//搜索电影和影院
+    '/search/hotkey': 'M10041',//搜索电影和影院
     '/order/lockseat': 'M10050',       // 请求锁座
     '/order/lockstatus': 'M10051',     // 锁座结果
     '/mine/orderlist': 'M10060',       // 订单列表
@@ -37,7 +38,7 @@ const routerPath = {
     '/order/cancel': 'M10065',         // 取消订单
     '/system/encrypt': 'M10080',       // 加密接口
     '/system/decrypt': 'M10081',       // 解密接口
-    '/system/login': 'M10082',         // 登录登录
+    '/system/login': 'M10082',         // 登录登录 - 后续弃用
     '/system/status': 'M10083',        // 支付状态查询
     '/system/confirm/pay': 'M10084',   // 确认支付
     '/get/activity/quota': 'A10010',   // 查询活动资格

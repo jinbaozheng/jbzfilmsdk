@@ -362,11 +362,10 @@ export declare class JNetworkSearch extends JNetworkWorker {
     search(key, page: PageParas): Promise<any>
 
     /**
-     * @ignore
      * 获取热门搜索列表
-     * @returns {*} 返回热门搜索
+     * @returns {*} 返回热门搜索关键词
      */
-    hotSearchList(): Promise<any>
+    searchHotKeys(): Promise<any>
 }
 
 /**
