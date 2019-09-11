@@ -30,10 +30,6 @@ const JNetworkMine = {
             page: true,
             size: false,
         },
-        book: [
-            'page',
-            'size?',
-        ]
     },
     orderList: {
         url: '/mine/orderlist',
@@ -42,12 +38,7 @@ const JNetworkMine = {
             page: true,
             size: true,
             type: false
-        },
-        book: [
-            'page',
-            'size',
-            'type?',
-        ]
+        }
     },
     orderDetail: {
         url: '/mine/orderdetail',
