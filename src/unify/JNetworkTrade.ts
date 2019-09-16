@@ -44,9 +44,6 @@ const JNetworkTrade = {
             token:false
         }
     },
-    /**
-     *
-     */
     confirmOrder: {
         url: '/order/confirmorder',
         params: {
@@ -55,7 +52,6 @@ const JNetworkTrade = {
             positionCityId: false,
             selectedCityId: false,
             activityId: false,
-
         }
     }
 }

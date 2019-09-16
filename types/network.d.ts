@@ -377,17 +377,17 @@ export declare class JNetworkTrade extends JNetworkWorker {
      * 锁座
      * @method_name M10050
      * @param lockSeatParams 锁座需要的参数
-     * @returns {*} 返回锁座是否成功
+     * @returns {*} 返回锁座结果或者放回一个requestId请求标识
      */
     lockSeat(lockSeatParams: LockSeatParamsModel): Promise<any>
 
     /**
-     * @hidden
-     * 锁座
+     * 查询锁座结果
      * @method_name M10051
-     * @returns {*} 返回请求promise
+     * @param requestId 请求标识
+     * @returns {*} 返回锁座结果
      */
-    lockStatus(requestId): Promise<any>
+    lockStatusByRequestId(requestId: string): Promise<any>
 
     /**
      * 获取订单状态
