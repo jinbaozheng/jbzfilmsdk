@@ -35,6 +35,7 @@ const routerPath = {
     '/mine/cltedcinemalist': 'M10062', // 收藏影院列表
     '/mine/cltcinema': 'M10063',       // 收藏影院
     '/mine/celcltcinema': 'M10064',    // 取消收藏影院
+    '/mine/lookedfilms': 'H10010',    // 看过的电影
     '/order/cancel': 'M10065',         // 取消订单
     '/system/encrypt': 'M10080',       // 加密接口
     '/system/decrypt': 'M10081',       // 解密接口
@@ -46,7 +47,7 @@ const routerPath = {
     '/in/activity/duration': 'A10014', // 是否活动期间
     '/redirect/find/page': 'A10015',   // 是否跳转发现页
     '/account/login': 'C10006',        // 全部银行登录方法
-    '/order/confirmorder': 'M10053'    // 确认支付
+    '/order/confirmorder': 'M10053',    // 确认支付
 };
 let BI_RM = '0123456789abcdefghijklmnopqrstuvwxyz';
 function int2char(n) {
@@ -55,7 +56,7 @@ function int2char(n) {
 function b64tohex(s) {
     let ret = '';
     let i;
-    let k = 0; // b64 state, 0-3
+    let k = 0;
     let slop = 0;
     for (i = 0; i < s.length; ++i) {
         if (s.charAt(i) === b64pad) {

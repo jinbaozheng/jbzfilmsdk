@@ -59,7 +59,16 @@ const JNetworkMine = {
         book: [
             'orderId',
         ]
-    }
+    },
+    lookedFilms: {
+        url: '/mine/lookedfilms',
+        params: {
+            openId: true,
+            page: true,
+            size: false
+        }
+    },
+
 };
 
 export default JNetworkMine;
