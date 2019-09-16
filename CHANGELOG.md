@@ -21,6 +21,10 @@
 ## 1.1.3
   * 更新接口名  realTimeSeatsInfo => cinemaSmartSeatsByRequestId
   * 更新接口名  lockStatus => lockStatusByRequestId
+  * 更新 orderList 参数形式
+  * 更新 collectedCinemaList 参数形式
   * 增加 cook 回调参数 args
   * 增加 JToolAsyncNetwork 工具类
- 
+  * 增加热搜关键词 searchHotKey 服务器接口
+  * 增加个人看过影片 lookedFilms 服务器接口
+  * 增加 JToolOrderStatus 工具类
