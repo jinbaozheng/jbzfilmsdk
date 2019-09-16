@@ -18,7 +18,7 @@
   * 更新 hotFilmsByPage 及 waitFilmsByPage 参数形式
   
 
-## 1.1.3
+## 1.1.3-beta0
   * 更新接口名  realTimeSeatsInfo => cinemaSmartSeatsByRequestId
   * 更新接口名  lockStatus => lockStatusByRequestId
   * 更新 orderList 参数形式
@@ -27,4 +27,5 @@
   * 增加 JToolAsyncNetwork 工具类
   * 增加热搜关键词 searchHotKey 服务器接口
   * 增加个人看过影片 lookedFilms 服务器接口
+  * 增加预支付 prepay 服务器接口
   * 增加 JToolOrderStatus 工具类
