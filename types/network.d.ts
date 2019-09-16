@@ -390,6 +390,7 @@ export declare class JNetworkTrade extends JNetworkWorker {
     lockStatusByRequestId(requestId: string): Promise<any>
 
     /**
+     * @hidden
      * 获取订单状态
      * @method_name M10083
      * @param orderId 订单id
@@ -398,8 +399,7 @@ export declare class JNetworkTrade extends JNetworkWorker {
     orderStatus(orderId): Promise<any>
 
     /**
-     * @hidden
-     * 收银台返回的支付结果
+     * 收银台预支付
      * @method_name M10084
      * @param _CallBackUrl 订单id
      * @param orderId 订单id
@@ -407,6 +407,13 @@ export declare class JNetworkTrade extends JNetworkWorker {
      * @returns {*} 返回请求promise
      */
     confirmPay(_CallBackUrl, orderId, token): Promise<any>
+
+    /**
+     * 新版收银台预支付
+     * @param jsonString
+     * @returns {*} 返回支付加密串
+     */
+    prePay(jsonString): Promise<any>
 
     /**
      * @hidden

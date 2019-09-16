@@ -27,6 +27,16 @@ const JNetworkTrade = {
             'requestId'
         ]
     },
+    confirmOrder: {
+        url: '/order/confirmorder',
+        params: {
+            openId: true,
+            orderId: true,
+            positionCityId: false,
+            selectedCityId: false,
+            activityId: false,
+        }
+    },
     orderStatus: {
         url: '/system/status',
         params: {
@@ -44,15 +54,14 @@ const JNetworkTrade = {
             token:false
         }
     },
-    confirmOrder: {
-        url: '/order/confirmorder',
+    prePay: {
+        url: '/system/prepay',
         params: {
-            openId: true,
-            orderId: true,
-            positionCityId: false,
-            selectedCityId: false,
-            activityId: false,
-        }
+            jsonStr: true
+        },
+        book: [
+            'jsonStr'
+        ]
     }
 }
 
