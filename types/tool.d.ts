@@ -12,4 +12,14 @@ export declare class JToolAsyncNetwork{
     static tryRequest(method: (...methodArgs: any[]) => Promise<any | number>, [...methodArgs]: any[], tryCount?: number, interval?: number);
 }
 
-export default JToolAsyncNetwork
+/**
+ * 订单状态工具类
+ */
+export declare class JToolOrderStatus{
+    /**
+     * 获取订单状态基础说明
+     * @param status 状态编号
+     */
+    static statusMessageFromStatus(status: number): string;
+}
+

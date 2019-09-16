@@ -43,8 +43,10 @@ export {
 };
 
 import JToolAsyncNetwork from './tool/JToolAsyncNetwork';
+import JToolOrderStatus from './tool/JToolOrderStatus';
 export {
-    JToolAsyncNetwork
+    JToolAsyncNetwork,
+    JToolOrderStatus
 }
 
 /* eslint-enable */
