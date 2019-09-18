@@ -61,7 +61,8 @@ const JNetworkCity = {
         },
         book: [
             'cityId'
-        ]
+        ],
+        cook: _ => _.map(_netCityToCity)
     },
     districts: {
         url: '/location/districts',
