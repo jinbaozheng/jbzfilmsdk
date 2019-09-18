@@ -410,6 +410,7 @@ export declare class JNetworkTrade extends JNetworkWorker {
 
     /**
      * 新版收银台预支付
+     * @method_name M10052
      * @param jsonString
      * @returns {*} 返回支付加密串
      */
