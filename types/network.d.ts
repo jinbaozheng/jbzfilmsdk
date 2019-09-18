@@ -1,7 +1,7 @@
 import {INetworkStandardPromiseType, JNetwork} from 'icemilk';
 import {CinemaFilterParas, LocationParas, CoordinateParas, PageParas, SeatParams} from "./paras"
 import {REVEAL_NETWORK_CONFIG} from './interface';
-import {LockSeatParamsModel} from "./model";
+import {LockSeatParamsModel, ConfirmOrderParamsModel} from "./model";
 
 
 /**
@@ -417,13 +417,12 @@ export declare class JNetworkTrade extends JNetworkWorker {
     prePay(jsonString): Promise<any>
 
     /**
-     * @hidden
-     * 收银台返回的支付结果（统一新接口）
-     * @method_name M10052
-     * @param jsonStr json字符串（内容为所需参数）
-     * @returns {*} 返回请求promise
+     * 确认支付接口
+     * @method_name M10053
+     * @param params 确认订单参数
+     * @returns {*} 返回订单信息
      */
-    confirmOrder(jsonStr): Promise<any>
+    confirmOrder(params: ConfirmOrderParamsModel): Promise<any>
 }
 
 /**
