@@ -1,4 +1,5 @@
 import {JNetwork, INetworkStandardPromiseType, JNetworkGroup, JToolObject} from 'icemilk';
+import {INetworkConfig, IWorkerDelegate} from '../../types';
 import JConfig from '../unify/JConfig';
 import JEncryptionTool from './../util/JEncryptionTool';
 
@@ -21,11 +22,22 @@ const DEFAULT_NETWORK_CONFIG = {
 };
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
+    constructor(config: INetworkConfig){
+        super(config);
+    }
+
     fetchRequest(...args): INetworkStandardPromiseType<any>{
+        const {workerDelegate} = (this.config || {}) as INetworkConfig;
         return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
             if (!res.data.errorCode){
+                if (workerDelegate && workerDelegate.resolveDataInterceptor){
+                    workerDelegate.resolveDataInterceptor(this, res.data)
+                }
                 return res.data;
             } else {
+                if (workerDelegate && workerDelegate.rejectDataInterceptor){
+                    workerDelegate.rejectDataInterceptor(this, res.data)
+                }
                 throw new Error(res.data.message);
             }
         })
@@ -34,10 +46,17 @@ export default class JNetworkWorker extends JNetwork{
 
 class JNetworkWorkerGroup extends JNetworkGroup{
     fetchRequest(...args): INetworkStandardPromiseType<any>{
+        const {workerDelegate} = (this.parent.config || {}) as INetworkConfig;
         return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
+            if (workerDelegate && workerDelegate.resolveDataInterceptor){
+                workerDelegate.resolveDataInterceptor(this, res.data)
+            }
             if (!res.data.errorCode){
                 return res.data;
             } else {
+                if (workerDelegate && workerDelegate.rejectDataInterceptor){
+                    workerDelegate.rejectDataInterceptor(this, res.data)
+                }
                 throw new Error(res.data.message);
             }
         })
@@ -141,10 +160,6 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
             if (!Array.isArray(rule) || rule.length !== 3 || rule.some(_ => _ > 2 || _ < 0)){
                 throw new Error(`rule 参数出错`);
             }
-            // if (Array.isArray(params)){
-            // } else if (typeof params === 'object'){
-            // } else {
-            // }
 
             if (networkClass.prototype.hasOwnProperty(key)){
                 continue;

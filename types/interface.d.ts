@@ -1,11 +1,16 @@
-import {INetworkConfig as _IceNetworkConfig} from 'icemilk';
+import {INetworkConfig as _IceNetworkConfig, JNetworkRoot} from 'icemilk';
+
+
+export declare interface IWorkerDelegate {
+    resolveDataInterceptor(self: JNetworkRoot, data: any);
+    rejectDataInterceptor(self: JNetworkRoot, data: any);
+}
 
 /**
  * @hidden
  */
 export declare interface INetworkConfig extends _IceNetworkConfig {
-    dataMap: any,
-    urlMap: any
+   workerDelegate?: IWorkerDelegate;
 }
 
 /**
