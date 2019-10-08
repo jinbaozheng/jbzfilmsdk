@@ -13,10 +13,6 @@ const JNetworkCity = {
             longitude: false,
             latitude: false
         },
-        book: [
-            'longitude',
-            'latitude'
-        ],
         cook: data => {
             // 轮询为空防止找不到报错
             if (data.requestId) {
@@ -27,7 +23,7 @@ const JNetworkCity = {
             return {city: _netCityToCity(address), address};
         }
     },
-    locationCityInfo: {
+    cityByCoordinateAndRequestId: {
         url: '/location/cityinfo',
         params: {
             requestId: true

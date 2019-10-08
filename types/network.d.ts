@@ -164,7 +164,7 @@ export declare class JNetworkCity extends JNetworkWorker {
      * @param requestId 请求定位接口返回的requestId
      * @returns {*} 返回请求promise
      */
-    locationCityInfo(requestId): Promise<any>
+    cityByCoordinateAndRequestId(requestId): Promise<any>
 
     /**
      * 获取热门城市列表
