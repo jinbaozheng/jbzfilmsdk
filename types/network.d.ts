@@ -159,7 +159,6 @@ export declare class JNetworkCity extends JNetworkWorker {
     cityByCoordinate(coordinate: CoordinateParas): Promise<any>
 
     /**
-     * @hidden
      * 获取定位结果
      * @method_name M10033
      * @param requestId 请求定位接口返回的requestId
