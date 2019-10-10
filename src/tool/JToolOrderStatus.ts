@@ -22,13 +22,13 @@ class JToolOrderStatus{
             {
                 key: '未支付_取消订单',
                 code: 121,
-                message: '未支付_取消订单',
+                message: '取消订单',
                 description: '用户主动取消订单'
             },
             {
                 key: '未支付_预支付订单号获取失败',
                 code: 125,
-                message: '未支付_预支付订单号获取失败',
+                message: '预支付订单号获取失败',
                 description: '获取支付系统的预支付订单号失败'
             },
             {
@@ -94,25 +94,25 @@ class JToolOrderStatus{
             {
                 key: '出票失败_退款中',
                 code: 350,
-                message: '出票失败_退款中',
+                message: '退款中',
                 description: '出票失败发起退款申请'
             },
             {
                 key: '出票异常_退款中',
                 code: 352,
-                message: '出票异常_退款中',
+                message: '退款中',
                 description: '出票异常发起退款申请'
             },
             {
                 key: '已支付_未通知出票_退款中',
                 code: 354,
-                message: '已支付_未通知出票_退款中',
+                message: '退款中',
                 description: '支付成功，单由于订单超时，未通知票务商出票，发起退款申请'
             },
             {
                 key: '交易完成_退款中',
                 code: 356,
-                message: '交易完成_退款中',
+                message: '退款中',
                 description: '交易完成的订单发起退款'
             },
             {
@@ -136,7 +136,7 @@ class JToolOrderStatus{
             {
                 key: '已支付_未通知出票_退款失败',
                 code: 430,
-                message: '已支付_未通知出票_退款失败',
+                message: '退款失败',
                 description: '支付成功，但由于订单超时，未通知票务商出票，进行退款且退款失败'
             },
             {
@@ -160,7 +160,7 @@ class JToolOrderStatus{
             {
                 key: '已支付_未通知出票_已退款',
                 code: 480,
-                message: '已支付_未通知出票_已退款',
+                message: '已退款',
                 description: '支付成功，但由于订单超时，未通知票务商出票，进行退款且退款成功'
             },
             {
