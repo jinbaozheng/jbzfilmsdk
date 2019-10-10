@@ -1,3 +1,4 @@
+import {JNetworkWorker} from "../../types";
 
 class JToolAsyncNetwork{
   static async tryRequest(method: (...methodArgs: any[]) => Promise<any | number>, [...methodArgs]: any[], tryCount: number = 10, interval: number = 500){
@@ -5,7 +6,7 @@ class JToolAsyncNetwork{
     do {
       data = await method(...methodArgs);
       await new Promise(resolve => {setTimeout(resolve, interval)});
-    } while (!data && i++ < tryCount)
+    } while (!data && ++i < tryCount)
     return data;
   }
 }
