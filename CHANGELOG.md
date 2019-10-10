@@ -29,3 +29,9 @@
   * 增加个人看过影片 lookedFilms 服务器接口
   * 增加预支付 prepay 服务器接口
   * 增加 JToolOrderStatus 工具类
+  
+## 1.1.3-beta1
+  * 更新 cityById 接口数据返回结构
+  * 增加 workerDelegate 代理配置项
+  * 更新 cityByCoordinate 参数形式
+  * 更新接口名 locationCityInfo => cityByCoordinateAndRequestId
