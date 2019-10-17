@@ -95,10 +95,11 @@ export declare class JNetworkCinema extends JNetworkWorker {
      * @param filterParams 影院筛选条件
      * @see LocationParas
      * @see CinemaFilterParas
-     * @description LocationParas 所有属性必须不为空 CinemaFilterParas 所有属性都可为空
+     * @see PageParas
+     * @description LocationParas 所有属性必须不为空 CinemaFilterParas 所有属性都可为空 PageParas 所有属性都可为空
      * @returns {*} 返回影院列表
      */
-    cinemasList(filterParams: LocationParas & CinemaFilterParas): Promise<any>
+    cinemasList(filterParams: LocationParas & CinemaFilterParas & PageParas): Promise<any>
 
     /**
      * 获取影院拍片的电影列表
@@ -354,11 +355,12 @@ export declare class JNetworkSearch extends JNetworkWorker {
      * 根据关键字搜索影片、影院列表
      * @method_name M10040
      * @param key 搜索关键字
-     * @param page 分页信息
+     * @param page 分页页面
+     * @param size 分页尺寸
      * @description location LocationParas 定位信息必传
      * @returns {*} 返回搜索结果
      */
-    search(key, page: PageParas): Promise<any>
+    search(key, page: number, size: number): Promise<any>
 
     /**
      * 获取热门搜索列表

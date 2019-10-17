@@ -19,14 +19,6 @@ export declare interface CinemaFilterParas {
      */
     feature: string;
     /**
-     * 页码
-     */
-    page: number;
-    /**
-     * 每页显示条数
-     */
-    size: number;
-    /**
      * 日期
      */
     date: string;
