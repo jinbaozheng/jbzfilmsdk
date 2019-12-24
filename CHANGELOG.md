@@ -35,3 +35,13 @@
   * 增加 workerDelegate 代理配置项
   * 更新 cityByCoordinate 参数形式
   * 更新接口名 locationCityInfo => cityByCoordinateAndRequestId
+  
+## 1.1.3-beta2
+  * cinemaSmartSeats 修改数据返回结构 - 当为异步请求时 返回 {requestId} 而非 requestId
+  * 修复方法 JToolAsyncNetwork.tryRequest 请求数据校验问题
+  
+## 1.1.3-beta4
+  * 配合icemilk增加JNetworkWorkerGroup的parent使用
+  
+### 目前仍然存在的问题
+  * 当使用接口的配置项userParams时，无法将其写入加密后的字段中，只能通过userParams进行注入。
