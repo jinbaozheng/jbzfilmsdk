@@ -19,7 +19,8 @@ export declare class JToolOrderStatus{
     /**
      * 获取订单状态基础说明
      * @param status 状态编号
+     * @param picker {String | Function} 订单key值，或者一个回调方法
      */
-    static statusMessageFromStatus(status: number): string;
+    static statusMessageFromStatus(status: number, picker ): string;
 }
 
