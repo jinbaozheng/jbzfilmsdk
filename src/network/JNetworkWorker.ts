@@ -191,7 +191,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                     }, useParams, url);
                     let bodyDataValue = pickValue.call(this, bodyData, {
                         ...(this as JNetworkWorker).pickInjectBodyData(),
-                        ...(networkArgs[rule[1]] || {})
+                        ...(    networkArgs[rule[1]] || {})
                     }, useBodyData, url);
                     let headersValue = pickValue.call(this, headers, {
                         ...(this as JNetworkWorker).pickInjectHeaders(),
@@ -208,7 +208,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                                 noUndefinedParams[key] = paramsValue[key]
                             }
                         }
-                        const {paramsInterceptor = (_) => ({location: '02'})} = encryption;
+                        const {paramsInterceptor = (_, __) => (_)} = encryption;
                         let paramsObj = JEncryptionTool.encryption(
                             url,
                             paramsInterceptor(noUndefinedParams, this),

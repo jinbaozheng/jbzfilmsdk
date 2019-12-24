@@ -1,6 +1,5 @@
 import {JToolDate} from 'icemilk'
 import SeatManager from '../util/JManagerSeat'
-import JNetworkCienema from '../network/JNetworkCinema'
 
 function _netcinema(cinema) {
     return {
@@ -125,7 +124,7 @@ const JNetworkCinema = {
         cook: (_, __) => {
             const {platform} = _;
             if (_.hasOwnProperty('requestId')){
-                return _.requestId
+                return _
             }
             return SeatManager.defaultManager().smartSeatsFromSeats(platform, _);
         }

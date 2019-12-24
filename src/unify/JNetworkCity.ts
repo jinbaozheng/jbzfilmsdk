@@ -15,7 +15,7 @@ const JNetworkCity = {
         },
         cook: data => {
             // 轮询为空防止找不到报错
-            if (data.requestId) {
+            if (data.hasOwnProperty('requestId')) {
                 return data;
             }
             let address = data;
