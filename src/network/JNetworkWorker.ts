@@ -2,8 +2,8 @@ import {JNetwork, INetworkStandardPromiseType, JNetworkGroup, JToolObject} from 
 import {INetworkConfig, IWorkerDelegate} from '../../types';
 import JConfig from '../unify/JConfig';
 import JEncryptionTool from './../util/JEncryptionTool';
-
 const BUS_GW = '/bus/gw';
+let networkList = [];
 const DEFAULT_NETWORK_CONFIG = {
     precook: (_) => _.data,
     cook: (_) => _,
@@ -18,7 +18,8 @@ const DEFAULT_NETWORK_CONFIG = {
     useBodyData: [],
     rule: [0, 1, 2],
     encryption: null,
-    methodName: null
+    methodName: null,
+    isFinishSynchronousRequest: false
 };
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
@@ -29,6 +30,7 @@ export default class JNetworkWorker extends JNetwork{
     fetchRequest(...args): INetworkStandardPromiseType<any>{
         const {workerDelegate} = (this.config || {}) as INetworkConfig;
         return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
+            console.log('结果2')
             if (!res.data.errorCode){
                 if (workerDelegate && workerDelegate.resolveDataInterceptor){
                     workerDelegate.resolveDataInterceptor(this, res.data)
@@ -152,7 +154,8 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                 useHeaders,
                 useBodyData,
                 encryption,
-                methodName
+                methodName,
+                isFinishSynchronousRequest
             } = {
                 ...defaultNetworkConfig,
                 ...config
@@ -229,10 +232,32 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         headers: headersValue,
                         args,
                     };
-                    return this
-                        .createGroup({
-                            groupClass: JNetworkWorkerGroup
-                        })
+                    // 把需要延迟的请求存起来
+                    if (isFinishSynchronousRequest) {
+                        console.log(networkList)
+                        if (networkList.indexOf('' + config.url) !== -1) {
+                            return new Promise((resolve)=>{
+                                console.log('延迟请求' + config.url);
+                                networkList = [];
+                                setTimeout(() => {
+                                    // 延迟请求
+                                    resolve(this.createGroup({
+                                        groupClass: JNetworkWorkerGroup
+                                    })
+                                        .useParams(...useParams, ...this.extraParams)
+                                        .useHeaders(...useHeaders, ...this.extraHeaders)
+                                        .useBodyData(...useBodyData, ...this.extraBodyData)
+                                        .fetchRequest(method, this.baseUrl, url, paramsValue, bodyDataValue, headersValue)
+                                        .then((data) => cook(precook(data, pizza), pizza)));
+                                }, 2000)
+                            })
+                        }
+                        networkList.push(config.url);
+                    }
+                    console.log('正常请求' + config.url);
+                    return this.createGroup({
+                        groupClass: JNetworkWorkerGroup
+                    })
                         .useParams(...useParams, ...this.extraParams)
                         .useHeaders(...useHeaders, ...this.extraHeaders)
                         .useBodyData(...useBodyData, ...this.extraBodyData)
