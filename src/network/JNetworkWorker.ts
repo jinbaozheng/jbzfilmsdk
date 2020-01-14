@@ -38,7 +38,7 @@ export default class JNetworkWorker extends JNetwork{
                 if (workerDelegate && workerDelegate.rejectDataInterceptor){
                     workerDelegate.rejectDataInterceptor(this, res.data)
                 }
-                throw new Error(res.data.message);
+                return Promise.reject(res.data);
             }
         })
     }
@@ -57,7 +57,7 @@ class JNetworkWorkerGroup extends JNetworkGroup{
                 if (workerDelegate && workerDelegate.rejectDataInterceptor){
                     workerDelegate.rejectDataInterceptor(this, res.data)
                 }
-                throw new Error(res.data.message);
+                return Promise.reject(res.data);
             }
         })
     }
