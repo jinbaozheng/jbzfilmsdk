@@ -70,4 +70,6 @@ typings/
 package-lock.json
 dist/
 /docs/
-/lib/
+
+# 忽略lib文件
+#/lib/
