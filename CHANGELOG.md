@@ -43,5 +43,8 @@
 ## 1.1.3-beta4
   * 配合icemilk增加JNetworkWorkerGroup的parent使用
   
+## 1.1.4-beta0
+  * 网络请求状态返回值为网络请求返回值，不为error
+  
 ### 目前仍然存在的问题
   * 当使用接口的配置项userParams时，无法将其写入加密后的字段中，只能通过userParams进行注入。

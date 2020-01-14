@@ -72,4 +72,4 @@ dist/
 /docs/
 
 # 忽略lib文件
-#/lib/
+/lib/

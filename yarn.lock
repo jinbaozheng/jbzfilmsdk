@@ -1071,10 +1071,10 @@ htmlparser2@^3.10.0:
     inherits "^2.0.1"
     readable-stream "^3.1.1"
 
-icemilk@^1.0.10-beta2:
-  version "1.0.10-beta2"
-  resolved "https://registry.yarnpkg.com/icemilk/-/icemilk-1.0.10-beta2.tgz#73d6d9047fd85c594a595c5ee63f5652ff6c2236"
-  integrity sha512-EfP+4d9E2BcMKTqA9W2tEea0f4yS8tbu3MxGlCLjINWQi3BhNIokEgUXSb0j6V8hRT2CV7080N/X/21/tFKGQg==
+icemilk@^1.0.10-beta3:
+  version "1.0.10-beta3"
+  resolved "https://registry.yarnpkg.com/icemilk/-/icemilk-1.0.10-beta3.tgz#5d4a58a7fd769abc9e0d39cc1aa3cc6783226bc4"
+  integrity sha512-u/2+zYf0b9mbeu071VuF+7vnp0fBVcKi0AxjdVMG/qfX/QJVcFwyjU3bxusow0e5tS7VRmEafVLnNApX9lLdBA==
   dependencies:
     "@babel/runtime" "^7.1.5"
     axios "^0.18.0"
@@ -1115,9 +1115,9 @@ invariant@^2.2.2:
     loose-envify "^1.0.0"
 
 is-buffer@^2.0.2:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.3.tgz#4ecf3fcf749cbd1e472689e109ac66261a25e725"
-  integrity sha512-U15Q7MXTuZlrbymiz95PJpZxu8IlipAp4dtS3wOdgPXx3mqBnslrWU14kxfHB+Py/+2PVKSr37dMAgM2A4uArw==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.4.tgz#3e572f23c8411a5cfd9557c849e3665e0b290623"
+  integrity sha512-Kq1rokWXOPXWuaMAqZiJW4XxsmD9zGx9q4aePabbn3qCRGedtH7Cm+zV8WETitMfu1wdh+Rvd6w5egwSngUX2A==
 
 is-buffer@~1.1.1:
   version "1.1.6"
