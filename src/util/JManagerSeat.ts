@@ -165,27 +165,24 @@ class SeatManager {
     if (!seatData){
       return [];
     }
-
     if (type === 'maoyan' || type === 'meituan' || type === 'dazhong') {
       let seatList = [];
-      let sections = seatData.sections;
-      for (let section of sections) {
-        for (let sectionId in section) {
-          if (section.hasOwnProperty(sectionId)) {
-            let seatMap = section[sectionId].seatMap;
-            let maxRow = section[sectionId].maxRow ? section[sectionId].maxRow : 0;
-            let maxColumn = section[sectionId].maxColumn ? section[sectionId].maxColumn : 0;
-            for (let i = 0; i <= maxRow; i++) {
-              for (let j = 0; j <= maxColumn; j++) {
-                let seat = seatMap[i + ':' + j];
-                // 去掉走廊
-                if (seat && seat.status !== 'E') {
-                  seat.sectionId = sectionId;
-                  // 时间复杂度多了  但是代码整洁
-                  seatList.push(seat);
-                }
-              }
-            }
+      let sections = seatData;
+      let maxRow = sections.maxRow ?sections.maxRow : 0;
+      let maxColumn = sections.maxColumn ? sections.maxColumn : 0;
+      let seatMap = sections.seats;
+      for (let i = 0; i <= maxRow; i++) {
+        for (let j = 0; j <= maxColumn; j++) {
+          let seat = seatMap[i + ':' + j];
+          // 去掉走廊
+          if (seat && seat.status !== 0) {
+            // 时间复杂度多了  但是代码整洁
+            seatList.push({
+              seatName: seat.rowId + '排' + seat.columnId + '座',
+              columnNo: j,
+              rowNo: i,
+              ...seat
+            });
           }
         }
       }
@@ -196,9 +193,8 @@ class SeatManager {
     if (type === 'taobao' && !seatData.regular){
       seatData = this.handleTaoBaoSeatData(seatData);
     }
-
     let seatList = [];
-    let seatMap = seatData.seatMap;
+    let seatMap = seatData.seats;
     let maxRow = seatData.maxRow;
     let maxColumn = seatData.maxColumn;
     // 获取基本座位图
@@ -244,7 +240,7 @@ class SeatManager {
    * @returns {*}
    */
   handleTaoBaoSeatData(seatData){
-    let seatMap = seatData.seatMap;
+    let seatMap = seatData.seats;
     let seatRowList: number[] = [];
     let seatColList: number[] = [];
     for (let key in seatMap){
@@ -311,7 +307,7 @@ class SeatManager {
         filteredSeatMap[filteredRow + ':' + filteredCol] = {...seatMap[key], rowId, columnId};
       }
     }
-    seatData.seatMap = filteredSeatMap;
+    seatData.seats = filteredSeatMap;
     return seatData;
   }
 
@@ -524,8 +520,8 @@ class SeatManager {
       let col = Number.parseInt(seatModel.columnNo);
       let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
       let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = JToolString.numberFromString(seatModel.rowId, true, 1);
-      let colNumber = JToolString.numberFromString(seatModel.columnId, true, 1);
+      let rowNumber = JToolString.numberFromString(seatModel.rowNo, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnNo, true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -537,20 +533,14 @@ class SeatManager {
       };
     }).map(bridgeModel => {
       let seatRowModel = bridgeModel.seatModel;
-      let loveIndex = 0;
-      if (seatRowModel.status === 'L') {
-        loveIndex = 1;
-      } else if (seatRowModel.status === 'R') {
-        loveIndex = 2;
-      }
       return {
         ...bridgeModel,
-        status: seatRowModel.status === 'LK'
+        status: seatRowModel.status !== 1
             ? 1
             : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
-        loveIndex: loveIndex
+        loveIndex: seatRowModel.seatType
       }
     });
   }
@@ -617,16 +607,14 @@ class SeatManager {
       };
     }).map(bridgeModel => {
       let seatRowModel = bridgeModel.seatModel;
-      let loveIndex = 0;
-      loveIndex = seatRowModel.loveIndex;
       return {
         ...bridgeModel,
-        status: seatRowModel.status === 0
+        status: seatRowModel.status !== 1
             ? 1
             : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
-        loveIndex: loveIndex
+        loveIndex: seatRowModel.seatType
       }
     });
   }
