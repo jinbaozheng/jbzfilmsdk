@@ -139,15 +139,15 @@ class TradeManager {
             let seatIds = [];
             let seatInfos = [];
             for (let seat of seatList) {
-                seatNames.push(seat.seatModel.name);
+                seatNames.push(seat.seatModel.seatName);
                 areaInfo.push(seat.seatModel.sectionId);
                 seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
-                seatIds.push(seat.seatModel.seatId);
+                seatIds.push(seat.seatModel.seatNo);
             }
             return {
                 count: seatList.length,
-                areaInfo: areaInfo.join('|'),
-                seatNames: seatNames.join(','),
+                areaInfo: areaInfo.join(','),
+                seatNames: seatNames.join('|'),
                 seatInfos: seatInfos.join('|'),
                 seatIds: seatIds.join('|')
             }
