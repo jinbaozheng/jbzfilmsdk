@@ -115,9 +115,9 @@ class SeatManager {
    */
   smartSeatsFromSeats(type, seatData){
     if (type === 'ytb'){
-      const {seatMap} = seatData;
-      for(let seatKey in seatMap){
-        const seat = seatMap[seatKey];
+      const {seats} = seatData;
+      for(let seatKey in seats){
+        const seat = seats[seatKey];
         seat.seatCol = seat.seatCol || '1';
         seat.seatRow = seat.seatRow || '1';
       }
@@ -625,8 +625,8 @@ class SeatManager {
    */
   smartSeatsWithYTBSeats(seatList) {
     return seatList.map((seatModel) => {
-      let row = Number.parseInt(seatModel.graphRow);
-      let col = Number.parseInt(seatModel.graphCol);
+      let row = Number.parseInt(seatModel.rowId);
+      let col = Number.parseInt(seatModel.columnId);
       let rowOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatRow);
       let colOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatCol);
       let rowNumber = JToolString.numberFromString(rowOriNumber, true, 1);
@@ -642,20 +642,14 @@ class SeatManager {
       };
     }).map(bridgeModel => {
       let seatRowModel = bridgeModel.seatModel;
-      let loveIndex = 0;
-      if (seatRowModel.seatType === 'L') {
-        loveIndex = 1;
-      } else if (seatRowModel.seatType === 'R') {
-        loveIndex = 2;
-      }
       return {
         ...bridgeModel,
-        status: seatRowModel.seatState === -1
+        status: seatRowModel.status === 1
             ? 1
             : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
-        loveIndex: loveIndex
+        loveIndex: seatRowModel.seatType
       }
     });
   }
