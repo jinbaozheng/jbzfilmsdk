@@ -118,8 +118,8 @@ class SeatManager {
       const {seats} = seatData;
       for(let seatKey in seats){
         const seat = seats[seatKey];
-        seat.seatCol = seat.seatCol || '1';
-        seat.seatRow = seat.seatRow || '1';
+        seat.seatCol = seat.columnId || '1';
+        seat.seatRow = seat.rowId || '1';
       }
     }
     let seatList = this.unitySeatWithSeatData(type, seatData);
@@ -644,7 +644,7 @@ class SeatManager {
       let seatRowModel = bridgeModel.seatModel;
       return {
         ...bridgeModel,
-        status: seatRowModel.status === 1
+        status: seatRowModel.status !== 1
             ? 1
             : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),

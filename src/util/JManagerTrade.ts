@@ -159,7 +159,7 @@ class TradeManager {
             let seatIds = [];
             let seatInfos = [];
             for (let seat of seatList) {
-                seatNames.push(seat.seatModel.seatPieceName);
+                seatNames.push(seat.seatModel.seatName);
                 areaInfo.push(seat.seatModel.sectionId);
                 seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatIds.push(seat.seatModel.seatNo);
