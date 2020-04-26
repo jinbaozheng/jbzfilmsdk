@@ -179,8 +179,8 @@ class SeatManager {
             // 时间复杂度多了  但是代码整洁
             seatList.push({
               seatName: seat.rowId + '排' + seat.columnId + '座',
-              columnNo: j,
               rowNo: i,
+              columnNo: j,
               ...seat
             });
           }
@@ -214,9 +214,8 @@ class SeatManager {
           let seat = seatMap[i + ':' + j];
           if (seat && seat.status !== 0) {
             seatList.push({
-              seatName: seat.rowId + '排' + seat.columnId + '座',
-              columnNo: j,
               rowNo: i,
+              columnNo: j,
               ...seat
             });
           }
@@ -226,9 +225,14 @@ class SeatManager {
       for (let i = 0; i <= maxRow; i++) {
         for (let j = 0; j <= maxColumn; j++) {
           let seat = seatMap[i + ':' + j];
-          if (seat) {
+          if (seat && seat.status !== 0) {
             // 时间复杂度多了  但是代码整洁
-            seatList.push(seat);
+            seatList.push({
+              seatName: seat.rowId + '排' + seat.columnId + '座',
+              rowNo: i,
+              columnNo: j,
+              ...seat
+            });
           }
         }
       }
@@ -522,8 +526,8 @@ class SeatManager {
       let col = Number.parseInt(seatModel.columnNo);
       let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
       let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = JToolString.numberFromString(seatModel.rowNo, true, 1);
-      let colNumber = JToolString.numberFromString(seatModel.columnNo, true, 1);
+      let rowNumber = JToolString.numberFromString(seatModel.rowId, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnId, true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -559,8 +563,8 @@ class SeatManager {
       let col = Number.parseInt(seatModel.columnNo);
       let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
       let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
-      let rowNumber = JToolString.numberFromString(seatModel.rowNo, true, 1);
-      let colNumber = JToolString.numberFromString(seatModel.columnNo, true, 1);
+      let rowNumber = JToolString.numberFromString(seatModel.rowId, true, 1);
+      let colNumber = JToolString.numberFromString(seatModel.columnId, true, 1);
       return {
         rowOriNumber,
         colOriNumber,
@@ -592,10 +596,10 @@ class SeatManager {
    */
   smartSeatsWithTBSeats(seatList) {
     return seatList.map((seatModel) => {
-      let row = Number.parseInt(seatModel.rowId);
-      let col = Number.parseInt(seatModel.columnId);
-      let rowOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.rowName);
-      let colOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.columnName);
+      let row = Number.parseInt(seatModel.rowNo);
+      let col = Number.parseInt(seatModel.columnNo);
+      let rowOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.rowId);
+      let colOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.columnId);
       let rowNumber = JToolString.numberFromString(rowOriNumber, true, 1);
       let colNumber = JToolString.numberFromString(colOriNumber, true, 1);
       return {
@@ -627,8 +631,8 @@ class SeatManager {
    */
   smartSeatsWithYTBSeats(seatList) {
     return seatList.map((seatModel) => {
-      let row = Number.parseInt(seatModel.rowId);
-      let col = Number.parseInt(seatModel.columnId);
+      let row = Number.parseInt(seatModel.rowNo);
+      let col = Number.parseInt(seatModel.columnNo);
       let rowOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatRow);
       let colOriNumber: string = JToolString.numberRemoveLeftZero(seatModel.seatCol);
       let rowNumber = JToolString.numberFromString(rowOriNumber, true, 1);
