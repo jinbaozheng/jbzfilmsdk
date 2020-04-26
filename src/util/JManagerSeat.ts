@@ -212,11 +212,13 @@ class SeatManager {
       for (let i = 0; i <= maxRow; i++) {
         for (let j = 0; j <= maxColumn; j++) {
           let seat = seatMap[i + ':' + j];
-          if (seat && seat.seatNo && seat.seatNo !== '') {
-            seat.rowId = i;
-            seat.columnId = j;
-            // 时间复杂度多了  但是代码整洁
-            seatList.push(seat);
+          if (seat && seat.status !== 0) {
+            seatList.push({
+              seatName: seat.rowId + '排' + seat.columnId + '座',
+              columnNo: j,
+              rowNo: i,
+              ...seat
+            });
           }
         }
       }
@@ -553,8 +555,8 @@ class SeatManager {
    */
   smartSeatsWithBDSeats(seatList) {
     return seatList.map((seatModel) => {
-      let row = Number.parseInt(seatModel.rowId);
-      let col = Number.parseInt(seatModel.columnId);
+      let row = Number.parseInt(seatModel.rowNo);
+      let col = Number.parseInt(seatModel.columnNo);
       let rowOriNumber = JToolString.numberRemoveLeftZero(seatModel.rowName);
       let colOriNumber = JToolString.numberRemoveLeftZero(seatModel.columnName);
       let rowNumber = JToolString.numberFromString(seatModel.rowNo, true, 1);
@@ -572,13 +574,13 @@ class SeatManager {
       let seatRowModel = bridgeModel.seatModel;
       return {
         ...bridgeModel,
-        status: seatRowModel.status === '2'
+        status: seatRowModel.status !== 1
             ? 1
             : 0,
         rowLocation: bridgeModel.row * (_cellSize + _cellRowSpace),
         colLocation: bridgeModel.col * (_cellSize + _cellColSpace),
-        loveIndex: Number.parseInt(seatRowModel.isLove),
-        areaInfo: seatRowModel.area
+        loveIndex: seatRowModel.seatType,
+        areaInfo: seatRowModel.seatType
       };
     });
   }

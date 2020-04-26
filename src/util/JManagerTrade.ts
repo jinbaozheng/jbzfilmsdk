@@ -114,21 +114,22 @@ class TradeManager {
         // 百度
         if (type === 'baidu') {
             let seatIds = [];
-            let areaInfos = [];
             let seatInfos = [];
+            let seatNames = [];
+            let areaInfo = [];
             for (let seat of seatList) {
                 seatIds.push(seat.seatModel.seatNo);
                 seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
-                if (seat.areaInfo) {
-                    areaInfos.push(seat.areaInfo);
-                }
+                seatNames.push(seat.seatModel.seatName);
+                areaInfo.push(seat.seatModel.sectionId);
             }
             return {
-                count: seatIds.length,
-                //  后台设置特意反过来的
                 seatIds: seatIds.join('|'),
-                areaInfo: areaInfos.join('|'),
-                seatInfos: seatInfos.join('|')
+                seatInfos: seatInfos.join('|'),
+                seatNames: seatNames.join('|'),
+                areaInfo: areaInfo.join('|'),
+                count: seatList.length,
+
             }
         }
 
