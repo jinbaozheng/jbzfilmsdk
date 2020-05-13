@@ -167,7 +167,7 @@ class TradeManager {
             }
             return {
                 count: seatList.length,
-                areaInfo: areaInfo.join(','),
+                areaInfo: areaInfo.join('|'),
                 seatNames: seatNames.join('|'),
                 seatInfos: seatInfos.join('|'),
                 seatIds: seatIds.join('|')
