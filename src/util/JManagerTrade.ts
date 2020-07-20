@@ -121,7 +121,9 @@ class TradeManager {
                 seatIds.push(seat.seatModel.seatNo);
                 seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatNames.push(seat.seatModel.seatName);
-                areaInfo.push(seat.seatModel.sectionId);
+                if (seat.seatModel.sectionId) {
+                    areaInfo.push(seat.seatModel.sectionId);
+                }
             }
             return {
                 seatIds: seatIds.join('|'),
@@ -141,9 +143,11 @@ class TradeManager {
             let seatInfos = [];
             for (let seat of seatList) {
                 seatNames.push(seat.seatModel.seatName);
-                areaInfo.push(seat.seatModel.sectionId);
                 seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatIds.push(seat.seatModel.seatNo);
+                if (seat.seatModel.sectionId) {
+                    areaInfo.push(seat.seatModel.sectionId);
+                }
             }
             return {
                 count: seatList.length,
@@ -161,9 +165,11 @@ class TradeManager {
             let seatInfos = [];
             for (let seat of seatList) {
                 seatNames.push(seat.seatModel.seatName);
-                areaInfo.push(seat.seatModel.sectionId);
                 seatInfos.push(seat.rowNumber + ':' + seat.colNumber);
                 seatIds.push(seat.seatModel.seatNo);
+                if (seat.seatModel.sectionId) {
+                    areaInfo.push(seat.seatModel.sectionId);
+                }
             }
             return {
                 count: seatList.length,
