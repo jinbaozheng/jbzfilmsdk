@@ -19,7 +19,8 @@ const DEFAULT_NETWORK_CONFIG = {
     rule: [0, 1, 2],
     encryption: null,
     methodName: null,
-    baseUrl: null
+    baseUrl: null,
+    inTypeName: null
 };
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
@@ -155,6 +156,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                 encryption,
                 methodName,
                 baseUrl,
+                inTypeName,
             } = {
                 ...defaultNetworkConfig,
                 ...config
@@ -200,7 +202,11 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         ...(networkArgs[rule[2]] || {})
                     }, useHeaders, url);
                     if (encryption && JToolObject.getObjOrFuncResult(encryption.required)){
-                        const {inType} = this.otherContent || {inType: undefined};
+                        let {inType} = this.otherContent || {inType: undefined};
+                        // 解决修改inType问题
+                        if (inTypeName) {
+                            inType = inTypeName;
+                        }
                         if (!inType){
                             throw new Error('Not found inType property, Do you forget config inType value in otherContent?');
                         }
@@ -231,6 +237,7 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         headers: headersValue,
                         args,
                     };
+                    // 解决修改baseUrl请求地址问题
                     if (baseUrl) {
                         this.baseUrl = baseUrl;
                     }
