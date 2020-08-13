@@ -18,7 +18,8 @@ const DEFAULT_NETWORK_CONFIG = {
     useBodyData: [],
     rule: [0, 1, 2],
     encryption: null,
-    methodName: null
+    methodName: null,
+    baseUrl: null
 };
 let _config: object = JConfig;
 export default class JNetworkWorker extends JNetwork{
@@ -152,7 +153,8 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                 useHeaders,
                 useBodyData,
                 encryption,
-                methodName
+                methodName,
+                baseUrl,
             } = {
                 ...defaultNetworkConfig,
                 ...config
@@ -229,6 +231,9 @@ export const revealNetwork = function<T extends new(...args: any[]) => JNetworkW
                         headers: headersValue,
                         args,
                     };
+                    if (baseUrl) {
+                        this.baseUrl = baseUrl;
+                    }
                     return this
                         .createGroup({
                             groupClass: JNetworkWorkerGroup

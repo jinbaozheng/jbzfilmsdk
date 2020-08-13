@@ -28,7 +28,8 @@ const DEFAULT_NETWORK_CONFIG: object = {
         required: () => true,
         paramsInterceptor: (params, self: JNetworkWorker) => ({...params, ...self.pickInjectParams()})
     },
-    methodName: null
+    methodName: null,
+    baseUrl: null
 };
 
 export default {
