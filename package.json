@@ -1,6 +1,6 @@
 {
   "name": "jbzfilmsdk",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "jinbaozheng film sdk",
   "main": "lib/index.js",
   "scripts": {
