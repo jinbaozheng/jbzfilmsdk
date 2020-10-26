@@ -40,7 +40,9 @@ export default class JNetworkWorker extends JNetwork{
                 if (workerDelegate && workerDelegate.rejectDataInterceptor){
                     workerDelegate.rejectDataInterceptor(this, res.data)
                 }
-                throw new Error(res.data.message);
+                const error = new Error(res.data.message);
+                error['errorCode'] = res.data.errorCode;
+                throw error;
             }
         })
     }
@@ -59,7 +61,9 @@ class JNetworkWorkerGroup extends JNetworkGroup{
                 if (workerDelegate && workerDelegate.rejectDataInterceptor){
                     workerDelegate.rejectDataInterceptor(this, res.data)
                 }
-                throw new Error(res.data.message);
+                const error = new Error(res.data.message);
+                error['errorCode'] = res.data.errorCode;
+                throw error;
             }
         })
     }
