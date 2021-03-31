@@ -31,7 +31,7 @@ export default class JNetworkWorker extends JNetwork{
     fetchRequest(...args): INetworkStandardPromiseType<any>{
         const {workerDelegate} = (this.config || {}) as INetworkConfig;
         return super.fetchRequest.apply(this, Array.from(args)).then((res) => {
-            if (!res.data.errorCode){
+            if (!+res.data.errorCode){
                 if (workerDelegate && workerDelegate.resolveDataInterceptor){
                     workerDelegate.resolveDataInterceptor(this, res.data)
                 }
@@ -55,7 +55,7 @@ class JNetworkWorkerGroup extends JNetworkGroup{
             if (workerDelegate && workerDelegate.resolveDataInterceptor){
                 workerDelegate.resolveDataInterceptor(this, res.data)
             }
-            if (!res.data.errorCode){
+            if (!+res.data.errorCode){
                 return res.data;
             } else {
                 if (workerDelegate && workerDelegate.rejectDataInterceptor){
