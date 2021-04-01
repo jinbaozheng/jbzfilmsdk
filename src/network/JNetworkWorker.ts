@@ -2,7 +2,6 @@ import {JNetwork, INetworkStandardPromiseType, JNetworkGroup, JToolObject} from 
 import {INetworkConfig, IWorkerDelegate} from '../../types';
 import JConfig from '../unify/JConfig';
 import JEncryptionTool from './../util/JEncryptionTool';
-
 const BUS_GW = '/bus/gw';
 const DEFAULT_NETWORK_CONFIG = {
     precook: (_) => _.data,
