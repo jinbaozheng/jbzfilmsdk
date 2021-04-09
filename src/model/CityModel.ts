@@ -11,6 +11,7 @@ class CityModel extends RootModel{
 
     constructor(obj: object){
         super(obj);
+        
         fillProperty(this, obj);
     }
 
