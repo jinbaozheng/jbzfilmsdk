@@ -5,6 +5,7 @@ import JEncryptionTool from './../util/JEncryptionTool';
 const BUS_GW = '/bus/gw';
 
 const DEFAULT_NETWORK_CONFIG = {
+    
     precook: (_) => _.data,
     cook: (_) => _,
     method: 'get',

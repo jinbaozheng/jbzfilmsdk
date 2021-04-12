@@ -71,3 +71,4 @@ package-lock.json
 dist/
 /docs/
 /lib/
+.history
